@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyKraken — Détection de drone portable &amp; localisation du pilote</title>
+<meta name="description" content="SkyKraken est un système portable de détection de drone par radiofréquence passive. Il identifie les drones DJI, Autel et Remote ID, localise le pilote et constitue une preuve recevable — sans infrastructure ni connexion Internet.">
+<meta name="keywords" content="détection de drone, détection drone RF, système anti-drone, détection drone DJI, récepteur Remote ID, localisation pilote drone, détection drone portable, preuve incursion drone">
+<link rel="canonical" href="https://skykraken.fr/fr/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr">
+<meta property="og:locale:alternate" content="en">
+<meta property="og:site_name" content="SkyKraken">
+<meta property="og:title" content="SkyKraken — Détection de drone portable &amp; localisation du pilote">
+<meta property="og:description" content="Voir le drone. Identifier le pilote. Prouver l'incursion. Détection RF passive et portable — sans infrastructure, sans Internet.">
+<meta property="og:url" content="https://skykraken.fr/fr/">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/skykraken-icon.png" type="image/png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"SkyKraken","url":"https://skykraken.fr/","logo":"https://skykraken.fr/assets/logo.png","description":"SkyKraken conçoit un système portable et passif de détection, d'identification et de traçabilité de drones par radiofréquence pour les forces de l'ordre, les sites sensibles et la sécurité privée."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"SkyKraken","category":"Système de détection de drone","description":"Système portable de détection de drone par radiofréquence passive. Identifie les drones DJI, Autel et Remote ID, localise le télépilote et le point de décollage, classe la menace et génère un dossier de preuve forensique. Fonctionne hors ligne, sans infrastructure.","brand":{"@type":"Brand","name":"SkyKraken"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Qu'est-ce que SkyKraken ?","acceptedAnswer":{"@type":"Answer","text":"SkyKraken est un système portable de détection, d'identification et de traçabilité de drones qui repère les drones autour d'un site, localise le pilote et génère un dossier de preuve, sans infrastructure ni connexion Internet."}},
+{"@type":"Question","name":"Comment SkyKraken détecte-t-il les drones ?","acceptedAnswer":{"@type":"Answer","text":"SkyKraken utilise une détection par radiofréquence entièrement passive. Il écoute le spectre radio à la recherche des signaux émis et échangés par les drones : il n'émet rien, ne nécessite aucune licence et détecte les drones même sans ligne de vue, contrairement au radar ou aux caméras."}},
+{"@type":"Question","name":"SkyKraken peut-il localiser le pilote d'un drone ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Pour les drones compatibles, SkyKraken affiche la position du télépilote et le point de décollage en plus de la position du drone, afin de permettre une intervention au sol vers l'opérateur."}},
+{"@type":"Question","name":"Quels drones SkyKraken détecte-t-il ?","acceptedAnswer":{"@type":"Answer","text":"SkyKraken identifie les drones DJI et Autel parmi les marques les plus répandues, ainsi que tout drone conforme au standard Remote ID, et fournit le fabricant, le modèle et l'identifiant unique de l'appareil."}},
+{"@type":"Question","name":"SkyKraken fonctionne-t-il sans Internet ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Le système est entièrement autonome : il fonctionne hors ligne, démarre automatiquement et se déploie en quelques minutes, ce qui le rend adapté aux usages nomades sur le terrain."}},
+{"@type":"Question","name":"SkyKraken fournit-il une preuve utilisable en justice ?","acceptedAnswer":{"@type":"Answer","text":"SkyKraken génère un dossier forensique horodaté avec trajectoire cartographiée, position du pilote, évaluation de menace et empreinte d'intégrité, conçu pour être remis à une autorité comme la police ou la justice."}}]}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <a href="/fr/" class="brand"><img src="../assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Principal">
+    <a href="/fr/systeme.html">Système</a>
+    <a href="/fr/cas-usage.html">Cas d'usage</a>
+    <a href="/fr/preuve.html">Preuve</a>
+    <a href="/fr/ressources.html">Ressources</a>
+    <a href="/fr/contact.html">Contact</a>
+    <span class="lang"><a href="/">EN</a><a href="/fr/" class="active">FR</a></span>
+    <a href="/fr/contact.html" class="cta-nav">Demander une démo</a>
+  </nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<section class="hero hero-full">
+  <div class="hero-media">
+    <div class="hero-fallback"></div>
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="../assets/hero-poster.jpg"><source src="../assets/hero.mp4" type="video/mp4"></video>
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span style="display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:24px"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)"></span>Conscience aérienne portable · RF passive</span>
+      <h1 style="font-weight:800;font-size:clamp(2.4rem,5.2vw,4.6rem);line-height:1;letter-spacing:-.01em;margin-bottom:26px">Voir le drone.<br><span style="color:var(--muted)">Identifier le pilote.</span><br>Prouver l'incursion.</h1>
+      <p style="font-size:clamp(1rem,1.5vw,1.25rem);color:#c3ccd9;max-width:560px;font-weight:300;line-height:1.6;margin-bottom:36px">Un système portable de détection de drone par radiofréquence entièrement passive — conçu pour identifier les drones DJI, Autel et Remote ID, localiser le pilote et transformer chaque incursion en preuve recevable. Sans infrastructure. Sans Internet. Opérationnel en quelques minutes.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/fr/contact.html" class="btn btn-primary">Demander une démo →</a>
+        <a href="/fr/systeme.html" class="btn btn-ghost">Explorer le système</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANDE SECTEURS -->
+<section class="sectors-band">
+  <div class="wrap">
+    <p class="sectors-label">Conçu pour ceux qui protègent</p>
+    <div class="sectors-row">
+      <span>Police</span><i></i><span>Prisons</span><i></i><span>Aéroports</span><i></i><span>Énergie</span><i></i><span>Événementiel</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding:46px 0;background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center">
+    <div>
+      <div style="font-family:var(--mono);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--accent);font-weight:700"><span data-count="912000" data-rate="3">0</span>+</div>
+      <div style="font-size:.8rem;color:var(--muted)">Incursions de drones estimées dans le monde en 2026<sup>*</sup></div>
+    </div>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;font-family:var(--mono)">
+      <div><div style="font-size:1.5rem">3</div><div style="font-size:.75rem;color:var(--dim);letter-spacing:.1em">QUESTIONS RÉSOLUES</div></div>
+      <div><div style="font-size:1.5rem">&lt;5min</div><div style="font-size:.75rem;color:var(--dim);letter-spacing:.1em">DE DÉPLOIEMENT</div></div>
+      <div><div style="font-size:1.5rem">0</div><div style="font-size:.75rem;color:var(--dim);letter-spacing:.1em">INFRASTRUCTURE</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="section vision-section">
+  <div class="wrap" style="max-width:1000px">
+    <div class="section-label reveal" style="justify-content:center">Notre vision</div>
+    <h2 class="vision-h reveal">Un drone que vous ne voyez pas est une menace que vous ne pouvez pas arrêter. <span>SkyKraken rend l'invisible visible — et vous indique la personne qui le pilote.</span></h2>
+    <p class="vision-p reveal">La plupart des équipes de sécurité découvrent un drone une fois le mal fait. SkyKraken renverse cela : il lit les signaux radio que les drones ne peuvent pas cacher, les révèle sur une carte en direct, et remonte la liaison jusqu'à l'opérateur au sol — transformant un angle mort en une décision sur laquelle agir.</p>
+  </div>
+</section>
+
+<!-- MANIFESTE VIDÉO -->
+<section class="section manifesto" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-label reveal" style="justify-content:center">La menace est partout</div>
+    <h2 class="reveal" style="text-align:center;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;letter-spacing:-.01em;margin:0 auto 14px;max-width:760px">Stades. Sites énergétiques. Prisons. Aéroports. Partout où vous devez protéger, un drone peut déjà observer.</h2>
+    <p class="reveal" style="text-align:center;color:var(--muted);font-weight:300;max-width:620px;margin:0 auto 40px">SkyKraken transforme cet angle mort en image en direct — et en preuve recevable.</p>
+    <div class="manifesto-video reveal">
+      <video id="manifestoVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/manifesto-poster.jpg"><source src="../assets/manifesto.mp4" type="video/mp4"></video>
+      <button class="manifesto-sound" id="manifestoSound" aria-label="Activer le son">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path class="ico-muted" d="M11 5L6 9H2v6h4l5 4V5z"></path><line class="ico-muted" x1="23" y1="9" x2="17" y2="15"></line><line class="ico-muted" x1="17" y1="9" x2="23" y2="15"></line><path class="ico-on" d="M11 5L6 9H2v6h4l5 4V5z" style="display:none"></path><path class="ico-on" d="M15.5 8.5a5 5 0 010 7M19 5a9 9 0 010 14" style="display:none"></path></svg>
+        <span id="soundLabel">Son</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label reveal">Trois questions, une réponse en quelques secondes</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)">
+      <article class="reveal" style="background:var(--bg);padding:48px 38px"><div style="font-family:var(--mono);font-size:13px;color:var(--dim);letter-spacing:.2em">01</div><h2 style="font-weight:700;font-size:1.7rem;margin:50px 0 14px">Y a-t-il un drone ?</h2><p style="color:var(--muted);font-weight:300">Détection RF entièrement passive sur plusieurs protocoles à la fois — Remote ID diffusé et signaux propriétaires des fabricants — sans émission ni ligne de vue requise.</p><div style="margin-top:22px;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">→ Détecter</div></article>
+      <article class="reveal" style="background:var(--bg);padding:48px 38px"><div style="font-family:var(--mono);font-size:13px;color:var(--dim);letter-spacing:.2em">02</div><h2 style="font-weight:700;font-size:1.7rem;margin:50px 0 14px">Quel drone ?</h2><p style="color:var(--muted);font-weight:300">Fabricant, modèle et identifiant unique — DJI, Autel et tout appareil conforme Remote ID — avec altitude, vitesse, cap et trajectoire en direct.</p><div style="margin-top:22px;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">→ Identifier</div></article>
+      <article class="reveal" style="background:var(--bg);padding:48px 38px"><div style="font-family:var(--mono);font-size:13px;color:var(--dim);letter-spacing:.2em">03</div><h2 style="font-weight:700;font-size:1.7rem;margin:50px 0 14px">Où est le pilote ?</h2><p style="color:var(--muted);font-weight:300">La RF est la seule technologie qui localise l'opérateur. SkyKraken cartographie le télépilote et le point de décollage, pour intervenir sur la personne, pas seulement sur l'appareil.</p><div style="margin-top:22px;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">→ Localiser</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center">
+    <div class="reveal">
+      <div class="section-label">Pourquoi la détection RF</div>
+      <h2 style="font-weight:800;font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:22px">Passive. Silencieuse. Elle voit ce que le radar ne voit pas.</h2>
+      <p style="color:var(--muted);font-weight:300;margin-bottom:16px;max-width:520px">SkyKraken écoute le spectre radio au lieu d'y émettre. La détection RF passive ne nécessite aucune licence, ne provoque aucune interférence et fonctionne sans ligne de vue — un drone caché derrière un bâtiment reste visible.</p>
+      <p style="color:var(--muted);font-weight:300;max-width:520px">C'est aussi la seule méthode capable de localiser le pilote. Les grandes marques comme DJI et Autel utilisent des émetteurs plus puissants : elles sont détectées plus tôt et plus loin.</p>
+    </div>
+    <div class="reveal" style="display:flex;flex-direction:column;gap:14px">
+      <div style="border:1px solid var(--line);border-radius:8px;padding:22px 24px;background:var(--bg)"><div style="font-family:var(--mono);color:var(--accent);font-size:.8rem;letter-spacing:.1em;margin-bottom:6px">PASSIVE</div><p style="color:var(--muted);font-weight:300;font-size:.95rem">N'émet rien. Aucune licence, aucune interférence, indétectable par le drone.</p></div>
+      <div style="border:1px solid var(--line);border-radius:8px;padding:22px 24px;background:var(--bg)"><div style="font-family:var(--mono);color:var(--accent);font-size:.8rem;letter-spacing:.1em;margin-bottom:6px">SANS LIGNE DE VUE</div><p style="color:var(--muted);font-weight:300;font-size:.95rem">Fonctionne en milieu urbain, là où le radar et les caméras échouent.</p></div>
+      <div style="border:1px solid var(--line);border-radius:8px;padding:22px 24px;background:var(--bg)"><div style="font-family:var(--mono);color:var(--accent);font-size:.8rem;letter-spacing:.1em;margin-bottom:6px">POSITION DU PILOTE</div><p style="color:var(--muted);font-weight:300;font-size:.95rem">La seule modalité qui révèle où se tient l'opérateur.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center">
+    <div class="reveal">
+      <div class="section-label">Le différenciateur</div>
+      <h2 style="font-weight:800;font-size:clamp(2rem,4vw,3.2rem);margin-bottom:24px">Pas juste une alerte.<br>Une preuve recevable.</h2>
+      <p style="color:var(--muted);font-weight:300;margin-bottom:18px;max-width:480px">La plupart des systèmes vous signalent une présence. SkyKraken constitue le dossier. À la demande, il génère un dossier de preuve complet pour chaque vol détecté — identité de l'appareil, trajectoire complète, position du pilote, évaluation de menace et chronologie horodatée.</p>
+      <p style="color:var(--muted);font-weight:300;margin-bottom:26px;max-width:480px">Une empreinte d'intégrité garantit que le document n'a pas été altéré, avec horodatage dans le fuseau horaire local du lieu de capture.</p>
+      <a href="/fr/preuve.html" class="btn btn-ghost">Voir comment fonctionne la preuve →</a>
+    </div>
+    <div class="reveal" style="background:var(--panel);border:1px solid var(--line-bright);border-radius:10px;padding:30px;font-family:var(--display);position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5)">
+      <div style="position:absolute;top:-1px;right:24px;background:var(--accent);color:#fff;font-size:10px;letter-spacing:.18em;padding:5px 12px;border-radius:0 0 4px 4px">DOSSIER DE PREUVE</div>
+      <div style="height:120px;margin:6px 0 18px;border-radius:6px;background:linear-gradient(135deg,#0d1622,#101b2c);position:relative;overflow:hidden;border:1px solid var(--line)"><svg viewBox="0 0 300 120" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><path d="M30 100 C 80 90, 90 30, 150 45 S 240 95, 270 25" fill="none" stroke="#FB923C" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="30" cy="100" r="4" fill="#F87171"/><circle cx="270" cy="25" r="4" fill="#4ADE80"/></svg></div>
+      <div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:.88rem"><span style="color:var(--dim)">Appareil</span><span>DJI Mavic 3 · 7F3A…E1</span></div>
+      <div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:.88rem"><span style="color:var(--dim)">Position pilote</span><span>48.9241, 2.3586</span></div>
+      <div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:.88rem"><span style="color:var(--dim)">Altitude max</span><span>118 m</span></div>
+      <div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:.88rem"><span style="color:var(--dim)">Niveau de menace</span><span style="color:var(--accent);font-weight:700">CRITIQUE · 87</span></div>
+      <div style="font-size:.72rem;color:var(--green);word-break:break-all;margin-top:16px;font-family:var(--body)">intégrité ✓ a3f9c2e1b7d4…8f02 — vérifié, non altéré</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="section-label reveal">Pour ceux qui interviennent</div>
+    <h2 class="reveal" style="font-weight:700;font-size:clamp(1.8rem,3.5vw,2.6rem);max-width:560px;margin-bottom:50px">Un système, trois lignes de front.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)">
+      <article class="reveal" style="background:var(--bg);padding:44px 34px"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)">Forces de l'ordre</div><h3 style="font-weight:700;font-size:1.5rem;margin:14px 0 12px">Localiser l'opérateur</h3><p style="color:var(--muted);font-weight:300;font-size:.93rem">Se diriger vers le pilote, documenter l'incursion pour la procédure, distinguer le drone de loisir de la menace réelle.</p></article>
+      <article class="reveal" style="background:var(--bg);padding:44px 34px"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)">Sites sensibles</div><h3 style="font-weight:700;font-size:1.5rem;margin:14px 0 12px">Protéger le périmètre</h3><p style="color:var(--muted);font-weight:300;font-size:.93rem">Prisons, zones aéroportuaires, sites énergétiques : contre les livraisons illicites, les incursions et le sabotage.</p></article>
+      <article class="reveal" style="background:var(--bg);padding:44px 34px"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)">Privé &amp; événementiel</div><h3 style="font-weight:700;font-size:1.5rem;margin:14px 0 12px">Sécuriser le rassemblement</h3><p style="color:var(--muted);font-weight:300;font-size:.93rem">VIP, sites et événements. La liste blanche autorise les drones officiels tout en surveillant les autres.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:860px">
+    <div class="section-label reveal">Questions fréquentes</div>
+    <h2 class="reveal" style="font-weight:800;font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:50px">La détection de drone, expliquée.</h2>
+    <div class="faq">
+      <details class="reveal" open><summary><h2>Qu'est-ce que SkyKraken ?</h2></summary><p>SkyKraken est un système portable de détection, d'identification et de traçabilité de drones qui repère les drones autour d'un site, localise le pilote et génère un dossier de preuve, sans infrastructure ni connexion Internet.</p></details>
+      <details class="reveal"><summary><h2>Comment SkyKraken détecte-t-il les drones ?</h2></summary><p>SkyKraken utilise une détection par radiofréquence entièrement passive. Il écoute le spectre radio à la recherche des signaux émis par les drones : il n'émet rien, ne nécessite aucune licence et détecte même sans ligne de vue, contrairement au radar ou aux caméras.</p></details>
+      <details class="reveal"><summary><h2>SkyKraken peut-il localiser le pilote d'un drone ?</h2></summary><p>Oui. Pour les drones compatibles, SkyKraken affiche la position du télépilote et le point de décollage en plus de la position du drone, afin de permettre une intervention au sol.</p></details>
+      <details class="reveal"><summary><h2>Quels drones SkyKraken détecte-t-il ?</h2></summary><p>SkyKraken identifie les drones DJI et Autel parmi les marques les plus répandues, ainsi que tout drone conforme au standard Remote ID, et fournit fabricant, modèle et identifiant unique.</p></details>
+      <details class="reveal"><summary><h2>SkyKraken fonctionne-t-il sans Internet ?</h2></summary><p>Oui. Le système est entièrement autonome : il fonctionne hors ligne, démarre automatiquement et se déploie en quelques minutes, ce qui le rend adapté aux usages nomades sur le terrain.</p></details>
+      <details class="reveal"><summary><h2>SkyKraken fournit-il une preuve utilisable en justice ?</h2></summary><p>SkyKraken génère un dossier forensique horodaté avec trajectoire cartographiée, position du pilote, évaluation de menace et empreinte d'intégrité, conçu pour être remis à une autorité.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding:130px 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--line)">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 50% 50%,var(--accent-soft),transparent 70%)"></div>
+  <div class="wrap" style="position:relative">
+    <h2 class="reveal" style="font-weight:800;font-size:clamp(2.2rem,5vw,4rem);margin-bottom:20px">Parlons de votre mission.</h2>
+    <p class="reveal" style="color:var(--muted);font-weight:300;max-width:460px;margin:0 auto 36px">Pour discuter des capacités, des déploiements ou de besoins spécifiques, contactez notre équipe. Toutes les demandes sont traitées avec la plus grande discrétion.</p>
+    <a href="/fr/contact.html" class="btn btn-primary reveal">Demander une démonstration →</a>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col" style="max-width:280px">
+        <a href="/fr/" class="brand" style="margin-bottom:18px"><img src="../assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Détection, identification et traçabilité de drones par RF passive et portable. Voir le drone. Identifier le pilote. Prouver l'incursion.</p>
+      </div>
+      <div class="foot-col"><h5>Système</h5><a href="/fr/systeme.html">Détection RF</a><a href="/fr/systeme.html">Localisation pilote</a><a href="/fr/preuve.html">Dossier de preuve</a><a href="/fr/systeme.html">Carte tactique</a></div>
+      <div class="foot-col"><h5>Cas d'usage</h5><a href="/fr/cas-usage.html">Forces de l'ordre</a><a href="/fr/cas-usage.html">Sites sensibles</a><a href="/fr/cas-usage.html">Sécurité privée</a></div>
+      <div class="foot-col"><h5>Société</h5><a href="/fr/ressources.html">Ressources</a><a href="/fr/contact.html">Contact</a><a href="/fr/mentions-legales.html">Mentions légales</a></div>
+      <div class="foot-col"><h5>Contact</h5><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><span class="lang" style="margin-top:8px"><a href="/">EN</a><a href="/fr/" class="active">FR</a></span></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 SkyKraken. Tous droits réservés.</span></div>
+  </div>
+</footer>
+<style>
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary h2{font-size:1.2rem;font-weight:600}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:1.4rem;color:var(--accent);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--muted);font-weight:300;padding:0 0 24px;max-width:680px}
+</style>
+<script src="../assets/app.js"></script>
+<style>
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr!important;gap:36px!important}
+  .hero-video-frame{order:-1}
+}
+</style>
+<script>
+(function(){var v=document.getElementById('heroVideo');if(!v)return;v.muted=true;v.setAttribute('muted','');
+var p=v.play();if(p&&p.catch)p.catch(function(){
+  var go=function(){v.play();document.removeEventListener('click',go);document.removeEventListener('touchstart',go);document.removeEventListener('scroll',go);};
+  document.addEventListener('click',go);document.addEventListener('touchstart',go);document.addEventListener('scroll',go);
+});})();
+</script>
+</body>
+</html>

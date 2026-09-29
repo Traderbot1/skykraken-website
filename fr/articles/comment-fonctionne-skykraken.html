@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comment fonctionne SkyKraken : la détection de drone en trois couches | SkyKraken</title>
+<meta name="description" content="Au cœur de SkyKraken : détection RF multi-protocole avec reconnaissance DJI et Autel, réception du Remote ID en Bluetooth et Wi-Fi, carte tactique en direct et hors ligne avec zones de protection, liste blanche, alertes sonores, et dossier de preuve forensique — dans une valise portable.">
+<link rel="canonical" href="https://skykraken.fr/fr/articles/comment-fonctionne-skykraken.html">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/comment-fonctionne-skykraken.html">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/how-skykraken-works.html">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/how-skykraken-works.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr">
+<meta property="og:site_name" content="SkyKraken">
+<meta property="og:title" content="Comment fonctionne SkyKraken : la détection de drone en trois couches">
+<meta property="og:description" content="Détection RF multi-protocole, carte tactique en direct et hors ligne, et dossier de preuve forensique — dans une valise portable.">
+<meta property="og:url" content="https://skykraken.fr/fr/articles/comment-fonctionne-skykraken.html">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Comment fonctionne SkyKraken : la détection en trois couches">
+<meta name="twitter:description" content="Détection RF multi-protocole, carte tactique en direct, et dossier de preuve forensique.">
+<link rel="icon" type="image/png" href="/assets/skykraken-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Comment fonctionne SkyKraken : la détection de drone en trois couches",
+  "description":"Au cœur de SkyKraken : détection RF multi-protocole avec reconnaissance DJI et Autel, réception du Remote ID en Bluetooth et Wi-Fi, carte tactique en direct et hors ligne avec zones de protection, liste blanche, alertes sonores et dossier de preuve forensique — dans une valise portable.",
+  "image":"https://skykraken.fr/assets/og-image.jpg",
+  "datePublished":"2026-06-14",
+  "dateModified":"2026-06-14",
+  "inLanguage":"fr",
+  "author":{"@type":"Organization","name":"SkyKraken","url":"https://skykraken.fr/"},
+  "publisher":{"@type":"Organization","name":"SkyKraken","logo":{"@type":"ImageObject","url":"https://skykraken.fr/assets/skykraken-logo.png"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://skykraken.fr/fr/articles/comment-fonctionne-skykraken.html"},
+  "about":["système de détection de drone","anti-drone","détection RF","Remote ID","preuve forensique","détection de drone portable"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "inLanguage":"fr",
+  "mainEntity":[
+    {"@type":"Question","name":"Comment SkyKraken détecte-t-il les drones ?","acceptedAnswer":{"@type":"Answer","text":"SkyKraken utilise une approche radiofréquence en couches, entièrement passive. Il écoute plusieurs protocoles à la fois : il reconnaît les signaux constructeurs des grandes marques comme DJI et Autel, et reçoit les diffusions Remote ID en Bluetooth et Wi-Fi. Cela lui permet de détecter à la fois les drones qui diffusent leur identité réglementaire et ceux qui ne communiquent que par une liaison constructeur, puis de les placer sur une carte en direct."}},
+    {"@type":"Question","name":"SkyKraken est-il portable et faut-il Internet ?","acceptedAnswer":{"@type":"Answer","text":"Oui, il est portable et fonctionne entièrement hors ligne. SkyKraken est une valise autonome qui se déploie en quelques minutes, sans infrastructure fixe ni connexion Internet. Elle démarre automatiquement, fonctionne sur sa propre alimentation et utilise un fond de carte hors ligne, ce qui la rend adaptée aux postes fixes temporaires comme aux opérations mobiles."}},
+    {"@type":"Question","name":"Que contient un dossier de preuve SkyKraken ?","acceptedAnswer":{"@type":"Answer","text":"Pour chaque vol détecté, SkyKraken peut générer un dossier horodaté contenant l'identité de l'appareil, la trajectoire complète tracée sur une carte, la position du pilote et le point de décollage, l'altitude et la vitesse, une évaluation de menace, une chronologie horodatée en heure locale, et une empreinte d'intégrité montrant que le document n'a pas été altéré."}},
+    {"@type":"Question","name":"Peut-on exclure les drones autorisés des alertes ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les drones légitimes — exploitants partenaires, inspections, prestataires agréés ou drones de captation officiels — peuvent être inscrits sur une liste blanche. Ils restent visibles sur la carte mais ne déclenchent pas d'alerte, de sorte que les opérations autorisées continuent sans friction tandis que l'attention reste concentrée sur les appareils non identifiés."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <a href="/fr/" class="brand"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Principale">
+    <a href="/fr/systeme.html">Système</a>
+    <a href="/fr/cas-usage.html">Cas d'usage</a>
+    <a href="/fr/preuve.html">Preuve</a>
+    <a href="/fr/ressources.html" aria-current="page">Ressources</a>
+    <a href="/fr/contact.html">Contact</a>
+    <span class="lang"><a href="/articles/how-skykraken-works.html">EN</a><a href="/fr/articles/comment-fonctionne-skykraken.html" class="active">FR</a></span>
+    <a href="/fr/contact.html" class="cta-nav">Demander une démo</a>
+  </nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<article>
+<section class="article-hero">
+  <div class="wrap">
+    <div class="article-meta"><span class="tag">Fonctionnement</span><span>·</span><span>Mis à jour juin 2026</span><span>·</span><span>9 min de lecture</span></div>
+    <h1>Comment fonctionne SkyKraken : la détection de drone en trois couches</h1>
+    <p class="lead">Une valise que l'on pose, que l'on allume, et qui répond en quelques secondes à trois questions — y a-t-il un drone, quel drone, et où est le pilote — tout en constituant le dossier de preuve. Voici comment les pièces s'assemblent.</p>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="article-body">
+
+  <div class="article-tldr">
+    <span class="k">En bref</span>
+    <p>SkyKraken combine trois couches dans une seule valise portable et entièrement passive. <strong>Couche 1 — la détection :</strong> une détection RF multi-protocole qui reconnaît les grands fabricants comme DJI et Autel et reçoit le Remote ID en Bluetooth et Wi-Fi, identifiant marque, modèle, identifiant unique, et localisant le pilote. <strong>Couche 2 — l'image en direct :</strong> une carte tactique hors ligne avec zones de protection, classification automatique de menace, alertes sonores en direct, et une liste blanche pour les drones autorisés. <strong>Couche 3 — la preuve :</strong> un dossier forensique horodaté avec trajectoire cartographiée, position du pilote et empreinte d'intégrité. Elle se déploie en quelques minutes, sans Internet ni infrastructure fixe.</p>
+  </div>
+
+  <p>La plupart des produits de détection de drone tombent dans l'un de deux pièges. Soit ce sont de lourdes installations fixes qui exigent infrastructure, alimentation et opérateurs spécialisés — soit de simples alarmes qui vous disent « un drone est proche » et rien de plus. SkyKraken a été conçu pour éviter les deux : une valise portable qui fournit une image opérationnelle complète, lisible par un opérateur non technique, partout, en quelques minutes.</p>
+
+  <p>Le système se comprend comme trois couches qui travaillent ensemble : comment il <strong>détecte</strong>, comment il <strong>montre</strong>, et comment il <strong>prouve</strong>. Chaque couche répond à un besoin différent, et ensemble elles vous mènent d'un ciel vide à un dossier recevable.</p>
+
+  <h2>Couche 1 — La détection : voir ce qui est en l'air, et qui le pilote</h2>
+
+  <p>Le socle est une approche <strong>radiofréquence entièrement passive</strong>. Passif signifie que le système se contente d'écouter — il n'émet rien, n'interfère pas avec l'espace aérien, n'exige aucune licence d'émission, et ne peut pas être repéré par l'opérateur qu'il suit. Il reçoit simplement les signaux déjà présents dans l'air.</p>
+
+  <p>Ce qui rend la détection robuste, c'est qu'elle fonctionne sur <strong>plusieurs protocoles à la fois</strong>, au lieu de dépendre d'un seul canal :</p>
+
+  <h3>Reconnaissance des signaux constructeurs</h3>
+  <p>SkyKraken reconnaît les signaux de communication des drones les plus répandus du marché, dont les modèles <strong>DJI</strong> et <strong>Autel</strong>. En comparant ce qu'il entend à des signatures connues, il identifie le fabricant, le modèle et l'identifiant unique de l'appareil — même lorsqu'un drone communique par sa propre liaison constructeur plutôt que de diffuser une identité réglementaire.</p>
+
+  <h3>Réception du Remote ID en Bluetooth et Wi-Fi</h3>
+  <p>En parallèle, SkyKraken reçoit les diffusions <strong>Remote ID</strong> — la « plaque d'immatriculation numérique » que la plupart des drones doivent désormais émettre en Europe. Ces diffusions circulent en Bluetooth et Wi-Fi et peuvent porter l'identifiant du drone, sa position en direct, son altitude, et la position du télépilote ou du point de décollage. Recevoir ces données diffusées ouvertement est ce qui permet au système de placer à la fois le drone et son opérateur sur la carte.</p>
+
+  <div class="article-callout">
+    <p><strong>Pourquoi plusieurs protocoles comptent :</strong> un drone qui diffuse le Remote ID est capté par la couche Remote ID ; un drone silencieux sur le canal réglementaire mais qui communique par une liaison constructeur est capté par la reconnaissance de signaux. Couvrir plusieurs protocoles à la fois comble les trous qu'un système mono-méthode laisserait ouverts. Pour chaque drone détecté, SkyKraken affiche en temps réel sa position, son altitude, sa vitesse, son cap et sa trajectoire, mis à jour en continu tant que l'appareil émet.</p>
+  </div>
+
+  <h3>Et le résultat décisif : le pilote</h3>
+  <p>Parce que le système lit à la fois le Remote ID et les signaux constructeurs, il peut faire ce que la plupart des méthodes de détection ne peuvent pas — localiser la <strong>position du télépilote</strong> et le <strong>point de décollage</strong>, pas seulement l'appareil. Pour une équipe de sécurité qui ne peut pas légalement abattre un drone, savoir où se tient l'opérateur est l'information la plus exploitable qui soit.</p>
+
+  <h2>Couche 2 — L'image en direct : transformer les signaux en décisions</h2>
+
+  <p>La détection n'est utile que si un opérateur peut la lire instantanément. La deuxième couche de SkyKraken est la <strong>carte tactique en direct</strong> — et fait crucial, elle fonctionne sur un fond cartographique <strong>hors ligne</strong>, donc elle marche dans des lieux totalement dépourvus de connectivité.</p>
+
+  <h3>Une carte interactive, lisible d'un coup d'œil</h3>
+  <p>Drones, pilotes, points de décollage et zones de protection apparaissent en direct sur un même écran, conçu pour être compris immédiatement par un opérateur non technique — un policier ou un agent de sécurité, pas un ingénieur radio.</p>
+
+  <h3>Zones de protection et alertes d'incursion</h3>
+  <p>L'opérateur définit des <strong>zones de protection</strong> : périmètres sensibles, couloirs interdits, points névralgiques. SkyKraken signale immédiatement tout drone qui pénètre ces zones, transformant une surveillance passive en alerte ciblée et géolocalisée plutôt qu'un bruit de fond permanent.</p>
+
+  <h3>Classification automatique de menace</h3>
+  <p>Tous les drones ne méritent pas la même attention. Un moteur de classification évalue chaque appareil et lui attribue un <strong>niveau de menace</strong>, de faible à critique, avec un score chiffré, en s'appuyant sur des critères tels que l'altitude, la proximité, le comportement de vol et l'heure. L'opérateur sait immédiatement où porter son attention au lieu de trier manuellement chaque contact.</p>
+
+  <h3>Alertes sonores en direct</h3>
+  <p>Un opérateur ne peut pas fixer un écran en permanence. SkyKraken fournit des <strong>alertes sonores en direct</strong> pour qu'une menace montante s'annonce d'elle-même — l'équipe est attirée vers l'écran au moment qui compte, pas avant.</p>
+
+  <h3>Liste blanche des drones autorisés</h3>
+  <p>Beaucoup de sites ont des drones légitimes au-dessus d'eux : vols d'inspection, exploitants partenaires, drones de captation officiels lors d'un événement. Ils peuvent être inscrits sur une <strong>liste blanche</strong>. Ils restent visibles sur la carte mais ne déclenchent pas d'alerte — les opérations autorisées continuent donc sans friction pendant que la vigilance reste maximale sur tout ce qui n'est pas identifié.</p>
+
+  <h2>Couche 3 — La preuve : de la détection à un dossier recevable</h2>
+
+  <p>C'est là que SkyKraken dépasse la simple alarme. Détecter et afficher un drone a de la valeur sur l'instant ; mais une fois l'incident terminé, que reste-t-il ? Pour les forces de l'ordre et les exploitants de sites, la réponse doit être une <strong>preuve</strong>.</p>
+
+  <p>À la demande, SkyKraken génère un <strong>dossier forensique</strong> complet pour un vol détecté, contenant :</p>
+
+  <ul>
+    <li>L'<strong>identité de l'appareil</strong> — marque, modèle et identifiant unique.</li>
+    <li>La <strong>trajectoire complète</strong>, tracée sur une carte.</li>
+    <li>La <strong>position du pilote</strong> et le point de décollage.</li>
+    <li>L'<strong>altitude et la vitesse</strong> tout au long du vol.</li>
+    <li>L'<strong>évaluation de menace</strong>.</li>
+    <li>Une <strong>chronologie horodatée</strong>, exprimée dans le fuseau horaire local du lieu de capture.</li>
+    <li>Une <strong>empreinte d'intégrité</strong> — un sceau cryptographique montrant que le document n'a pas été altéré après sa création.</li>
+  </ul>
+
+  <div class="article-callout">
+    <p><strong>Pourquoi l'empreinte d'intégrité compte :</strong> les tribunaux refusent de plus en plus de prendre un contenu numérique pour argent comptant. Dans l'UE, le cadre eIDAS confère aux horodatages qualifiés et aux sceaux cryptographiques une présomption légale d'intégrité. Une empreinte cryptographique calculée au moment de la création agit comme une empreinte digitale du fichier — toute modification ultérieure est détectable — ce qui est précisément ce qui aide un relevé à tenir comme preuve plutôt qu'à être écarté comme une capture d'écran invérifiable.</p>
+  </div>
+
+  <h2>La valise elle-même : conçue pour le terrain</h2>
+
+  <p>Les trois couches tiennent dans une seule <strong>valise portable</strong>. Elle se déploie en quelques minutes, <strong>sans Internet ni installation fixe</strong>. Elle démarre automatiquement — on l'allume et elle est opérationnelle — et fonctionne de façon autonome, si bien que la même capacité protège un site permanent sur un poste temporaire ou suit une opération mobile, une patrouille ou un événement. Aucune compétence radio ou informatique n'est requise ; un agent peut être opérationnel après une prise en main de quelques minutes.</p>
+
+  <p>Cette combinaison est tout l'enjeu. Trois questions — y a-t-il un drone, quel drone, où est le pilote — répondues en quelques secondes, sur un écran que tout le monde peut lire, avec un dossier de preuve au bout. Détection, décision et preuve, dans une valise que l'on transporte.</p>
+
+  <div class="article-author">
+    <span class="av">SK</span>
+    <div>Rédigé par l'équipe <strong>SkyKraken</strong> — détection, identification et traçabilité de drones par RF passive et portable, pour les forces de l'ordre, les sites sensibles et la sécurité privée.</div>
+  </div>
+
+  <div class="article-faq">
+    <h2>Questions fréquentes</h2>
+    <details><summary>Comment SkyKraken détecte-t-il les drones ?</summary><p>Il utilise une approche RF en couches, entièrement passive, écoutant plusieurs protocoles à la fois : il reconnaît les signaux constructeurs des grandes marques comme DJI et Autel, et reçoit les diffusions Remote ID en Bluetooth et Wi-Fi. Cela détecte à la fois les drones qui diffusent leur identité réglementaire et ceux qui ne communiquent que par une liaison constructeur, puis les place sur une carte en direct avec la position du pilote.</p></details>
+    <details><summary>SkyKraken est-il portable et faut-il Internet ?</summary><p>Il est portable et fonctionne entièrement hors ligne. C'est une valise autonome qui se déploie en quelques minutes, sans infrastructure fixe ni Internet, démarre automatiquement et utilise un fond de carte hors ligne — adaptée aux postes fixes temporaires comme aux opérations mobiles.</p></details>
+    <details><summary>Que contient un dossier de preuve SkyKraken ?</summary><p>Pour chaque vol détecté, il peut générer un dossier horodaté avec l'identité de l'appareil, la trajectoire complète sur une carte, la position du pilote et le point de décollage, l'altitude et la vitesse, une évaluation de menace, une chronologie horodatée en heure locale, et une empreinte d'intégrité montrant que le document n'a pas été altéré.</p></details>
+    <details><summary>Peut-on exclure les drones autorisés des alertes ?</summary><p>Oui. Les drones légitimes peuvent être inscrits sur une liste blanche. Ils restent visibles sur la carte mais ne déclenchent pas d'alerte, de sorte que les opérations autorisées continuent sans friction tandis que l'attention reste concentrée sur les appareils non identifiés.</p></details>
+  </div>
+
+</div>
+</div>
+
+<section class="article-cta">
+  <div class="wrap">
+    <h2>Voyez par vous-même.</h2>
+    <p>La façon la plus rapide de comprendre SkyKraken est de le voir transformer un vol en direct en un pilote localisé et un dossier de preuve. Demandez une démonstration.</p>
+    <a href="/fr/contact.html" class="btn btn-primary">Demander une démo →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label reveal">À lire aussi</div>
+    <div class="feat-grid two">
+      <a class="related-card reveal" href="/fr/articles/localiser-le-pilote-change-tout.html"><span class="tag">Analyse</span><h3>Pourquoi localiser le pilote du drone change tout</h3></a>
+      <a class="related-card reveal" href="/fr/articles/remote-id-explique.html"><span class="tag">Explication</span><h3>Remote ID expliqué : ce que les drones diffusent réellement</h3></a>
+    </div>
+  </div>
+</section>
+</article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col" style="max-width:280px">
+        <a href="/fr/" class="brand" style="margin-bottom:18px"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Détection, identification et traçabilité de drones par RF passive et portable. Voir le drone. Identifier le pilote. Prouver l'incursion.</p>
+      </div>
+      <div class="foot-col"><h5>Système</h5><a href="/fr/systeme.html">Détection RF</a><a href="/fr/systeme.html">Localisation pilote</a><a href="/fr/preuve.html">Dossier de preuve</a><a href="/fr/systeme.html">Carte tactique</a></div>
+      <div class="foot-col"><h5>Cas d'usage</h5><a href="/fr/cas-usage.html">Forces de l'ordre</a><a href="/fr/cas-usage.html">Sites sensibles</a><a href="/fr/cas-usage.html">Sécurité privée</a></div>
+      <div class="foot-col"><h5>Société</h5><a href="/fr/ressources.html">Ressources</a><a href="/fr/contact.html">Contact</a><a href="/fr/mentions-legales.html">Mentions légales</a></div>
+      <div class="foot-col"><h5>Demandes</h5><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><span class="lang" style="margin-top:8px"><a href="/">EN</a><a href="/fr/" class="active">FR</a></span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. Tous droits réservés.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

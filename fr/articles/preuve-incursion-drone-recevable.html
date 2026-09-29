@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constituer une preuve d'incursion de drone recevable | SkyKraken</title>
+<meta name="description" content="Une alerte n'est pas une preuve. Ce qui rend un relevé d'incursion solide : appareil identifié, trajectoire cartographiée, position du pilote, horodatage précis et sceau d'intégrité infalsifiable — et comment le cadre européen eIDAS le traite.">
+<link rel="canonical" href="https://skykraken.fr/fr/articles/preuve-incursion-drone-recevable.html">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/preuve-incursion-drone-recevable.html">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/building-admissible-drone-evidence.html">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/building-admissible-drone-evidence.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr">
+<meta property="og:site_name" content="SkyKraken">
+<meta property="og:title" content="Constituer une preuve d'incursion de drone recevable">
+<meta property="og:description" content="Une alerte n'est pas une preuve. Ce qui rend un relevé d'incursion solide devant une autorité.">
+<meta property="og:url" content="https://skykraken.fr/fr/articles/preuve-incursion-drone-recevable.html">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Constituer une preuve d'incursion de drone recevable">
+<meta name="twitter:description" content="Ce qui rend un relevé d'incursion solide devant une autorité.">
+<link rel="icon" type="image/png" href="/assets/skykraken-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Constituer une preuve d'incursion de drone recevable",
+  "description":"Une alerte n'est pas une preuve. Ce qui rend un relevé d'incursion solide : appareil identifié, trajectoire cartographiée, position du pilote, horodatage précis et sceau d'intégrité infalsifiable, et comment le cadre européen eIDAS le traite.",
+  "image":"https://skykraken.fr/assets/og-image.jpg",
+  "datePublished":"2026-06-14",
+  "dateModified":"2026-06-14",
+  "inLanguage":"fr",
+  "author":{"@type":"Organization","name":"SkyKraken","url":"https://skykraken.fr/"},
+  "publisher":{"@type":"Organization","name":"SkyKraken","logo":{"@type":"ImageObject","url":"https://skykraken.fr/assets/skykraken-logo.png"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://skykraken.fr/fr/articles/preuve-incursion-drone-recevable.html"},
+  "about":["preuve incursion drone","forensique numérique","chaîne de possession","eIDAS","empreinte d'intégrité"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "inLanguage":"fr",
+  "mainEntity":[
+    {"@type":"Question","name":"Qu'est-ce qui rend une preuve d'incursion de drone recevable ?","acceptedAnswer":{"@type":"Answer","text":"Une preuve recevable est authentique, non altérée et obtenue par des méthodes fiables. Pour une incursion de drone, cela suppose un appareil identifié, une trajectoire cartographiée, la position du pilote ou de décollage, des horodatages précis, et un sceau d'intégrité calculé au moment de la capture afin que toute modification ultérieure soit détectable. Une chaîne documentée et ininterrompue, de la capture à la présentation, est ce qui permet à un relevé de tenir."}},
+    {"@type":"Question","name":"Pourquoi une capture d'écran d'alerte ne suffit-elle pas ?","acceptedAnswer":{"@type":"Answer","text":"Une capture d'écran peut être modifiée, n'a pas d'origine vérifiable, et ne prouve ni quand ni où elle a été prise. Les tribunaux refusent de plus en plus de prendre un contenu numérique pour argent comptant. Une preuve a besoin d'une origine vérifiable, d'horodatages précis et d'un contrôle d'intégrité infalsifiable — ce qu'une simple capture d'écran ne fournit pas."}},
+    {"@type":"Question","name":"Qu'est-ce qu'une empreinte d'intégrité ?","acceptedAnswer":{"@type":"Answer","text":"Une empreinte d'intégrité est une valeur cryptographique calculée à partir d'un fichier au moment de sa création — en somme, une empreinte digitale. Si un seul élément du document change ensuite, l'empreinte ne correspond plus, rendant l'altération détectable. Dans le cadre européen eIDAS, les horodatages et sceaux qualifiés bénéficient d'une présomption légale d'intégrité."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <a href="/fr/" class="brand"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Principale">
+    <a href="/fr/systeme.html">Système</a>
+    <a href="/fr/cas-usage.html">Cas d'usage</a>
+    <a href="/fr/preuve.html">Preuve</a>
+    <a href="/fr/ressources.html" aria-current="page">Ressources</a>
+    <a href="/fr/contact.html">Contact</a>
+    <span class="lang"><a href="/articles/building-admissible-drone-evidence.html">EN</a><a href="/fr/articles/preuve-incursion-drone-recevable.html" class="active">FR</a></span>
+    <a href="/fr/contact.html" class="cta-nav">Demander une démo</a>
+  </nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<article>
+<section class="article-hero">
+  <div class="wrap">
+    <div class="article-meta"><span class="tag">Guide</span><span>·</span><span>Mis à jour juin 2026</span><span>·</span><span>7 min de lecture</span></div>
+    <h1>Constituer une preuve d'incursion de drone recevable</h1>
+    <p class="lead">Une alerte vous dit qu'un drone était là. Une preuve le démontre — à un tribunal, un régulateur ou une autorité de site. L'écart entre les deux est plus grand que la plupart des équipes ne l'imaginent.</p>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="article-body">
+
+  <div class="article-tldr">
+    <span class="k">En bref</span>
+    <p>Une alerte de drone n'est pas une preuve. Pour tenir devant une autorité, un relevé a besoin de cinq éléments : un <strong>appareil identifié</strong>, une <strong>trajectoire cartographiée</strong>, la <strong>position du pilote ou de décollage</strong>, des <strong>horodatages précis</strong>, et un <strong>sceau d'intégrité infalsifiable</strong> calculé au moment de la capture. Les tribunaux ne prennent plus le contenu numérique pour argent comptant — dans l'UE, le cadre eIDAS confère aux horodatages et sceaux cryptographiques qualifiés une présomption légale d'intégrité. Une chaîne documentée et ininterrompue, de la capture à la présentation, est ce qui transforme une détection en preuve.</p>
+  </div>
+
+  <p>Imaginez : l'incident est terminé. Le drone est reparti. Votre équipe l'a consigné, a peut-être pris une photo de l'écran au téléphone. Des semaines plus tard, un procureur, un assureur ou un régulateur demande : <em>que s'est-il passé exactement, quand, et comment savons-nous que ce relevé est authentique ?</em> C'est le moment qui sépare un système de sécurité d'un système de preuve.</p>
+
+  <p>Détecter un drone est nécessaire mais pas suffisant. La valeur durable — pour les forces de l'ordre, pour un exploitant de site qui engage une procédure, pour une organisation qui défend sa réponse — réside dans un relevé qui résiste à l'examen. Voici ce que cela exige.</p>
+
+  <h2>Pourquoi une alerte, ou une capture d'écran, n'est pas une preuve</h2>
+
+  <p>Une capture d'écran d'un écran de détection ressemble à une preuve, mais elle échoue aux tests élémentaires qu'applique une autorité. Elle peut être modifiée en quelques secondes. Elle ne porte aucune origine vérifiable. Elle ne prouve pas <em>quand</em> elle a été prise ni <em>où</em>. Et elle n'offre aucun moyen de démontrer que rien n'a été changé après coup.</p>
+
+  <p>Cela compte de plus en plus chaque année, car le système judiciaire a rattrapé la manipulation numérique. À travers les juridictions, le signal est le même : les systèmes judiciaires ne prennent plus le contenu numérique pour argent comptant. Un relevé qui ne peut pas démontrer sa propre authenticité est, de plus en plus, un relevé qui se fait contester — ou écarter.</p>
+
+  <h2>Les cinq éléments d'un relevé qui tient</h2>
+
+  <h3>1. Un appareil identifié</h3>
+  <p>« Un drone » est faible. « Une marque, un modèle et un identifiant unique précis » est solide. Relier l'événement à un appareil identifié — et, lorsqu'elle est disponible, à son identité d'enregistrement — fait passer le relevé d'un vague signalement à un fait concret sur un objet précis.</p>
+
+  <h3>2. Une trajectoire cartographiée</h3>
+  <p>Une position isolée est un point ; une trajectoire est un récit. Un parcours de vol complet tracé sur une carte montre l'intention et le comportement : le drone a-t-il dérivé en passant, ou a-t-il effectué des passages répétés au-dessus d'une zone sensible ? Le comportement dans le temps est souvent ce qui distingue un amateur imprudent d'une incursion délibérée.</p>
+
+  <h3>3. La position du pilote ou de décollage</h3>
+  <p>Une preuve qui inclut l'endroit où se tenait l'opérateur, ou d'où le drone a décollé, transforme un survol anonyme en un événement avec une partie responsable. C'est aussi fréquemment l'élément qui rend une affaire exploitable plutôt que simplement documentée.</p>
+
+  <h3>4. Des horodatages précis et localisés</h3>
+  <p>Quand cela s'est-il produit ? Un relevé a besoin d'horodatages précis, idéalement exprimés dans le fuseau horaire local du lieu de capture pour éviter toute ambiguïté. L'heure ancre l'événement et permet de le recouper avec d'autres relevés — images de caméra, journaux d'accès, témoignages.</p>
+
+  <h3>5. Un sceau d'intégrité infalsifiable</h3>
+  <p>C'est l'élément qui manque le plus souvent et celui qui compte le plus. Une empreinte cryptographique, calculée à partir du document au moment de sa création, agit comme une empreinte digitale du fichier. Si un seul élément change ensuite, l'empreinte ne correspond plus — toute altération est donc détectable.</p>
+
+  <div class="article-callout">
+    <p><strong>Le contexte européen — eIDAS :</strong> dans l'UE, le règlement eIDAS (910/2014) établit des normes contraignantes pour les horodatages et sceaux électroniques, conférant aux horodatages et signatures qualifiés une présomption légale d'intégrité à travers les États membres. La certification à la source — sceller métadonnées, horodatages et empreinte cryptographique au moment de la capture — fournit une preuve vérifiable d'origine et d'intégrité. C'est pourquoi une empreinte d'intégrité générée à la capture est bien plus solide qu'une analyse forensique tentée des semaines plus tard : elle élimine l'écart entre le moment où le relevé est créé et celui où il est examiné.</p>
+  </div>
+
+  <h2>Chaîne de possession : le fil qui relie le tout</h2>
+
+  <p>Même un relevé parfait peut être fragilisé si personne ne peut rendre compte de ce qui lui est arrivé entre la capture et le tribunal. La <strong>chaîne de possession</strong> est la documentation chronologique de l'endroit où se trouvait la preuve, du moment où elle a été recueillie, et de qui l'a manipulée. La recherche en forensique numérique constate régulièrement qu'une chaîne de possession manquante ou rompue figure parmi les principales raisons pour lesquelles une preuve numérique est contestée.</p>
+
+  <p>La leçon pratique : la preuve la plus solide est scellée <strong>à la source</strong>, au moment de la capture, plutôt que reconstruite après coup. Un relevé authentifié, horodaté et scellé en intégrité dès l'instant de sa création ne laisse aucun écart non documenté qu'une partie adverse pourrait exploiter.</p>
+
+  <h2>Comment SkyKraken constitue le dossier pour vous</h2>
+
+  <p>SkyKraken est conçu pour que la preuve soit un sous-produit de la détection, et non un effort manuel distinct. À la demande, il génère un dossier forensique complet pour un vol détecté, qui réunit les cinq éléments : l'identité de l'appareil, la trajectoire complète tracée sur une carte, la position du pilote et le point de décollage, l'altitude et la vitesse, une évaluation de menace, une chronologie horodatée en heure locale, et une empreinte d'intégrité qui montre que le document n'a pas été altéré.</p>
+
+  <p>Parce que le dossier est généré à partir des données capturées au moment qui compte, le relevé est scellé à la source — conçu pour être remis à une autorité et pour résister à l'examen, plutôt que reconstruit et défendu après coup. L'alerte vous protège sur l'instant ; le dossier vous protège ensuite.</p>
+
+  <div class="article-author">
+    <span class="av">SK</span>
+    <div>Rédigé par l'équipe <strong>SkyKraken</strong> — détection, identification et traçabilité de drones par RF passive et portable, pour les forces de l'ordre, les sites sensibles et la sécurité privée.</div>
+  </div>
+
+  <div class="article-faq">
+    <h2>Questions fréquentes</h2>
+    <details><summary>Qu'est-ce qui rend une preuve d'incursion de drone recevable ?</summary><p>Une preuve recevable est authentique, non altérée et obtenue par des méthodes fiables : un appareil identifié, une trajectoire cartographiée, la position du pilote ou de décollage, des horodatages précis, et un sceau d'intégrité calculé au moment de la capture afin que toute modification ultérieure soit détectable. Une chaîne documentée et ininterrompue, de la capture à la présentation, est ce qui permet à un relevé de tenir.</p></details>
+    <details><summary>Pourquoi une capture d'écran d'alerte ne suffit-elle pas ?</summary><p>Une capture d'écran peut être modifiée, n'a pas d'origine vérifiable, et ne prouve ni quand ni où elle a été prise. Les tribunaux refusent de plus en plus de prendre un contenu numérique pour argent comptant, donc une preuve a besoin d'une origine vérifiable, d'horodatages précis et d'un contrôle d'intégrité infalsifiable — ce qu'une simple capture d'écran ne fournit pas.</p></details>
+    <details><summary>Qu'est-ce qu'une empreinte d'intégrité ?</summary><p>Une valeur cryptographique calculée à partir d'un fichier au moment de sa création — en somme, une empreinte digitale. Si un seul élément du document change ensuite, l'empreinte ne correspond plus, rendant l'altération détectable. Dans le cadre européen eIDAS, les horodatages et sceaux qualifiés bénéficient d'une présomption légale d'intégrité.</p></details>
+    <details><summary>Faut-il sceller la preuve à la capture ou l'analyser plus tard ?</summary><p>Sceller à la capture est plus solide. La certification à la source verrouille l'intégrité, l'origine et la chronologie dès le départ, éliminant l'écart non documenté entre création et analyse. Une analyse forensique réalisée plus tard ne peut attester que de l'état actuel d'un fichier, pas de ce qui s'est passé entre-temps.</p></details>
+  </div>
+
+</div>
+</div>
+
+<section class="article-cta">
+  <div class="wrap">
+    <h2>Transformez chaque incursion en preuve.</h2>
+    <p>SkyKraken génère, pour chaque vol détecté, un dossier forensique horodaté et scellé en intégrité — conçu pour être remis à une autorité.</p>
+    <a href="/fr/contact.html" class="btn btn-primary">Demander une démo →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label reveal">À lire aussi</div>
+    <div class="feat-grid two">
+      <a class="related-card reveal" href="/fr/articles/comment-fonctionne-skykraken.html"><span class="tag">Fonctionnement</span><h3>Comment fonctionne SkyKraken : la détection en trois couches</h3></a>
+      <a class="related-card reveal" href="/fr/articles/localiser-le-pilote-change-tout.html"><span class="tag">Analyse</span><h3>Pourquoi localiser le pilote du drone change tout</h3></a>
+    </div>
+  </div>
+</section>
+</article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col" style="max-width:280px">
+        <a href="/fr/" class="brand" style="margin-bottom:18px"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Détection, identification et traçabilité de drones par RF passive et portable. Voir le drone. Identifier le pilote. Prouver l'incursion.</p>
+      </div>
+      <div class="foot-col"><h5>Système</h5><a href="/fr/systeme.html">Détection RF</a><a href="/fr/systeme.html">Localisation pilote</a><a href="/fr/preuve.html">Dossier de preuve</a><a href="/fr/systeme.html">Carte tactique</a></div>
+      <div class="foot-col"><h5>Cas d'usage</h5><a href="/fr/cas-usage.html">Forces de l'ordre</a><a href="/fr/cas-usage.html">Sites sensibles</a><a href="/fr/cas-usage.html">Sécurité privée</a></div>
+      <div class="foot-col"><h5>Société</h5><a href="/fr/ressources.html">Ressources</a><a href="/fr/contact.html">Contact</a><a href="/fr/mentions-legales.html">Mentions légales</a></div>
+      <div class="foot-col"><h5>Demandes</h5><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><span class="lang" style="margin-top:8px"><a href="/">EN</a><a href="/fr/" class="active">FR</a></span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. Tous droits réservés.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

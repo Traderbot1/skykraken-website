@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remote ID expliqué : ce que les drones diffusent réellement | SkyKraken</title>
+<meta name="description" content="Le Remote ID est la plaque d'immatriculation numérique du drone. Ce qu'il diffuse — identifiant, position en direct, altitude et position du pilote — comment fonctionnent les règles européennes et françaises, et ce que cela signifie pour la détection.">
+<link rel="canonical" href="https://skykraken.fr/fr/articles/remote-id-explique.html">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/remote-id-explique.html">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/remote-id-explained.html">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/remote-id-explained.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr">
+<meta property="og:site_name" content="SkyKraken">
+<meta property="og:title" content="Remote ID expliqué : ce que les drones diffusent réellement">
+<meta property="og:description" content="La plaque d'immatriculation numérique du drone : ce que diffuse le Remote ID, les règles UE et françaises, et ce que cela signifie pour la détection.">
+<meta property="og:url" content="https://skykraken.fr/fr/articles/remote-id-explique.html">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Remote ID expliqué : ce que les drones diffusent">
+<meta name="twitter:description" content="La plaque d'immatriculation numérique du drone et ce que cela signifie pour la détection.">
+<link rel="icon" type="image/png" href="/assets/skykraken-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Remote ID expliqué : ce que les drones diffusent réellement",
+  "description":"Le Remote ID est la plaque d'immatriculation numérique du drone. Ce qu'il diffuse, comment fonctionnent les règles européennes et françaises, et ce que cela signifie pour la détection de drones autour d'un site sensible.",
+  "image":"https://skykraken.fr/assets/og-image.jpg",
+  "datePublished":"2026-06-12",
+  "dateModified":"2026-06-12",
+  "inLanguage":"fr",
+  "author":{"@type":"Organization","name":"SkyKraken","url":"https://skykraken.fr/"},
+  "publisher":{"@type":"Organization","name":"SkyKraken","logo":{"@type":"ImageObject","url":"https://skykraken.fr/assets/skykraken-logo.png"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://skykraken.fr/fr/articles/remote-id-explique.html"},
+  "about":["Remote ID","détection de drone","EASA","identification directe à distance","détection RF"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "inLanguage":"fr",
+  "mainEntity":[
+    {"@type":"Question","name":"Qu'est-ce que le Remote ID d'un drone ?","acceptedAnswer":{"@type":"Answer","text":"Le Remote ID est un système qui fait diffuser à un drone des informations d'identification pendant le vol, comme une plaque d'immatriculation numérique. La diffusion peut inclure l'identifiant unique du drone, sa position en direct et son altitude, ainsi que la position du télépilote ou du point de décollage. Elle est conçue pour être reçue ouvertement par toute personne dotée d'un récepteur compatible."}},
+    {"@type":"Question","name":"Quelles informations le Remote ID diffuse-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Une diffusion Remote ID inclut généralement l'identifiant unique (numéro de série ou de session) du drone, sa position GPS et son altitude en temps réel, sa vitesse et son cap, et la position du télépilote ou, à défaut, le point de décollage. Cela permet à un récepteur au sol d'afficher l'appareil et l'opérateur en temps réel."}},
+    {"@type":"Question","name":"Le Remote ID est-il obligatoire en Europe ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Selon le règlement (UE) 2019/945, en vigueur depuis le 1er janvier 2024, la plupart des drones de la catégorie ouverte avec marquage de classe (C1 à C3) et tous les drones de la catégorie spécifique doivent diffuser un Remote ID direct. Les drones C0 légers de moins de 250 g et certains aéromodèles sont exemptés. La France ajoute une obligation nationale de signalement électronique pour les drones de plus de 800 g."}},
+    {"@type":"Question","name":"Tous les drones peuvent-ils être détectés via le Remote ID ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le Remote ID ne fonctionne que si le drone est conforme et diffuse réellement. Un opérateur déterminé peut le désactiver ou faire voler un drone non diffusant, c'est pourquoi la réception du Remote ID se combine idéalement avec une détection RF passive de la liaison de commande, capable d'identifier les drones qui ne diffusent pas leur identité."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <a href="/fr/" class="brand"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Principale">
+    <a href="/fr/systeme.html">Système</a>
+    <a href="/fr/cas-usage.html">Cas d'usage</a>
+    <a href="/fr/preuve.html">Preuve</a>
+    <a href="/fr/ressources.html" aria-current="page">Ressources</a>
+    <a href="/fr/contact.html">Contact</a>
+    <span class="lang"><a href="/articles/remote-id-explained.html">EN</a><a href="/fr/articles/remote-id-explique.html" class="active">FR</a></span>
+    <a href="/fr/contact.html" class="cta-nav">Demander une démo</a>
+  </nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<article>
+<section class="article-hero">
+  <div class="wrap">
+    <div class="article-meta"><span class="tag">Explication</span><span>·</span><span>Mis à jour juin 2026</span><span>·</span><span>8 min de lecture</span></div>
+    <h1>Remote ID expliqué : ce que les drones diffusent réellement</h1>
+    <p class="lead">La plupart des drones en vol annoncent discrètement qui ils sont, où ils sont, et où se tient leur pilote. Voici ce que contient ce signal — et pourquoi il compte pour quiconque protège un site.</p>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="article-body">
+
+  <div class="article-tldr">
+    <span class="k">En bref</span>
+    <p>Le Remote ID est la <strong>plaque d'immatriculation numérique</strong> du drone. Pendant le vol, un drone conforme diffuse en continu un signal radio pouvant inclure son identifiant unique, sa position en direct, son altitude, sa vitesse et — surtout — la position du télépilote ou du point de décollage. En Europe, cette diffusion est obligatoire pour la plupart des drones depuis le 1er janvier 2024. Toute personne dotée d'un récepteur compatible au sol peut la lire en temps réel — ce qui rend possible une détection de drone passive et abordable.</p>
+  </div>
+
+  <p>Pendant des années, un drone au-dessus de soi restait anonyme. On pouvait le voir, peut-être l'entendre, mais sans aucun moyen de savoir ce qu'il était ni qui le pilotait. Le Remote ID a été conçu pour changer cela — apporter aux drones la même responsabilité élémentaire qu'une plaque d'immatriculation apporte à une voiture.</p>
+
+  <p>L'idée est simple : si un drone doit s'annoncer, alors les autorités, les exploitants de sites et même le grand public peuvent identifier les vols non autorisés, les distinguer des vols légitimes, et réagir. Cet article explique ce que le Remote ID transmet réellement, comment fonctionnent les règles en Europe et en France, et où se situent ses limites.</p>
+
+  <h2>Qu'est-ce que le Remote ID ?</h2>
+
+  <p>Le Remote ID est l'obligation pour un drone de diffuser des informations d'identification pendant qu'il vole. La forme la plus courante — celle utilisée en Europe — est l'<strong>identification directe à distance</strong> (Direct Remote ID, ou DRI) : le drone lui-même émet un signal radio de courte portée, typiquement en Wi-Fi ou Bluetooth, que tout récepteur à proximité peut capter. Aucun internet n'est impliqué et aucun serveur central dans la boucle ; l'information voyage directement du drone vers quiconque écoute au sol.</p>
+
+  <p>Il existe aussi un second modèle, le <strong>Network Remote ID</strong>, où les données du drone sont envoyées par internet vers un service central. En Europe, il est associé au U-space, le cadre de gestion du trafic de drones dans des espaces désignés, et n'est pas encore exigé partout. Pour détecter un drone au-dessus de votre site, c'est le Remote ID direct — la diffusion locale — qui compte.</p>
+
+  <h2>Quelles informations le Remote ID diffuse-t-il ?</h2>
+
+  <p>Une diffusion Remote ID directe est plus riche qu'on ne l'imagine. Selon le drone et la norme, elle peut inclure :</p>
+
+  <ul>
+    <li><strong>Un identifiant unique</strong> — le numéro de série du drone ou un identifiant de session, l'équivalent d'une plaque.</li>
+    <li><strong>La position en direct du drone</strong> — ses coordonnées GPS en temps réel.</li>
+    <li><strong>L'altitude</strong> — à quelle hauteur il vole.</li>
+    <li><strong>La vitesse et le cap</strong> — à quelle vitesse il se déplace et dans quelle direction.</li>
+    <li><strong>La position du télépilote</strong> — ou, à défaut, le <strong>point de décollage</strong>.</li>
+  </ul>
+
+  <p>Ce dernier élément est celui qui change tout pour les équipes de sécurité. Un signal qui révèle non seulement l'appareil mais la position de l'opérateur transforme un système de détection en outil d'intervention. Un récepteur au sol peut afficher le drone et le pilote sur la même carte, en temps réel — c'est précisément ce qui rend la localisation de l'opérateur possible.</p>
+
+  <div class="article-callout">
+    <p><strong>Pourquoi « conçu pour être reçu » est important :</strong> le Remote ID est une diffusion publique, à sens unique. Il est destiné à être lu par toute personne dotée d'un récepteur compatible. C'est un choix de conception délibéré — et c'est pourquoi recevoir le Remote ID est généralement permis, contrairement à l'interception du contenu privé de la liaison de commande d'un drone, restreinte dans de nombreuses juridictions.</p>
+  </div>
+
+  <h2>Les règles : Europe et France</h2>
+
+  <p>Dans l'Union européenne, le Remote ID est régi par le <strong>règlement (UE) 2019/945</strong> (exigences techniques) et le <strong>règlement (UE) 2019/947</strong> (opérations). Depuis le <strong>1er janvier 2024</strong>, l'identification directe à distance est obligatoire pour :</p>
+
+  <ul>
+    <li>Tous les drones volant en <strong>catégorie spécifique</strong>, et</li>
+    <li>Les drones portant les marquages de classe <strong>C1 à C3</strong> (en gros, la plupart des drones caméra de plus de 250 g) volant en <strong>catégorie ouverte</strong>.</li>
+  </ul>
+
+  <p>Les principales exemptions concernent les <strong>drones C0 très légers de moins de 250 g</strong>, certains <strong>aéromodèles C4</strong>, et quelques systèmes captifs. En pratique, cela signifie que la grande majorité des drones caméra utilisés à titre professionnel ou par les amateurs avertis doivent diffuser.</p>
+
+  <p><strong>La France ajoute une couche nationale.</strong> Depuis 2019, la réglementation française de la DGAC impose une balise de « signalement électronique » à distance pour les drones de plus de 800 g, antérieure à la règle européenne. Résultat : en France, les drones les plus lourds peuvent porter à la fois le signalement électronique français et le Remote ID direct européen — un régime de double identification qui, pour un système de détection, signifie simplement davantage de signal d'identification dans l'air.</p>
+
+  <h2>Remote ID et protocoles constructeurs</h2>
+
+  <p>Le Remote ID est une norme réglementaire, mais ce n'est pas la seule chose qu'un drone transmet. Chaque drone maintient aussi une <strong>liaison de commande</strong> avec son opérateur — la connexion radio qui transporte les commandes vers le haut et la vidéo vers le bas. Les grands fabricants comme DJI et Autel utilisent leurs propres protocoles propriétaires pour cette liaison.</p>
+
+  <p>Cette distinction compte pour la détection :</p>
+
+  <ul>
+    <li><strong>Lire le Remote ID</strong> identifie les drones conformes qui diffusent leur identité réglementaire — la majorité coopérative.</li>
+    <li><strong>Écouter la liaison de commande</strong> et la comparer à une bibliothèque de signatures identifie les drones par marque et modèle même lorsqu'ils ne diffusent <em>pas</em> de Remote ID — les non coopératifs.</li>
+  </ul>
+
+  <p>Un système de détection performant fait les deux : il lit la diffusion Remote ID normalisée et reconnaît les signaux constructeurs. Cette combinaison lui permet de couvrir à la fois le drone qui s'annonce selon les règles et celui qui tente de ne pas le faire.</p>
+
+  <h2>La limite honnête du Remote ID</h2>
+
+  <p>Le Remote ID est puissant, mais ce n'est pas magique, et il serait trompeur de le présenter comme une solution complète. Il ne fonctionne que lorsqu'un drone est <strong>conforme et diffuse réellement</strong>. Un acteur malveillant déterminé peut faire voler un drone exempté de moins de 250 g, désactiver une balise, ou utiliser un appareil non conforme — et ce vol ne s'annoncera pas.</p>
+
+  <blockquote>Le Remote ID capte la majorité coopérative. Une vraie planification de sécurité doit aussi tenir compte de la minorité non coopérative.</blockquote>
+
+  <p>C'est pourquoi la réception du Remote ID se comprend comme une couche — très précieuse — au sein d'une approche de détection plus large. Combiner le Remote ID avec une détection RF passive de la liaison de commande comble une grande partie de l'écart, en captant les drones qui restent silencieux sur le canal réglementaire. Pour les sites à haute sécurité, la détection est conçue en couches par principe, et les contacts sont validés sur le terrain plutôt que crus aveuglément.</p>
+
+  <h2>Ce que cela signifie pour protéger un site</h2>
+
+  <p>Pour une équipe de sécurité, l'essor du Remote ID est une bonne nouvelle. Une norme qui impose à la plupart des drones de diffuser leur identité et la position de leur pilote a rendu réaliste une conscience aérienne passive et abordable pour des organisations qui n'auraient jamais pu justifier de lourdes installations radar. Il n'est plus nécessaire d'être une agence nationale pour savoir ce qui survole son périmètre.</p>
+
+  <p>SkyKraken est conçu pour en tirer le meilleur. Il lit les diffusions Remote ID et reconnaît les signaux propriétaires des grands fabricants comme DJI et Autel, identifie marque, modèle et identifiant unique, et — pour les drones compatibles — localise le pilote et le point de décollage. Il présente tout sur une carte tactique en direct et hors ligne, et peut transformer toute détection en dossier de preuve horodaté. La norme fournit le signal ; SkyKraken le transforme en une image sur laquelle agir, et une preuve que vous pouvez conserver.</p>
+
+  <div class="article-author">
+    <span class="av">SK</span>
+    <div>Rédigé par l'équipe <strong>SkyKraken</strong> — détection, identification et traçabilité de drones par RF passive et portable, pour les forces de l'ordre, les sites sensibles et la sécurité privée.</div>
+  </div>
+
+  <div class="article-faq">
+    <h2>Questions fréquentes</h2>
+    <details><summary>Qu'est-ce que le Remote ID d'un drone ?</summary><p>Le Remote ID fait diffuser à un drone des informations d'identification pendant le vol, comme une plaque d'immatriculation numérique. La diffusion peut inclure l'identifiant unique du drone, sa position en direct et son altitude, ainsi que la position du télépilote ou du point de décollage. Elle est conçue pour être reçue ouvertement par toute personne dotée d'un récepteur compatible.</p></details>
+    <details><summary>Quelles informations le Remote ID diffuse-t-il ?</summary><p>Généralement l'identifiant unique (série ou session) du drone, sa position GPS et son altitude en temps réel, sa vitesse et son cap, et la position du télépilote ou, à défaut, le point de décollage. Cela permet à un récepteur au sol d'afficher l'appareil et l'opérateur en temps réel.</p></details>
+    <details><summary>Le Remote ID est-il obligatoire en Europe ?</summary><p>Oui. Selon le règlement (UE) 2019/945, en vigueur depuis le 1er janvier 2024, la plupart des drones de la catégorie ouverte avec marquage de classe (C1 à C3) et tous les drones de la catégorie spécifique doivent diffuser un Remote ID direct. Les drones C0 de moins de 250 g et certains aéromodèles sont exemptés. La France ajoute une obligation de signalement électronique pour les drones de plus de 800 g.</p></details>
+    <details><summary>Tous les drones peuvent-ils être détectés via le seul Remote ID ?</summary><p>Non. Le Remote ID ne fonctionne que si le drone est conforme et diffuse réellement. Un opérateur déterminé peut le désactiver ou faire voler un drone non diffusant, c'est pourquoi la réception du Remote ID se combine idéalement avec une détection RF passive de la liaison de commande, capable d'identifier les drones qui ne diffusent pas leur identité.</p></details>
+  </div>
+
+</div>
+</div>
+
+<section class="article-cta">
+  <div class="wrap">
+    <h2>De la diffusion à l'image tactique.</h2>
+    <p>SkyKraken lit le Remote ID et les signaux constructeurs, localise le pilote et constitue une preuve recevable — portable et hors ligne.</p>
+    <a href="/fr/contact.html" class="btn btn-primary">Demander une démo →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label reveal">À lire aussi</div>
+    <div class="feat-grid two">
+      <a class="related-card reveal" href="/fr/articles/localiser-le-pilote-change-tout.html"><span class="tag">Analyse</span><h3>Pourquoi localiser le pilote du drone change tout</h3></a>
+      <a class="related-card reveal" href="/fr/systeme.html"><span class="tag">Capacité</span><h3>Comment fonctionne le système SkyKraken</h3></a>
+    </div>
+  </div>
+</section>
+</article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col" style="max-width:280px">
+        <a href="/fr/" class="brand" style="margin-bottom:18px"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Détection, identification et traçabilité de drones par RF passive et portable. Voir le drone. Identifier le pilote. Prouver l'incursion.</p>
+      </div>
+      <div class="foot-col"><h5>Système</h5><a href="/fr/systeme.html">Détection RF</a><a href="/fr/systeme.html">Localisation pilote</a><a href="/fr/preuve.html">Dossier de preuve</a><a href="/fr/systeme.html">Carte tactique</a></div>
+      <div class="foot-col"><h5>Cas d'usage</h5><a href="/fr/cas-usage.html">Forces de l'ordre</a><a href="/fr/cas-usage.html">Sites sensibles</a><a href="/fr/cas-usage.html">Sécurité privée</a></div>
+      <div class="foot-col"><h5>Société</h5><a href="/fr/ressources.html">Ressources</a><a href="/fr/contact.html">Contact</a><a href="/fr/mentions-legales.html">Mentions légales</a></div>
+      <div class="foot-col"><h5>Demandes</h5><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><span class="lang" style="margin-top:8px"><a href="/">EN</a><a href="/fr/" class="active">FR</a></span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. Tous droits réservés.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

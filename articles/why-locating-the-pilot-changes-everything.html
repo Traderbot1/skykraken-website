@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Locating the Drone Pilot Changes Everything | SkyKraken</title>
+<meta name="description" content="Detecting a drone is only half the problem. Locating the remote pilot is what turns passive monitoring into real response. Here's why pilot location matters — and how passive RF detection finds the operator on the ground.">
+<link rel="canonical" href="https://skykraken.fr/articles/why-locating-the-pilot-changes-everything.html">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/why-locating-the-pilot-changes-everything.html">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/localiser-le-pilote-change-tout.html">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/why-locating-the-pilot-changes-everything.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="SkyKraken">
+<meta property="og:title" content="Why Locating the Drone Pilot Changes Everything">
+<meta property="og:description" content="Detecting a drone is only half the problem. Locating the remote pilot is what turns passive monitoring into real response.">
+<meta property="og:url" content="https://skykraken.fr/articles/why-locating-the-pilot-changes-everything.html">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Locating the Drone Pilot Changes Everything">
+<meta name="twitter:description" content="Detecting a drone is half the problem. Locating the operator is what turns monitoring into response.">
+<link rel="icon" type="image/png" href="/assets/skykraken-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Why Locating the Drone Pilot Changes Everything",
+  "description":"Detecting a drone is only half the problem. Locating the remote pilot is what turns passive monitoring into real response. A guide to why pilot location matters and how passive RF detection finds the operator on the ground.",
+  "image":"https://skykraken.fr/assets/og-image.jpg",
+  "datePublished":"2026-06-12",
+  "dateModified":"2026-06-12",
+  "author":{"@type":"Organization","name":"SkyKraken","url":"https://skykraken.fr/"},
+  "publisher":{"@type":"Organization","name":"SkyKraken","logo":{"@type":"ImageObject","url":"https://skykraken.fr/assets/skykraken-logo.png"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://skykraken.fr/articles/why-locating-the-pilot-changes-everything.html"},
+  "about":["drone detection","counter-UAS","remote pilot location","RF detection","airspace security"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Can a drone detection system locate the pilot?","acceptedAnswer":{"@type":"Answer","text":"Yes. Radio-frequency (RF) detection is the only widely deployed technology that can locate the remote pilot, because it reads the radio link between the drone and its controller, as well as Remote ID broadcasts that include the operator's position. Radar, acoustic and optical methods detect the aircraft but not the person flying it."}},
+    {"@type":"Question","name":"Why is locating the drone pilot more useful than just detecting the drone?","acceptedAnswer":{"@type":"Answer","text":"Most organizations are not legally allowed to bring a drone down. Locating the pilot lets ground teams move toward the operator and resolve the incident at its source, which is usually the safest and most actionable response. It also turns an anonymous overflight into an identifiable, documentable event."}},
+    {"@type":"Question","name":"Does pilot location work for all drones?","acceptedAnswer":{"@type":"Answer","text":"It works for the large majority of consumer and commercial drones, which either broadcast Remote ID (including the pilot or take-off position) or use manufacturer radio links that can be located. A determined operator can fly a non-broadcasting drone, which is why layered detection and field validation matter."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Main">
+    <a href="/system.html">System</a>
+    <a href="/use-cases.html">Use Cases</a>
+    <a href="/evidence.html">Evidence</a>
+    <a href="/resources.html" aria-current="page">Resources</a>
+    <a href="/contact.html">Contact</a>
+    <span class="lang"><a href="/articles/why-locating-the-pilot-changes-everything.html" class="active">EN</a><a href="/fr/articles/localiser-le-pilote-change-tout.html">FR</a></span>
+    <a href="/contact.html" class="cta-nav">Request a demo</a>
+  </nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<article>
+<section class="article-hero">
+  <div class="wrap">
+    <div class="article-meta"><span class="tag">Insight</span><span>·</span><span>Updated June 2026</span><span>·</span><span>7 min read</span></div>
+    <h1>Why locating the drone pilot changes everything</h1>
+    <p class="lead">Detecting a drone tells you something is in the air. Locating the pilot tells you what to do about it. That difference is the whole game.</p>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="article-body">
+
+  <div class="article-tldr">
+    <span class="k">In short</span>
+    <p>Most security teams cannot legally bring a drone down — so detecting the aircraft alone leaves them stuck. Locating the <strong>remote pilot</strong> is what turns passive monitoring into action: ground teams can move toward the operator, stop the incursion at its source, and document who was responsible. Radio-frequency (RF) detection is the only widely deployed method that locates the pilot, because it reads both Remote ID broadcasts and the radio link between drone and controller.</p>
+  </div>
+
+  <p>Picture a security operator at a stadium, a prison, or an energy site. An alert fires: a drone is overhead. Now what? They can watch it on a screen. They can log it. But in most jurisdictions, they are not allowed to jam it, shoot it, or take it over — those powers are reserved for specific authorities. So the drone keeps flying, the operator keeps watching, and the incident ends only when the pilot decides it ends.</p>
+
+  <p>This is the gap that defines modern counter-drone work. Knowing a drone is present is necessary, but on its own it changes very little. The decisive question is not <em>"is there a drone?"</em> — it is <em>"where is the person flying it?"</em></p>
+
+  <h2>Detecting the drone is only half the problem</h2>
+
+  <p>There are four main ways to detect a drone, and three of them stop at the aircraft. Radar sees objects in the sky but cannot tell you who is controlling them, and it struggles to distinguish a small drone from a bird. Acoustic sensors hear rotor noise but have short range and fail in noisy environments. Optical and infrared cameras can confirm a drone visually, but only once you already know where to look, and they see nothing of the operator on the ground.</p>
+
+  <p>Radio-frequency detection is different. Because a drone and its controller talk to each other over radio, and because most drones now broadcast a standardized identification signal, an RF system can read those transmissions and work backward to two positions at once: the drone in the air, and the pilot on the ground. This is why RF is widely described as the only detection technology that reliably locates the operator, not just the aircraft.</p>
+
+  <div class="article-callout">
+    <p><strong>The practical reality:</strong> the overwhelming majority of organizations protecting a site — police units, prison services, airport security, event teams, private security — have no authority to physically stop a drone. For them, the value of detection is not interception. It is knowing where to send people, and being able to prove what happened.</p>
+  </div>
+
+  <h2>What pilot location actually gives you</h2>
+
+  <h3>1. A target you can reach</h3>
+  <p>A drone at 80 metres of altitude, moving at 12 m/s, is effectively untouchable for a ground team. The pilot standing in a car park 300 metres away is not. When you know the operator's position, you can dispatch officers to the source of the incursion — the one element of the situation a security team can actually act on. The drone is the symptom; the pilot is the cause.</p>
+
+  <h3>2. Identity, not just presence</h3>
+  <p>An anonymous overflight is hard to act on and harder to prosecute. The moment you can tie a flight to a physical location where the operator stood — and combine that with the drone's identifier, make and model — the event stops being an anonymous nuisance and becomes an identifiable incident with a responsible party.</p>
+
+  <h3>3. The difference between a hobbyist and a real threat</h3>
+  <p>Not every drone over a site is hostile. Many incursions are careless hobbyists who have no idea they have crossed into restricted airspace. Locating the pilot helps separate the curious from the calculated: an operator flying openly from a nearby park reads very differently from one hidden behind a perimeter wall, repeatedly probing the same approach.</p>
+
+  <h2>How passive RF finds the operator</h2>
+
+  <p>Two complementary signals make pilot location possible.</p>
+
+  <p><strong>Remote ID broadcasts.</strong> Under European rules — Regulation (EU) 2019/945, in force since 1 January 2024 — most drones in the open and specific categories must continuously broadcast a "direct remote identification" signal. That broadcast is effectively a digital licence plate: it can include the drone's unique identifier, its live position, its altitude, and the position of the remote pilot or the take-off point. A receiver on the ground reads this openly transmitted data in real time. In France, an additional national electronic-reporting requirement has applied to heavier drones since 2019, layered on top of the European rule.</p>
+
+  <p><strong>The control link.</strong> Not every drone broadcasts Remote ID — and a determined operator may disable it. This is where passive radio detection adds a second layer: by listening across the radio spectrum for the communication link between a drone and its controller, and matching those patterns against a library of known drone signatures, a system can identify the make and model of aircraft that are not broadcasting their identity, including widely used DJI and Autel models.</p>
+
+  <p>The word that matters here is <strong>passive</strong>. A passive system only listens; it transmits nothing. That means it does not interfere with the airspace it is watching, it does not require a transmitting licence, and it cannot be detected by the very operator it is tracking. It simply receives what is already in the air.</p>
+
+  <div class="article-callout">
+    <p><strong>An important limit, stated plainly:</strong> pilot location depends on the drone emitting something — a Remote ID broadcast or a control link. The large majority of consumer and commercial drones do. A sophisticated actor flying a fully silent, pre-programmed drone is a harder case, which is why serious sites treat detection as layered and validate contacts in the field. Honest detection means being clear about what a method does and does not cover.</p>
+  </div>
+
+  <h2>Why this is rising up the agenda now</h2>
+
+  <p>Drone incursions around sensitive sites have moved from rare to routine. In England and Wales, prisons recorded 1,712 drone incidents between April 2024 and March 2025 — a 43% increase on the previous year. Across critical infrastructure more broadly, unauthorized drone activity has been reported rising by more than 200%. Airports have seen repeated high-profile disruptions, and a single drone sighting can ground operations and strand thousands of passengers.</p>
+
+  <p>At the same time, the legal landscape is shifting toward giving local teams the authority to respond — which only increases the value of knowing where the operator is. As detection becomes something police and site operators do themselves rather than waiting for specialist federal units, the ability to locate the pilot becomes the bridge between an alert and an actual intervention.</p>
+
+  <h2>From alert to action: the SkyKraken approach</h2>
+
+  <p>SkyKraken is built around exactly this principle. It is a portable, fully passive RF system that detects drones, identifies make, model and unique ID, and — for compatible aircraft — locates both the remote pilot's position and the take-off point. The information appears on a live tactical map designed to be read at a glance by a non-technical operator, and every detection can be turned into a timestamped evidence dossier showing the full trajectory, the pilot's position, the threat assessment and an integrity fingerprint.</p>
+
+  <p>It works offline, with no fixed infrastructure, and deploys in minutes — so the same capability protects a permanent site or follows a mobile operation. The goal is not just to tell you a drone is there. It is to point you at the person responsible, and to give you proof you can hand to an authority.</p>
+
+  <div class="article-author">
+    <span class="av">SK</span>
+    <div>Written by the <strong>SkyKraken</strong> team — portable, passive RF drone detection, identification and tracking for law enforcement, sensitive sites and private security.</div>
+  </div>
+
+  <div class="article-faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>Can a drone detection system locate the pilot?</summary><p>Yes. RF detection is the only widely deployed technology that can locate the remote pilot, because it reads the radio link between the drone and its controller, as well as Remote ID broadcasts that include the operator's position. Radar, acoustic and optical methods detect the aircraft but not the person flying it.</p></details>
+    <details><summary>Why is locating the pilot more useful than just detecting the drone?</summary><p>Most organizations are not legally allowed to bring a drone down. Locating the pilot lets ground teams move toward the operator and resolve the incident at its source — usually the safest and most actionable response. It also turns an anonymous overflight into an identifiable, documentable event.</p></details>
+    <details><summary>Does pilot location work for every drone?</summary><p>It works for the large majority of consumer and commercial drones, which either broadcast Remote ID (including the pilot or take-off position) or use manufacturer radio links that can be located. A determined operator can fly a non-broadcasting drone, which is why layered detection and field validation matter.</p></details>
+    <details><summary>Is passive RF detection legal?</summary><p>Passive RF detection only receives signals that are already being broadcast; it transmits nothing and does not interfere with the drone. Receiving openly broadcast Remote ID is generally permitted. Decoding the private content of a control link — such as a video feed — is restricted in many jurisdictions, which is why reputable systems focus on detection and location rather than intercepting private communications.</p></details>
+  </div>
+
+</div>
+</div>
+
+<section class="article-cta">
+  <div class="wrap">
+    <h2>See the drone. Identify the pilot. Prove the incursion.</h2>
+    <p>SkyKraken turns a drone alert into a location you can act on and proof you can hand to an authority.</p>
+    <a href="/contact.html" class="btn btn-primary">Request a demo →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label reveal">Keep reading</div>
+    <div class="feat-grid two">
+      <a class="related-card reveal" href="/articles/remote-id-explained.html"><span class="tag">Explainer</span><h3>Remote ID explained: what drones actually broadcast</h3></a>
+      <a class="related-card reveal" href="/evidence.html"><span class="tag">Capability</span><h3>The forensic evidence dossier</h3></a>
+    </div>
+  </div>
+</section>
+</article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col" style="max-width:280px">
+        <a href="/" class="brand" style="margin-bottom:18px"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Portable, passive RF drone detection, identification and tracking. See the drone. Identify the pilot. Prove the incursion.</p>
+      </div>
+      <div class="foot-col"><h5>System</h5><a href="/system.html">RF detection</a><a href="/system.html">Pilot location</a><a href="/evidence.html">Evidence dossier</a><a href="/system.html">Tactical map</a></div>
+      <div class="foot-col"><h5>Use cases</h5><a href="/use-cases.html">Law enforcement</a><a href="/use-cases.html">Sensitive sites</a><a href="/use-cases.html">Private security</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="/resources.html">Resources</a><a href="/contact.html">Contact</a><a href="/legal.html">Legal</a></div>
+      <div class="foot-col"><h5>Inquiries</h5><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><span class="lang" style="margin-top:8px"><a href="/" class="active">EN</a><a href="/fr/">FR</a></span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

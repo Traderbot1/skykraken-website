@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building Admissible Drone-Incursion Evidence | SkyKraken</title>
+<meta name="description" content="An alert is not evidence. What makes a drone-incursion record hold up: identified aircraft, mapped trajectory, pilot location, accurate timestamps and a tamper-evident integrity seal — and how the EU's eIDAS framework treats it.">
+<link rel="canonical" href="https://skykraken.fr/articles/building-admissible-drone-evidence.html">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/building-admissible-drone-evidence.html">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/preuve-incursion-drone-recevable.html">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/building-admissible-drone-evidence.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="SkyKraken">
+<meta property="og:title" content="Building Admissible Drone-Incursion Evidence">
+<meta property="og:description" content="An alert is not evidence. What makes a drone-incursion record hold up in front of an authority.">
+<meta property="og:url" content="https://skykraken.fr/articles/building-admissible-drone-evidence.html">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building Admissible Drone-Incursion Evidence">
+<meta name="twitter:description" content="What makes a drone-incursion record hold up in front of an authority.">
+<link rel="icon" type="image/png" href="/assets/skykraken-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Building Admissible Drone-Incursion Evidence",
+  "description":"An alert is not evidence. What makes a drone-incursion record hold up: identified aircraft, mapped trajectory, pilot location, accurate timestamps and a tamper-evident integrity seal, and how the EU's eIDAS framework treats it.",
+  "image":"https://skykraken.fr/assets/og-image.jpg",
+  "datePublished":"2026-06-14",
+  "dateModified":"2026-06-14",
+  "author":{"@type":"Organization","name":"SkyKraken","url":"https://skykraken.fr/"},
+  "publisher":{"@type":"Organization","name":"SkyKraken","logo":{"@type":"ImageObject","url":"https://skykraken.fr/assets/skykraken-logo.png"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://skykraken.fr/articles/building-admissible-drone-evidence.html"},
+  "about":["drone incursion evidence","digital forensics","chain of custody","eIDAS","integrity hash"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What makes drone-incursion evidence admissible?","acceptedAnswer":{"@type":"Answer","text":"Admissible evidence is authentic, unaltered and obtained by reliable methods. For a drone incursion that means an identified aircraft, a mapped trajectory, the pilot or take-off location, accurate timestamps, and an integrity seal calculated at the moment of capture so any later change is detectable. A documented, unbroken chain from capture to presentation is what lets a record hold up rather than be dismissed."}},
+    {"@type":"Question","name":"Why is a screenshot of a drone alert not enough?","acceptedAnswer":{"@type":"Answer","text":"A screenshot can be edited, has no verifiable origin, and proves neither when nor where it was captured. Courts increasingly refuse to take digital content at face value. Evidence needs verifiable origin, accurate timestamps and a tamper-evident integrity check — none of which a plain screenshot provides."}},
+    {"@type":"Question","name":"What is an integrity fingerprint?","acceptedAnswer":{"@type":"Answer","text":"An integrity fingerprint is a cryptographic value calculated from a file at the moment of creation — effectively a digital fingerprint. If a single element of the document changes afterwards, the fingerprint no longer matches, making tampering detectable. Under the EU eIDAS framework, qualified timestamps and seals carry a legal presumption of integrity."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <a href="/" class="brand"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Main">
+    <a href="/system.html">System</a>
+    <a href="/use-cases.html">Use Cases</a>
+    <a href="/evidence.html">Evidence</a>
+    <a href="/resources.html" aria-current="page">Resources</a>
+    <a href="/contact.html">Contact</a>
+    <span class="lang"><a href="/articles/building-admissible-drone-evidence.html" class="active">EN</a><a href="/fr/articles/preuve-incursion-drone-recevable.html">FR</a></span>
+    <a href="/contact.html" class="cta-nav">Request a demo</a>
+  </nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<article>
+<section class="article-hero">
+  <div class="wrap">
+    <div class="article-meta"><span class="tag">Guide</span><span>·</span><span>Updated June 2026</span><span>·</span><span>7 min read</span></div>
+    <h1>Building admissible drone-incursion evidence</h1>
+    <p class="lead">An alert tells you a drone was there. Evidence proves it — to a court, a regulator, or a site authority. The gap between the two is bigger than most security teams expect.</p>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="article-body">
+
+  <div class="article-tldr">
+    <span class="k">In short</span>
+    <p>A drone alert is not evidence. To hold up in front of an authority, a record needs five things: an <strong>identified aircraft</strong>, a <strong>mapped trajectory</strong>, the <strong>pilot or take-off location</strong>, <strong>accurate timestamps</strong>, and a <strong>tamper-evident integrity seal</strong> calculated at the moment of capture. Courts no longer take digital content at face value — in the EU, the eIDAS framework gives qualified timestamps and cryptographic seals a legal presumption of integrity. A documented, unbroken chain from capture to presentation is what turns a detection into proof.</p>
+  </div>
+
+  <p>Imagine the incident is over. The drone has flown away. Your team logged it, maybe took a phone photo of the screen. Weeks later, a prosecutor, an insurer, or a regulator asks: <em>what exactly happened, when, and how do we know this record is real?</em> This is the moment that separates a security system from an evidence system.</p>
+
+  <p>Detecting a drone is necessary but not sufficient. The lasting value — for law enforcement, for a site operator pursuing a case, for an organization defending its response — lies in a record that survives scrutiny. Here is what that takes.</p>
+
+  <h2>Why an alert, or a screenshot, is not evidence</h2>
+
+  <p>A screenshot of a detection screen feels like proof, but it fails the basic tests an authority applies. It can be edited in seconds. It carries no verifiable origin. It does not prove <em>when</em> it was captured or <em>where</em>. And it offers no way to demonstrate that nothing was changed after the fact.</p>
+
+  <p>This matters more every year because the legal system has caught up with digital manipulation. Across jurisdictions, the signal is the same: judicial systems no longer take digital content at face value. A record that cannot demonstrate its own authenticity is, increasingly, a record that gets challenged — or thrown out.</p>
+
+  <h2>The five elements of a record that holds up</h2>
+
+  <h3>1. An identified aircraft</h3>
+  <p>"A drone" is weak. "A specific make, model and unique identifier" is strong. Tying the event to an identified aircraft — and, where available, its registration identity — moves the record from a vague sighting to a concrete fact about a specific object.</p>
+
+  <h3>2. A mapped trajectory</h3>
+  <p>A single position is a dot; a trajectory is a story. A full flight path drawn on a map shows intent and behaviour: did the drone drift past, or did it make repeated passes over a sensitive zone? Behaviour over time is often what distinguishes a careless hobbyist from a deliberate incursion.</p>
+
+  <h3>3. The pilot or take-off location</h3>
+  <p>Evidence that includes where the operator stood, or where the drone took off, transforms an anonymous overflight into an event with a responsible party. It is also frequently the element that makes a case actionable rather than merely documented.</p>
+
+  <h3>4. Accurate, localized timestamps</h3>
+  <p>When did it happen? A record needs precise timestamps, ideally expressed in the local time zone of the capture site to avoid ambiguity. Time anchors the event and lets it be cross-referenced with other records — camera footage, access logs, witness statements.</p>
+
+  <h3>5. A tamper-evident integrity seal</h3>
+  <p>This is the element most records lack and the one that matters most. A cryptographic fingerprint, calculated from the document at the moment of creation, acts as a digital fingerprint of the file. If a single element changes afterwards, the fingerprint no longer matches — so any alteration is detectable.</p>
+
+  <div class="article-callout">
+    <p><strong>The European context — eIDAS:</strong> in the EU, the eIDAS Regulation (910/2014) establishes binding standards for electronic timestamps and seals, granting qualified timestamps and signatures a legal presumption of integrity across member states. Source certification — sealing metadata, timestamps and a cryptographic hash at the moment of capture — provides verifiable proof of origin and integrity. This is why an integrity fingerprint generated at capture is far stronger than a forensic analysis attempted weeks later: it closes the gap between when the record was created and when it is examined.</p>
+  </div>
+
+  <h2>Chain of custody: the thread that ties it together</h2>
+
+  <p>Even a perfect record can be undermined if no one can account for what happened to it between capture and courtroom. <strong>Chain of custody</strong> is the chronological documentation of where evidence was, when it was collected, and who handled it. Research on digital forensics consistently finds that a missing or broken chain of custody is among the main reasons digital evidence gets challenged.</p>
+
+  <p>The practical lesson: the strongest evidence is sealed <strong>at the source</strong>, at the moment of capture, rather than reconstructed afterwards. A record that is authenticated, timestamped and integrity-sealed from the instant it is created leaves no undocumented gap for an opposing party to exploit.</p>
+
+  <h2>How SkyKraken builds the file for you</h2>
+
+  <p>SkyKraken is designed so that the evidence is a by-product of detection, not a separate manual effort. On demand, it generates a complete forensic dossier for a detected flight that brings together all five elements: the aircraft identity, the full trajectory drawn on a map, the pilot position and take-off point, altitude and speed, a threat assessment, a timestamped chronology in the local time zone, and an integrity fingerprint that shows the document has not been altered.</p>
+
+  <p>Because the dossier is generated from the captured data at the moment it matters, the record is sealed at the source — designed to be handed to an authority and to hold up under scrutiny, rather than to be reconstructed and defended after the fact. The alert protects you in the moment; the dossier protects you afterwards.</p>
+
+  <div class="article-author">
+    <span class="av">SK</span>
+    <div>Written by the <strong>SkyKraken</strong> team — portable, passive RF drone detection, identification and tracking for law enforcement, sensitive sites and private security.</div>
+  </div>
+
+  <div class="article-faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>What makes drone-incursion evidence admissible?</summary><p>Admissible evidence is authentic, unaltered and obtained by reliable methods: an identified aircraft, a mapped trajectory, the pilot or take-off location, accurate timestamps, and an integrity seal calculated at the moment of capture so any later change is detectable. A documented, unbroken chain from capture to presentation is what lets a record hold up.</p></details>
+    <details><summary>Why is a screenshot of a drone alert not enough?</summary><p>A screenshot can be edited, has no verifiable origin, and proves neither when nor where it was captured. Courts increasingly refuse to take digital content at face value, so evidence needs verifiable origin, accurate timestamps and a tamper-evident integrity check — none of which a plain screenshot provides.</p></details>
+    <details><summary>What is an integrity fingerprint?</summary><p>A cryptographic value calculated from a file at the moment of creation — effectively a digital fingerprint. If a single element of the document changes afterwards, the fingerprint no longer matches, making tampering detectable. Under the EU eIDAS framework, qualified timestamps and seals carry a legal presumption of integrity.</p></details>
+    <details><summary>Should evidence be sealed at capture or analysed later?</summary><p>Sealing at capture is stronger. Source certification locks in integrity, origin and timeline from the start, eliminating the undocumented gap between creation and analysis. A forensic analysis done later can only attest to a file's current state, not to what happened in between.</p></details>
+  </div>
+
+</div>
+</div>
+
+<section class="article-cta">
+  <div class="wrap">
+    <h2>Turn every incursion into proof.</h2>
+    <p>SkyKraken generates a timestamped, integrity-sealed forensic dossier for each detected flight — designed to be handed to an authority.</p>
+    <a href="/contact.html" class="btn btn-primary">Request a demo →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label reveal">Keep reading</div>
+    <div class="feat-grid two">
+      <a class="related-card reveal" href="/articles/how-skykraken-works.html"><span class="tag">How it works</span><h3>How SkyKraken works: three layers of detection</h3></a>
+      <a class="related-card reveal" href="/articles/why-locating-the-pilot-changes-everything.html"><span class="tag">Insight</span><h3>Why locating the drone pilot changes everything</h3></a>
+    </div>
+  </div>
+</section>
+</article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col" style="max-width:280px">
+        <a href="/" class="brand" style="margin-bottom:18px"><img src="/assets/skykraken-logo.png" alt="SkyKraken" class="brand-mark"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Portable, passive RF drone detection, identification and tracking. See the drone. Identify the pilot. Prove the incursion.</p>
+      </div>
+      <div class="foot-col"><h5>System</h5><a href="/system.html">RF detection</a><a href="/system.html">Pilot location</a><a href="/evidence.html">Evidence dossier</a><a href="/system.html">Tactical map</a></div>
+      <div class="foot-col"><h5>Use cases</h5><a href="/use-cases.html">Law enforcement</a><a href="/use-cases.html">Sensitive sites</a><a href="/use-cases.html">Private security</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="/resources.html">Resources</a><a href="/contact.html">Contact</a><a href="/legal.html">Legal</a></div>
+      <div class="foot-col"><h5>Inquiries</h5><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><span class="lang" style="margin-top:8px"><a href="/" class="active">EN</a><a href="/fr/">FR</a></span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
