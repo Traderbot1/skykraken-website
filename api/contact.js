@@ -35,6 +35,8 @@ export async function POST(request) {
   const org = clean(fields.org);
   const email = clean(fields.email);
   const sector = clean(fields.sector);
+  const product = clean(fields.product);
+  const lang = clean(fields.lang);
   const message = clean(fields.message);
 
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -59,6 +61,8 @@ export async function POST(request) {
     `Organization: ${org}\n` +
     `Email:        ${email}\n` +
     `Sector:       ${sector}\n` +
+    `Product:      ${product || '-'}\n` +
+    `Language:     ${lang || '-'}\n` +
     `--------------------------------------\n\n` +
     `${message}\n`;
 
@@ -67,7 +71,7 @@ export async function POST(request) {
       from: { name: `${SITE_NAME} — Website`, address: user },
       to,
       replyTo: { name, address: email },
-      subject: `New enquiry — ${name}${org ? ` (${org})` : ''}`,
+      subject: `New enquiry${product ? ` [${product}]` : ''} — ${name}${org ? ` (${org})` : ''}`,
       text,
     });
     return Response.json({ ok: true });

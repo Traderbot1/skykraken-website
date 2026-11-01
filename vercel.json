@@ -4,11 +4,24 @@
   "rewrites": [
     { "source": "/api/contact.php", "destination": "/api/contact" }
   ],
+  "redirects": [
+    { "source": "/system", "destination": "/mobile", "permanent": true },
+    { "source": "/system.html", "destination": "/mobile", "permanent": true },
+    { "source": "/fr/systeme", "destination": "/fr/mobile", "permanent": true },
+    { "source": "/fr/systeme.html", "destination": "/fr/mobile", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=2592000" }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
   ]
