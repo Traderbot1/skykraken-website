@@ -39,12 +39,23 @@
     if(h===here&&!a.classList.contains('cta-nav')&&!a.closest('.lang'))a.setAttribute('aria-current','page');
   });
 
-  // scroll reveal (content stays visible without JS)
+  // scroll reveal (content stays visible without JS). Anything that has reached or passed the
+  // viewport is revealed, so a fast fling or a dragged scrollbar can never leave text invisible.
   root.classList.add('js-motion');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-  }else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+  var pending=[].slice.call(document.querySelectorAll('.reveal'));
+  var revealCheck=function(){
+    if(!pending.length)return;
+    var lim=window.innerHeight*0.94;
+    pending=pending.filter(function(el){
+      if(!el.classList.contains('reveal')||el.getBoundingClientRect().top<lim){el.classList.add('in');return false;}
+      return true;
+    });
+  };
+  var rq=false;
+  var onRevealScroll=function(){if(rq)return;rq=true;requestAnimationFrame(function(){rq=false;revealCheck();});};
+  window.addEventListener('scroll',onRevealScroll,{passive:true});
+  window.addEventListener('resize',onRevealScroll);
+  revealCheck();
 
   // animated counters (data-count = target, data-rate optional live increment)
   document.querySelectorAll('[data-count]').forEach(function(el){
@@ -82,31 +93,107 @@
   if(window.gsap&&!reduce){
     var gsap=window.gsap;
     if(window.ScrollTrigger)gsap.registerPlugin(window.ScrollTrigger);
+    if(window.SplitText)gsap.registerPlugin(window.SplitText);
+
+    // smooth scrolling on fine pointers, driven by GSAP's ticker so ScrollTrigger stays in sync
+    var fine=window.matchMedia('(pointer: fine)').matches;
+    if(window.Lenis&&window.ScrollTrigger&&fine){
+      var lenis=new window.Lenis({duration:1.15,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},wheelMultiplier:.95});
+      lenis.on('scroll',window.ScrollTrigger.update);
+      gsap.ticker.add(function(t){lenis.raf(t*1000);});
+      gsap.ticker.lagSmoothing(0);
+      root.classList.add('lenis');
+      // in-page anchors glide too
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var el=document.querySelector(id);if(!el)return;e.preventDefault();lenis.scrollTo(el,{offset:-80});history.replaceState(null,'',id);});
+      });
+    }
+
     // first viewport: the headline settles line by line, then the legend is drawn
     var intro=document.querySelector('[data-intro]');
     if(intro){
       var tl=gsap.timeline({defaults:{ease:'expo.out'}});
       tl.from(intro.querySelectorAll('[data-intro-line]'),{yPercent:40,opacity:0,filter:'blur(8px)',duration:1.3,stagger:.12})
-        .from(intro.querySelectorAll('[data-intro-fade]'),{y:16,opacity:0,duration:1,stagger:.08},'-=.9')
-        .from(document.querySelector('.legend'),{scaleX:0,transformOrigin:'0 50%',duration:1.4,ease:'expo.inOut'},'-=1')
-        .from(document.querySelectorAll('.legend a'),{opacity:0,y:12,duration:.9,stagger:.07},'-=.6');
+        .from(intro.querySelectorAll('[data-intro-fade]'),{y:16,opacity:0,duration:1,stagger:.08},'-=.9');
+      var legend=document.querySelector('.legend');
+      if(legend){
+        tl.from(legend,{scaleX:0,transformOrigin:'0 50%',duration:1.4,ease:'expo.inOut'},'-=1')
+          .from(legend.querySelectorAll('a'),{opacity:0,y:12,duration:.9,stagger:.07},'-=.6');
+      }
     }
+
     if(window.ScrollTrigger){
+      // section headings rise out of a mask, line by line, once fonts are in
+      var heads=gsap.utils.toArray('.section-head h2, .split > div > h2, .closing h2, .page-hero h1, .product-hero ~ section h2');
+      var splitHeads=function(){
+        heads.forEach(function(h){
+          if(h.dataset.split)return; h.dataset.split='1';
+          h.classList.remove('reveal');
+          if(window.SplitText){
+            var st=window.SplitText.create(h,{type:'lines',mask:'lines',linesClass:'split-line'});
+            gsap.from(st.lines,{yPercent:105,duration:1.15,ease:'expo.out',stagger:.09,scrollTrigger:{trigger:h,start:'top 86%'}});
+          }else{
+            gsap.from(h,{y:30,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 86%'}});
+          }
+        });
+      };
+      (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(splitHeads);
+
       // chapter panels slide in from the copy side as the map flies to each product
       gsap.utils.toArray('.chapter .panel').forEach(function(p){
         gsap.from(p,{x:-40,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:p,start:'top 78%'}});
       });
-      // integration route: stations light up in sequence
+      // key figures count up together
+      gsap.utils.toArray('.figures-row > div').forEach(function(d,i){
+        gsap.from(d,{y:24,opacity:0,duration:1,ease:'expo.out',delay:i*.06,scrollTrigger:{trigger:d,start:'top 90%'}});
+      });
+      // integration route: stations arrive in sequence
       gsap.utils.toArray('.route').forEach(function(r){
-        var items=r.querySelectorAll('li');
-        gsap.from(items,{opacity:0,y:18,duration:.8,stagger:.14,ease:'expo.out',scrollTrigger:{trigger:r,start:'top 80%'}});
+        gsap.from(r.querySelectorAll('li:not(.route-pulse)'),{opacity:0,y:18,duration:.8,stagger:.14,ease:'expo.out',scrollTrigger:{trigger:r,start:'top 80%'}});
       });
       // evidence sheet lands like paper on a desk
       gsap.utils.toArray('.sheet[data-land]').forEach(function(s){
         gsap.from(s,{y:60,rotate:-2.2,opacity:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:s,start:'top 85%'}});
       });
+      // the spectrum opens like an instrument screen
+      gsap.utils.toArray('[data-spectrum]').forEach(function(sp){
+        gsap.from(sp,{clipPath:'inset(0 0 100% 0)',duration:1.6,ease:'expo.inOut',scrollTrigger:{trigger:sp,start:'top 80%'}});
+      });
+      // product photos ease in with a slow scale, like a lens settling
+      gsap.utils.toArray('.plate img, .photo img, .feed img').forEach(function(im){
+        gsap.fromTo(im,{scale:1.12},{scale:1,ease:'none',scrollTrigger:{trigger:im,start:'top bottom',end:'bottom top',scrub:true}});
+      });
+    }
+
+    // magnetic primary buttons (fine pointers only)
+    if(fine){
+      document.querySelectorAll('.btn-primary').forEach(function(b){
+        var qx=gsap.quickTo(b,'x',{duration:.5,ease:'power3'}),qy=gsap.quickTo(b,'y',{duration:.5,ease:'power3'});
+        b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();qx((e.clientX-r.left-r.width/2)*.18);qy((e.clientY-r.top-r.height/2)*.28);});
+        b.addEventListener('pointerleave',function(){qx(0);qy(0);});
+      });
+      // evidence sheet tilts toward the pointer
+      document.querySelectorAll('[data-tilt]').forEach(function(el){
+        el.parentElement.style.perspective='1200px';
+        el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='rotateY('+(x*7)+'deg) rotateX('+(-y*6)+'deg)';});
+        el.addEventListener('pointerleave',function(){el.style.transform='';});
+      });
     }
   }
+
+  // integration route: light each station as the signal pulse passes it
+  document.querySelectorAll('[data-route]').forEach(function(r){
+    var pulse=r.querySelector('.route-pulse');if(!pulse||reduce)return;
+    var stations=[].slice.call(r.querySelectorAll('li:not(.route-pulse)'));
+    var on=false;
+    new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)requestAnimationFrame(tick);}).observe(r);
+    function tick(){
+      if(!on)return;
+      var px=pulse.getBoundingClientRect().left;
+      stations.forEach(function(li){var x=li.getBoundingClientRect().left;li.classList.toggle('lit',px>=x-6&&px<x+60);});
+      requestAnimationFrame(tick);
+    }
+  });
 
   // contact form (shared by EN/FR pages)
   var form=document.getElementById('contactForm');

@@ -121,7 +121,7 @@ def footer(url: str, lang: str) -> str:
 <!-- /sk:footer -->'''
 
 
-ASSETS = ['assets/style.css', 'assets/app.js', 'assets/terrain.js', 'assets/vendor/gsap.min.js', 'assets/vendor/ScrollTrigger.min.js']
+ASSETS = ['assets/style.css', 'assets/app.js', 'assets/terrain.js', 'assets/vendor/gsap.min.js', 'assets/vendor/ScrollTrigger.min.js', 'assets/vendor/SplitText.min.js', 'assets/vendor/lenis.min.js', 'assets/spectrum.js']
 VERSIONS = {a: hashlib.md5((ROOT / a).read_bytes()).hexdigest()[:8] for a in ASSETS}
 
 

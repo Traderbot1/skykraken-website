@@ -24,7 +24,7 @@
 <meta name="twitter:image" content="https://skykraken.fr/assets/og-image.jpg">
 <meta name="theme-color" content="#0A0E1A">
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=d3c711a9">
+<link rel="stylesheet" href="/assets/style.css?v=20778f88">
 <link rel="icon" href="/assets/skykraken-icon.png" type="image/png">
 <script>document.documentElement.classList.add('js-motion')</script>
 <script type="application/ld+json">
@@ -99,6 +99,7 @@
     <article class="chapter" id="ch-mobile" data-map="atlas" data-map-mode="mobile">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/mobile.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status">Disponible · vente ou location</span>
           <h2>SkyKraken Mobile</h2>
           <p>On l’apporte, on l’ouvre, on l’allume. En quelques secondes, la valise identifie les drones alentour et place le drone et son pilote sur la carte. Tout fonctionne en local : sans internet ni raccordement.</p>
@@ -115,6 +116,7 @@
     <article class="chapter" id="ch-horizon" data-map="atlas" data-map-mode="horizon">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/horizon.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status s-order">Première série · fabriquée à la commande</span>
           <h2>SkyKraken Horizon</h2>
           <p>Une station fixe, en haut d’un mât, qui surveille votre site 24 h sur 24 et parle directement à vos systèmes : C2, supervision vidéo, caméras PTZ, radar et haut-parleurs.</p>
@@ -131,6 +133,7 @@
     <article class="chapter" id="ch-sk1" data-map="atlas" data-map-mode="sk1">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/sk1.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status s-pre">Précommande · livraison en 10 à 12 semaines</span>
           <h2>SkyKraken SK-1</h2>
           <p>Les drones FPV volent vite et bas, sans identifiant ni Remote ID. Le SK-1 alerte l’agent sur le terrain et lui montre ce que voit le drone.</p>
@@ -147,6 +150,7 @@
     <article class="chapter" id="ch-eyes" data-map="atlas" data-map-mode="eyes">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/eyes-feed.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status s-pilot">En développement · programme pilote</span>
           <h2>SkyKraken Eyes</h2>
           <p>Un logiciel qui transforme les caméras que vous possédez déjà en détecteurs de drones, directement dans Genetec Security Center et Milestone XProtect. Avec Trace, chaque détection devient un dossier de preuve scellé.</p>
@@ -173,16 +177,45 @@
   </div>
 </section>
 
-<section class="section">
+<!-- ================= KEY FIGURES ================= -->
+<section class="figures" aria-label="Chiffres clés">
+  <div class="wrap figures-row"><div><p class="fig-v"><span data-count="0">0</span></p><p class="fig-l">émission radio : entièrement passif</p></div><div><p class="fig-v"><span data-count="10">10</span><small>km</small></p><p class="fig-l">portée d’Horizon, jusqu’à, en vue directe</p></div><div><p class="fig-v"><span data-count="4">4</span></p><p class="fig-l">bandes FPV surveillées par le SK-1</p></div><div><p class="fig-v"><span data-count="6">6</span><small>h</small></p><p class="fig-l">pour signaler un survol : le dossier est prêt</p></div><div><p class="fig-v"><span data-count="100">100</span><small>%</small></p><p class="fig-l">local : ni cloud, ni raccordement</p></div></div>
+</section>
+
+<!-- ================= THREE QUESTIONS (pinned 3D story) ================= -->
+<section class="section qstory" aria-labelledby="q-h">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="reveal">Trois questions, une réponse en quelques secondes.</h2>
-      <p class="reveal reveal-d1">La plupart des équipes de sécurité découvrent un drone après coup. SkyKraken lit la liaison radio dont dépend chaque drone : vous savez ce qui vole, qui le pilote et d’où.</p>
+      <h2 id="q-h">Trois questions, une réponse en quelques secondes.</h2>
+      <p class="reveal reveal-d1">La plupart des équipes de sécurité découvrent un drone après coup. SkyKraken lit la liaison radio dont dépend chaque drone. Faites défiler : la carte répond à chaque question tour à tour.</p>
     </div>
-    <div class="ledger">
-      <div class="ledger-row reveal"><h3>Y a-t-il un drone ?</h3><p>Écoute passive de la liaison radio entre le drone et sa radiocommande, et de l’émission Remote ID. Rien n’est émis, aucune ligne de vue n’est nécessaire.</p><span class="carto verb">Détecter</span></div>
-      <div class="ledger-row reveal"><h3>Quel drone ?</h3><p>Marque, modèle et numéro de série pour les drones DJI ; identifiant pour le Remote ID européen. Altitude, vitesse, cap et trajectoire en direct.</p><span class="carto verb">Identifier</span></div>
-      <div class="ledger-row reveal"><h3>Où est le pilote ?</h3><p>La radio est la seule technologie qui révèle l’opérateur. SkyKraken place sur la carte le pilote et le point de décollage : les équipes vont vers la personne, pas seulement vers l’appareil.</p><span class="carto verb">Localiser</span></div>
+  </div>
+  <div class="atlas q-atlas">
+    <div class="atlas-sticky">
+      <div id="qmap" class="map-stage" data-terrain="detect" data-shift="0.24"></div>
+    </div>
+    <div class="atlas-chapters">
+      <article class="chapter q-chapter" data-map="qmap" data-map-mode="detect">
+        <div class="wrap"><div class="panel q-panel">
+          <p class="q-step"><span class="num">01</span><span class="carto">Détecter</span></p>
+          <h3>Y a-t-il un drone ?</h3>
+          <p>Écoute passive de la liaison radio entre le drone et sa radiocommande, et de l’émission Remote ID. Rien n’est émis, aucune ligne de vue n’est nécessaire.</p>
+        </div></div>
+      </article>
+      <article class="chapter q-chapter" data-map="qmap" data-map-mode="identify">
+        <div class="wrap"><div class="panel q-panel">
+          <p class="q-step"><span class="num">02</span><span class="carto">Identifier</span></p>
+          <h3>Quel drone ?</h3>
+          <p>Marque, modèle et numéro de série pour les drones DJI ; identifiant pour le Remote ID européen. Altitude, vitesse, cap et trajectoire en direct.</p>
+        </div></div>
+      </article>
+      <article class="chapter q-chapter" data-map="qmap" data-map-mode="locate">
+        <div class="wrap"><div class="panel q-panel">
+          <p class="q-step"><span class="num">03</span><span class="carto">Localiser</span></p>
+          <h3>Où est le pilote ?</h3>
+          <p>La radio est la seule technologie qui révèle l’opérateur. SkyKraken place sur la carte le pilote et le point de décollage : les équipes vont vers la personne, pas seulement vers l’appareil.</p>
+        </div></div>
+      </article>
     </div>
   </div>
 </section>
@@ -212,13 +245,25 @@
   </div>
 </section>
 
+<!-- ================= LIVE SPECTRUM ================= -->
+<section class="section spectrum-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Voilà à quoi ressemble notre expertise.</h2>
+      <p class="reveal reveal-d1">Chaque drone parle à son pilote par radio. Nos ingénieurs lisent chaque signature dans le spectre : les sauts de fréquence OcuSync de DJI sur 2,4 GHz, les balises Remote ID, la porteuse continue d’un drone FPV analogique sur 5,8 GHz. C’est ainsi que SkyKraken nomme un drone sans jamais émettre.</p>
+    </div>
+    <div class="spectrum" data-spectrum></div>
+  </div>
+</section>
+
 <section class="section" id="integration">
   <div class="wrap">
     <div class="section-head">
       <h2 class="reveal">Un drone entre dans la zone. Vos systèmes réagissent seuls.</h2>
       <p class="reveal reveal-d1">Horizon apporte à vos radars, caméras, C2 et haut-parleurs ce qui leur manque : l’identité du drone et la position de son pilote. Chaque connecteur est développé par SkyKraken et livré testé sur votre plateforme.</p>
     </div>
-    <ol class="route">
+    <ol class="route" data-route>
+      <li class="route-pulse" aria-hidden="true"></li>
       <li><h3>Radar</h3><p>Détecte et suit une cible.</p></li>
       <li class="on"><h3>Horizon</h3><p>L’identifie : DJI Mavic 3, n° de série, pilote à 420 m.</p></li>
       <li><h3>Caméra PTZ</h3><p>Pointe le drone puis le pilote, pour la levée de doute.</p></li>
@@ -274,7 +319,7 @@
         <li><h3>Remis sur clé USB</h3><p>Un dossier PDF prêt pour les enquêteurs.</p></li>
       </ul>
     </div>
-    <div class="sheet" data-land aria-label="Exemple de dossier de preuve">
+    <div class="sheet" data-land data-tilt aria-label="Exemple de dossier de preuve">
       <div class="sheet-head">
         <h3>Dossier de preuve</h3>
         <span class="carto">Vol 2026-11-01 · 0427</span>
@@ -330,7 +375,7 @@
   </div>
 </section>
 
-<section class="closing">
+<section class="closing cine">
   <div class="wrap grid">
     <div>
       <h2 class="reveal">Faisons voler un drone au-dessus de votre site.</h2>
@@ -383,7 +428,10 @@
 <!-- /sk:footer -->
 <script src="/assets/vendor/gsap.min.js?v=bf3fd8ec" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js?v=5445d0e9" defer></script>
-<script src="/assets/app.js?v=ace66eae" defer></script>
-<script type="module" src="/assets/terrain.js?v=64edb0e8"></script>
+<script src="/assets/vendor/SplitText.min.js?v=8b363297" defer></script>
+<script src="/assets/vendor/lenis.min.js?v=5a44a112" defer></script>
+<script src="/assets/spectrum.js?v=9392e3a8" defer></script>
+<script src="/assets/app.js?v=dc6212a1" defer></script>
+<script type="module" src="/assets/terrain.js?v=643e4661"></script>
 </body>
 </html>

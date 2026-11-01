@@ -24,7 +24,7 @@
 <meta name="twitter:image" content="https://skykraken.fr/assets/og-image.jpg">
 <meta name="theme-color" content="#0A0E1A">
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=d3c711a9">
+<link rel="stylesheet" href="/assets/style.css?v=20778f88">
 <link rel="icon" href="/assets/skykraken-icon.png" type="image/png">
 <script>document.documentElement.classList.add('js-motion')</script>
 <script type="application/ld+json">
@@ -100,6 +100,7 @@
     <article class="chapter" id="ch-mobile" data-map="atlas" data-map-mode="mobile">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/mobile.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status">Available · sale or rental</span>
           <h2>SkyKraken Mobile</h2>
           <p>The case you carry, open and switch on. In seconds it identifies the drones around you and puts the drone and its pilot on the map. Everything runs locally: no internet, no connection.</p>
@@ -116,6 +117,7 @@
     <article class="chapter" id="ch-horizon" data-map="atlas" data-map-mode="horizon">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/horizon.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status s-order">First series · built to order</span>
           <h2>SkyKraken Horizon</h2>
           <p>A fixed station on a mast that watches your site 24 hours a day and talks directly to your systems: C2, video management, PTZ cameras, radar and loudspeakers.</p>
@@ -132,6 +134,7 @@
     <article class="chapter" id="ch-sk1" data-map="atlas" data-map-mode="sk1">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/sk1.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status s-pre">Pre-order · delivery in 10 to 12 weeks</span>
           <h2>SkyKraken SK-1</h2>
           <p>FPV drones fly fast and low, with no identifier and no Remote ID. The SK-1 warns the agent on the ground and shows them what the drone sees.</p>
@@ -148,6 +151,7 @@
     <article class="chapter" id="ch-eyes" data-map="atlas" data-map-mode="eyes">
       <div class="wrap">
         <div class="chapter-copy panel">
+          <img class="panel-photo" src="/assets/products/eyes-feed.webp" alt="" width="104" height="128" loading="lazy">
           <span class="carto status s-pilot">In development · pilot programme</span>
           <h2>SkyKraken Eyes</h2>
           <p>Software that turns the cameras you already own into drone detectors, inside Genetec Security Center and Milestone XProtect. With Trace, every detection becomes a sealed evidence file.</p>
@@ -175,17 +179,45 @@
   </div>
 </section>
 
-<!-- ================= THREE QUESTIONS ================= -->
-<section class="section">
+<!-- ================= KEY FIGURES ================= -->
+<section class="figures" aria-label="Key figures">
+  <div class="wrap figures-row"><div><p class="fig-v"><span data-count="0">0</span></p><p class="fig-l">radio emission: fully passive</p></div><div><p class="fig-v"><span data-count="10">10</span><small>km</small></p><p class="fig-l">Horizon range, up to, in line of sight</p></div><div><p class="fig-v"><span data-count="4">4</span></p><p class="fig-l">FPV bands watched by the SK-1</p></div><div><p class="fig-v"><span data-count="6">6</span><small>h</small></p><p class="fig-l">to report an overflight: the file is ready</p></div><div><p class="fig-v"><span data-count="100">100</span><small>%</small></p><p class="fig-l">local: no cloud, no connection</p></div></div>
+</section>
+
+<!-- ================= THREE QUESTIONS (pinned 3D story) ================= -->
+<section class="section qstory" aria-labelledby="q-h">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="reveal">Three questions, answered in seconds.</h2>
-      <p class="reveal reveal-d1">Most security teams learn about a drone after the fact. SkyKraken reads the radio link every drone depends on, so you know what is flying, who is flying it and from where.</p>
+      <h2 id="q-h">Three questions, answered in seconds.</h2>
+      <p class="reveal reveal-d1">Most security teams learn about a drone after the fact. SkyKraken reads the radio link every drone depends on. Scroll: the map answers each question in turn.</p>
     </div>
-    <div class="ledger">
-      <div class="ledger-row reveal"><h3>Is there a drone?</h3><p>Passive listening to the radio link between drone and remote control, and to the Remote ID broadcast. Nothing is emitted, and no line of sight is needed.</p><span class="carto verb">Detect</span></div>
-      <div class="ledger-row reveal"><h3>Which drone?</h3><p>Make, model and serial number for DJI drones; identifier for European Remote ID. Altitude, speed, heading and trajectory, live.</p><span class="carto verb">Identify</span></div>
-      <div class="ledger-row reveal"><h3>Where is the pilot?</h3><p>Radio is the only technology that reveals the operator. SkyKraken maps the pilot and the take-off point so teams head for the person, not just the aircraft.</p><span class="carto verb">Locate</span></div>
+  </div>
+  <div class="atlas q-atlas">
+    <div class="atlas-sticky">
+      <div id="qmap" class="map-stage" data-terrain="detect" data-shift="0.24"></div>
+    </div>
+    <div class="atlas-chapters">
+      <article class="chapter q-chapter" data-map="qmap" data-map-mode="detect">
+        <div class="wrap"><div class="panel q-panel">
+          <p class="q-step"><span class="num">01</span><span class="carto">Detect</span></p>
+          <h3>Is there a drone?</h3>
+          <p>Passive listening to the radio link between drone and remote control, and to the Remote ID broadcast. Nothing is emitted, and no line of sight is needed.</p>
+        </div></div>
+      </article>
+      <article class="chapter q-chapter" data-map="qmap" data-map-mode="identify">
+        <div class="wrap"><div class="panel q-panel">
+          <p class="q-step"><span class="num">02</span><span class="carto">Identify</span></p>
+          <h3>Which drone?</h3>
+          <p>Make, model and serial number for DJI drones; identifier for European Remote ID. Altitude, speed, heading and trajectory, live.</p>
+        </div></div>
+      </article>
+      <article class="chapter q-chapter" data-map="qmap" data-map-mode="locate">
+        <div class="wrap"><div class="panel q-panel">
+          <p class="q-step"><span class="num">03</span><span class="carto">Locate</span></p>
+          <h3>Where is the pilot?</h3>
+          <p>Radio is the only technology that reveals the operator. SkyKraken maps the pilot and the take-off point so teams head for the person, not just the aircraft.</p>
+        </div></div>
+      </article>
     </div>
   </div>
 </section>
@@ -216,6 +248,17 @@
   </div>
 </section>
 
+<!-- ================= LIVE SPECTRUM ================= -->
+<section class="section spectrum-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>This is what our expertise looks like.</h2>
+      <p class="reveal reveal-d1">Every drone talks to its pilot over radio. Our engineers read each signature in the spectrum: DJI OcuSync hopping across 2.4 GHz, Remote ID beacons, the continuous carrier of an analog FPV drone at 5.8 GHz. That is how SkyKraken names a drone without ever transmitting.</p>
+    </div>
+    <div class="spectrum" data-spectrum></div>
+  </div>
+</section>
+
 <!-- ================= INTEGRATION ================= -->
 <section class="section" id="integration">
   <div class="wrap">
@@ -223,7 +266,8 @@
       <h2 class="reveal">A drone enters the zone. Your systems respond on their own.</h2>
       <p class="reveal reveal-d1">Horizon gives your radar, cameras, C2 and loudspeakers what they are missing: the identity of the drone and the position of its pilot. Each connector is developed by SkyKraken and delivered tested on your platform.</p>
     </div>
-    <ol class="route">
+    <ol class="route" data-route>
+      <li class="route-pulse" aria-hidden="true"></li>
       <li><h3>Radar</h3><p>Detects and tracks a target.</p></li>
       <li class="on"><h3>Horizon</h3><p>Identifies it: DJI Mavic 3, serial number, pilot at 420 m.</p></li>
       <li><h3>PTZ camera</h3><p>Turns to the drone, then to the pilot, to remove doubt.</p></li>
@@ -280,7 +324,7 @@
         <li><h3>Handed over on USB</h3><p>A PDF dossier ready for the investigators.</p></li>
       </ul>
     </div>
-    <div class="sheet" data-land aria-label="Example evidence dossier">
+    <div class="sheet" data-land data-tilt aria-label="Example evidence dossier">
       <div class="sheet-head">
         <h3>Evidence dossier</h3>
         <span class="carto">Flight 2026-11-01 · 0427</span>
@@ -339,7 +383,7 @@
 </section>
 
 <!-- ================= CLOSING ================= -->
-<section class="closing">
+<section class="closing cine">
   <div class="wrap grid">
     <div>
       <h2 class="reveal">Let’s fly a drone over your site.</h2>
@@ -392,7 +436,10 @@
 <!-- /sk:footer -->
 <script src="/assets/vendor/gsap.min.js?v=bf3fd8ec" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js?v=5445d0e9" defer></script>
-<script src="/assets/app.js?v=ace66eae" defer></script>
-<script type="module" src="/assets/terrain.js?v=64edb0e8"></script>
+<script src="/assets/vendor/SplitText.min.js?v=8b363297" defer></script>
+<script src="/assets/vendor/lenis.min.js?v=5a44a112" defer></script>
+<script src="/assets/spectrum.js?v=9392e3a8" defer></script>
+<script src="/assets/app.js?v=dc6212a1" defer></script>
+<script type="module" src="/assets/terrain.js?v=643e4661"></script>
 </body>
 </html>
