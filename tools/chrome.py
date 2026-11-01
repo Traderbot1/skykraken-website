@@ -76,7 +76,7 @@ def header(url: str, lang: str) -> str:
     links2 = '\n    '.join(f'<a href="{h}">{n}</a>' for h, n in t['nav2'])
     return f'''<!-- sk:header -->
 <header class="site">
-  <a href="{t['home']}" class="brand" aria-label="SkyKraken"><img src="/assets/skykraken-logo.png" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+  <a href="{t['home']}" class="brand" aria-label="SkyKraken"><img src="/assets/skykraken-mark.webp" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
   <nav class="main" aria-label="{t['main']}">
     {links}
     <span class="nav-sep" aria-hidden="true"></span>
@@ -98,7 +98,7 @@ def footer(url: str, lang: str) -> str:
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-col foot-brand">
-        <a href="{t['home']}" class="brand"><img src="/assets/skykraken-logo.png" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+        <a href="{t['home']}" class="brand"><img src="/assets/skykraken-mark.webp" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
         <p class="discretion">{t['about']}</p>
         <address class="foot-addr">Cockpit Bordeaux Technowest<br>58 avenue Marcel Dassault, 33700 Mérignac</address>
         <p class="foot-incub">{t['incub']}</p>

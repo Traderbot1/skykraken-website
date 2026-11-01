@@ -233,7 +233,8 @@ export function mountTerrain(host, opts = {}) {
     host.classList.add('no-webgl');
     return null;
   }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.5 : 1.75));
+  let dprMax = Math.min(window.devicePixelRatio || 1, small ? 1.3 : 1.6);
+  renderer.setPixelRatio(dprMax);
   renderer.setClearColor(BG, 1);
   const canvas = renderer.domElement;
   canvas.setAttribute('aria-hidden', 'true');
@@ -248,7 +249,7 @@ export function mountTerrain(host, opts = {}) {
   const camera = new PerspectiveCamera(38, 1, 0.1, 80);
 
   /* terrain */
-  const seg = small ? 150 : 230;
+  const seg = small ? 120 : 220;
   const geo = new PlaneGeometry(SIZE, SIZE, seg, seg);
   geo.rotateX(-Math.PI / 2);
   const pos = geo.attributes.position;
@@ -392,6 +393,10 @@ export function mountTerrain(host, opts = {}) {
     W = Math.max(1, r.width); H = Math.max(1, r.height);
     renderer.setSize(W, H, false);
     canvas.style.width = '100%'; canvas.style.height = '100%';
+    project();
+  }
+  // camera projection only (cheap): used every frame while the composition slides sideways
+  function project() {
     camera.aspect = W / H;
     // portrait screens: widen the lens so the whole story stays in frame
     camera.fov = W < H ? Math.min(64, 38 * Math.sqrt(H / W)) : 38;
@@ -408,15 +413,19 @@ export function mountTerrain(host, opts = {}) {
 
   /* projection of labels */
   const tmp = new Vector3();
+  function setHTML(el, h) { if (el._h !== h) { el._h = h; el.innerHTML = h; el._w = -1; } }
   function place(el, v3, show) {
     if (!show) { el.style.opacity = '0'; return; }
     tmp.copy(v3).project(camera);
     if (tmp.z > 1 || tmp.x < -1.2 || tmp.x > 1.2 || tmp.y < -1.2 || tmp.y > 1.2) { el.style.opacity = '0'; return; }
     let x = (tmp.x * 0.5 + 0.5) * W; const y = (-tmp.y * 0.5 + 0.5) * H;
     // flip to the left of the anchor when the label would leave the screen
-    const w = el.offsetWidth, flip = x + w > W - 8 && x - w > 8;
+    if (el._w == null || el._w < 0) el._w = el.offsetWidth;
+    const w = el._w, flip = x + w > W - 8 && x - w > 8;
     el.classList.toggle('flip', flip);
     if (flip) x -= w;
+    // too wide for either side (phones): keep it on screen
+    else if (x + w > W - 8) x = Math.max(8, W - 8 - w);
     el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
     el.style.opacity = '1';
   }
@@ -445,7 +454,7 @@ export function mountTerrain(host, opts = {}) {
     if (!reduce) pointerS.lerp(pointer, 1 - Math.pow(0.02, dt));
     camera.position.set(camPos.x + pointerS.x * 0.9, camPos.y - pointerS.y * 0.5, camPos.z);
     camera.lookAt(camTgt);
-    if (Math.abs(viewShift - viewShiftWant) > 0.0005) { viewShift += (viewShiftWant - viewShift) * k; resize(); }
+    if (Math.abs(viewShift - viewShiftWant) > 0.0005) { viewShift += (viewShiftWant - viewShift) * k; project(); }
 
     // active sensor & map layers
     const o = ASSETS[M.origin];
@@ -502,27 +511,27 @@ export function mountTerrain(host, opts = {}) {
 
     // labels
     if (fpv) {
-      L.drone.innerHTML = `<b>${T.fpv}</b><span>${T.noid} · ${T.threat} ${lvl === 1 ? '64' : score} · ${T.lvl[2]}</span>`;
+      setHTML(L.drone, `<b>${T.fpv}</b><span>${T.noid} · ${T.threat} ${lvl === 1 ? '64' : score} · ${T.lvl[2]}</span>`);
     } else if (!detected) {
-      L.drone.innerHTML = '';
+      setHTML(L.drone, '');
     } else {
       if (M.id === 0) {
-        L.drone.innerHTML = `<b>${T.signal}</b><span>${T.unknown}</span>`;
+        setHTML(L.drone, `<b>${T.signal}</b><span>${T.unknown}</span>`);
       } else {
         const head = idK < 1 && tc < 2.2 ? T.signal : `DJI Mavic 3 · SN ${scramble(SERIAL, idK)}`;
-        L.drone.innerHTML = `<b>${head}</b><span>ALT ${Math.round(altM)} m · ${T.threat} ${score} · <em class="lvl-${lvl}">${T.lvl[lvl]}</em></span>`;
+        setHTML(L.drone, `<b>${head}</b><span>ALT ${Math.round(altM)} m · ${T.threat} ${score} · <em class="lvl-${lvl}">${T.lvl[lvl]}</em></span>`);
       }
     }
     place(L.drone, dP.copy(dp).add(new Vector3(0, 0.12, 0)), alive && (detected || fpv));
     if (located) {
       const dist = Math.round(dp.distanceTo(pilot.position) * 1000 / 10) * 10;
-      L.pilot.innerHTML = `<b>${T.pilot} · ${FR ? dist.toLocaleString('fr-FR') : dist.toLocaleString('en-US')} m</b><span>${toLatLon(PILOT.x, PILOT.y)}</span>`;
+      setHTML(L.pilot, `<b>${T.pilot} · ${FR ? dist.toLocaleString('fr-FR') : dist.toLocaleString('en-US')} m</b><span>${toLatLon(PILOT.x, PILOT.y)}</span>`);
     }
     place(L.pilot, pilot.position, located && alive);
     L.takeoff.textContent = T.takeoff;
     place(L.takeoff, takeoff.position, !fpv && M.pilot !== 0 && tc > 4.2 && alive);
     const sensor = sensors[M.origin];
-    L.sensor.innerHTML = `<b>${T[M.origin]}</b>${M.range ? `<span>${T.range}</span>` : ''}`;
+    setHTML(L.sensor, `<b>${T[M.origin]}</b>${M.range ? `<span>${T.range}</span>` : ''}`);
     place(L.sensor, dP.copy(sensor.g.position).add(sensor.anchor), M.cones < 0.5);
     L.zone.textContent = T.zone;
     place(L.zone, new Vector3(SITE.x - ZONE_R * 0.7, height(SITE.x - ZONE_R * 0.7, SITE.y + ZONE_R * 0.7), SITE.y + ZONE_R * 0.7), M.zone > 0.5);
@@ -537,7 +546,7 @@ export function mountTerrain(host, opts = {}) {
       const cv = uni.uCones.value[i]; cv.w += (on - cv.w) * k;
     });
     if (M.cones && seen >= 0) {
-      L.cam.innerHTML = `<b>${T.cam} 0${seen + 1}</b><span>${T.confirmed}</span>`;
+      setHTML(L.cam, `<b>${T.cam} 0${seen + 1}</b><span>${T.confirmed}</span>`);
       place(L.cam, dP.copy(camMarks[seen].position).add(new Vector3(0, 0.3, 0)), true);
     } else place(L.cam, dp, false);
 
@@ -545,9 +554,21 @@ export function mountTerrain(host, opts = {}) {
   }
   function renderOnce() { frame(0); }
 
+  // adaptive quality: if the device cannot hold ~40 fps, render fewer pixels
+  let perfN = 0, perfT = 0;
+  function adapt(ms) {
+    if (dprMax <= 1 || perfN < 0) return;
+    perfN++; perfT += ms;
+    if (perfN === 90) {
+      if (perfT / perfN > 25) { dprMax = Math.max(1, dprMax - 0.35); renderer.setPixelRatio(dprMax); resize(); perfN = 0; perfT = 0; }
+      else perfN = -1;
+    }
+  }
   function loop(now) {
     if (!running) return;
-    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    const raw = now - last;
+    const dt = Math.min(0.05, raw / 1000); last = now;
+    if (raw < 200) adapt(raw);
     frame(dt);
     requestAnimationFrame(loop);
   }
@@ -564,30 +585,41 @@ export function mountTerrain(host, opts = {}) {
   }
   // reduced motion: the scene still lives (waves, drone), but the camera never flies
   // and the pointer does not move it; the pause button stops everything
-  if (reduce) { viewShift = viewShiftWant; resize(); }
+  if (reduce) { viewShift = viewShiftWant; project(); }
   storyT0 = -1.0;
   start();
   host.classList.add('is-live');
   return { setMode, setShift, get mode() { return mode; } };
 }
 
-/* auto-mount */
-function boot() {
-  document.querySelectorAll('[data-terrain]').forEach((host) => {
-    const api = mountTerrain(host, { mode: host.dataset.terrain, shift: parseFloat(host.dataset.shift || '0') });
-    if (!api) return;
-    host._terrain = api;
-    const mq = window.matchMedia('(min-width: 900px)');
-    const applyShift = () => api.setShift(mq.matches ? parseFloat(host.dataset.shift || '0') : 0);
-    mq.addEventListener('change', applyShift); applyShift();
-    // chapters that steer this map
-    const chapters = document.querySelectorAll(`[data-map-mode][data-map="${host.id}"]`);
-    if (chapters.length) {
-      const co = new IntersectionObserver((es) => {
-        es.forEach((e) => { if (e.isIntersecting) api.setMode(e.target.dataset.mapMode); });
-      }, { rootMargin: '-45% 0px -45% 0px' });
-      chapters.forEach((c) => co.observe(c));
-    }
-  });
+/* auto-mount: each map is built only when it nears the viewport, and the first one
+   waits for the browser to be idle so text and images paint first (the poster shows meanwhile) */
+function mountHost(host) {
+  if (host._terrain || host._mounting) return;
+  host._mounting = true;
+  const api = mountTerrain(host, { mode: host.dataset.terrain, shift: parseFloat(host.dataset.shift || '0') });
+  if (!api) return;
+  host._terrain = api;
+  const mq = window.matchMedia('(min-width: 900px)');
+  const applyShift = () => api.setShift(mq.matches ? parseFloat(host.dataset.shift || '0') : 0);
+  mq.addEventListener('change', applyShift); applyShift();
+  // chapters that steer this map
+  const chapters = document.querySelectorAll(`[data-map-mode][data-map="${host.id}"]`);
+  if (chapters.length) {
+    const co = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting) api.setMode(e.target.dataset.mapMode); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    chapters.forEach((c) => co.observe(c));
+  }
 }
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+function boot() {
+  const hosts = document.querySelectorAll('[data-terrain]');
+  if (!hosts.length) return;
+  const near = new IntersectionObserver((es) => {
+    es.forEach((e) => { if (e.isIntersecting) { near.unobserve(e.target); mountHost(e.target); } });
+  }, { rootMargin: '75% 0px' });
+  hosts.forEach((h) => near.observe(h));
+}
+const idle = window.requestIdleCallback || ((f) => setTimeout(f, 200));
+function later() { idle(boot, { timeout: 1500 }); }
+if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true });

@@ -45,11 +45,13 @@
   var pending=[].slice.call(document.querySelectorAll('.reveal'));
   var revealCheck=function(){
     if(!pending.length)return;
-    var lim=window.innerHeight*0.94;
+    var lim=window.innerHeight*0.94,show=[];
+    // read every position first, then write: no layout thrashing while scrolling
     pending=pending.filter(function(el){
-      if(!el.classList.contains('reveal')||el.getBoundingClientRect().top<lim){el.classList.add('in');return false;}
+      if(!el.classList.contains('reveal')||el.getBoundingClientRect().top<lim){show.push(el);return false;}
       return true;
     });
+    show.forEach(function(el){el.classList.add('in');});
   };
   var rq=false;
   var onRevealScroll=function(){if(rq)return;rq=true;requestAnimationFrame(function(){rq=false;revealCheck();});};
@@ -73,6 +75,19 @@
 
   // decorative loops stop under reduced motion
   if(reduce)document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.setAttribute('controls','');});
+
+  // lazy videos: nothing is downloaded until the video nears the viewport; plays only while on screen
+  var lazyV=document.querySelectorAll('video[data-lazy]');
+  if(lazyV.length){
+    var arm=function(v){if(v._armed)return;v._armed=1;v.querySelectorAll('source[data-src]').forEach(function(s){s.src=s.dataset.src;});v.preload='auto';v.load();};
+    var tryPlay=function(v){if(reduce&&!v._userPlay)return;var p=v.play();if(p&&p.catch)p.catch(function(){});};
+    if(reduce)lazyV.forEach(function(v){v.setAttribute('controls','');v.addEventListener('play',function(){v._userPlay=1;arm(v);});});
+    if('IntersectionObserver' in window){
+      var near=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){arm(e.target);near.unobserve(e.target);}});},{rootMargin:'600px 0px'});
+      var onScr=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){arm(v);tryPlay(v);}else if(!v.paused)v.pause();});},{threshold:0.15});
+      lazyV.forEach(function(v){if(!reduce)near.observe(v);onScr.observe(v);});
+    }else lazyV.forEach(function(v){arm(v);tryPlay(v);});
+  }
 
   // manifesto video sound toggle
   var mv=document.getElementById('manifestoVideo'),mb=document.getElementById('manifestoSound');
@@ -186,11 +201,13 @@
     var pulse=r.querySelector('.route-pulse');if(!pulse||reduce)return;
     var stations=[].slice.call(r.querySelectorAll('li:not(.route-pulse)'));
     var on=false;
-    new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)requestAnimationFrame(tick);}).observe(r);
+    var xs=[],lit=[];
+    new IntersectionObserver(function(es){var was=on;on=es[0].isIntersecting;if(on&&!was){xs=stations.map(function(li){return li.getBoundingClientRect().left;});requestAnimationFrame(tick);}}).observe(r);
+    window.addEventListener('resize',function(){if(on)xs=stations.map(function(li){return li.getBoundingClientRect().left;});});
     function tick(){
       if(!on)return;
       var px=pulse.getBoundingClientRect().left;
-      stations.forEach(function(li){var x=li.getBoundingClientRect().left;li.classList.toggle('lit',px>=x-6&&px<x+60);});
+      stations.forEach(function(li,i){var v=px>=xs[i]-6&&px<xs[i]+60;if(lit[i]!==v){lit[i]=v;li.classList.toggle('lit',v);}});
       requestAnimationFrame(tick);
     }
   });
@@ -201,8 +218,8 @@
     var cv=mark.querySelector('canvas'),cx=cv.getContext('2d'),word='SKYKRAKEN';
     var MW=0,MH=0,DP=1,fs=100,base=0,inView=false,raf=0,t0=performance.now();
     var size=function(){
-      DP=Math.min(window.devicePixelRatio||1,2);
       MW=Math.max(1,mark.clientWidth);
+      DP=Math.min(window.devicePixelRatio||1,MW<700?1.5:2);
       cx.setTransform(1,0,0,1,0,0);
       cx.font='800 100px Archivo';try{cx.fontStretch='expanded';}catch(e){}
       var m=cx.measureText(word);fs=100*MW/m.width;
@@ -240,7 +257,8 @@
     var loopMark=function(now){if(!inView)return;draw(now);raf=requestAnimationFrame(loopMark);};
     new IntersectionObserver(function(es){inView=es[0].isIntersecting;cancelAnimationFrame(raf);if(inView&&!document.hidden)raf=requestAnimationFrame(loopMark);}).observe(mark);
     (document.fonts&&document.fonts.load?document.fonts.load('800 100px Archivo'):Promise.resolve()).then(function(){size();});
-    window.addEventListener('resize',size);
+    // only a width change re-lays out the name (mobile toolbars change the height while scrolling)
+    window.addEventListener('resize',function(){if(mark.clientWidth!==MW)size();});
     mark.classList.add('is-live');
   }
 
