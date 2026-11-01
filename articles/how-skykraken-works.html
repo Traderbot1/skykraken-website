@@ -4,36 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How SkyKraken Works: Three Layers of Portable Drone Detection | SkyKraken</title>
-<meta name="description" content="Inside SkyKraken's approach to drone detection: multi-protocol RF sensing with DJI and Autel recognition, Bluetooth and Wi-Fi Remote ID reception, a live offline tactical map with protection zones, whitelisting, and a court-ready forensic dossier — all in a portable case.">
-<link rel="canonical" href="https://skykraken.fr/articles/how-skykraken-works.html">
-<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/how-skykraken-works.html">
-<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/comment-fonctionne-skykraken.html">
-<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/how-skykraken-works.html">
+<meta name="description" content="Inside SkyKraken's approach to drone detection: multi-protocol RF sensing with DJI recognition, Bluetooth and Wi-Fi Remote ID reception, a live offline tactical map with protection zones, whitelisting, and a court-ready forensic dossier — all in a portable case.">
+<link rel="canonical" href="https://skykraken.fr/articles/how-skykraken-works">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/how-skykraken-works">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/comment-fonctionne-skykraken">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/how-skykraken-works">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="SkyKraken">
 <meta property="og:title" content="How SkyKraken Works: Three Layers of Portable Drone Detection">
 <meta property="og:description" content="Multi-protocol RF sensing, live offline tactical map, and a court-ready forensic dossier — in a portable case.">
-<meta property="og:url" content="https://skykraken.fr/articles/how-skykraken-works.html">
+<meta property="og:url" content="https://skykraken.fr/articles/how-skykraken-works">
 <meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How SkyKraken Works: Three Layers of Portable Drone Detection">
 <meta name="twitter:description" content="Multi-protocol RF sensing, live offline tactical map, and a court-ready forensic dossier.">
 <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/style.css?v=ff77ee5a">
+<link rel="stylesheet" href="/assets/style.css?v=882a0bfe">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Article",
   "headline":"How SkyKraken Works: Three Layers of Portable Drone Detection",
-  "description":"Inside SkyKraken's approach: multi-protocol RF sensing with DJI and Autel recognition, Bluetooth and Wi-Fi Remote ID reception, a live offline tactical map with protection zones, whitelisting, and a court-ready forensic dossier — in a portable case.",
+  "description":"Inside SkyKraken's approach: multi-protocol RF sensing with DJI recognition, Bluetooth and Wi-Fi Remote ID reception, a live offline tactical map with protection zones, whitelisting, and a court-ready forensic dossier — in a portable case.",
   "image":"https://skykraken.fr/assets/og-image.jpg",
   "datePublished":"2026-06-14",
   "dateModified":"2026-06-14",
   "author":{"@type":"Organization","name":"SkyKraken","url":"https://skykraken.fr/"},
   "publisher":{"@type":"Organization","name":"SkyKraken","logo":{"@type":"ImageObject","url":"https://skykraken.fr/assets/skykraken-logo.png"}},
-  "mainEntityOfPage":{"@type":"WebPage","@id":"https://skykraken.fr/articles/how-skykraken-works.html"},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://skykraken.fr/articles/how-skykraken-works"},
   "about":["drone detection system","counter-UAS","RF detection","Remote ID","forensic evidence","portable drone detection"]
 }
 </script>
@@ -42,7 +42,7 @@
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"How does SkyKraken detect drones?","acceptedAnswer":{"@type":"Answer","text":"SkyKraken uses a layered, fully passive radio-frequency approach. It listens across multiple protocols at once: it recognizes the manufacturer signals of major brands such as DJI and Autel, and it receives Remote ID broadcasts over Bluetooth and Wi-Fi. This lets it detect both drones that broadcast their regulatory identity and those that only communicate over a manufacturer link, then place them on a live map."}},
+    {"@type":"Question","name":"How does SkyKraken detect drones?","acceptedAnswer":{"@type":"Answer","text":"SkyKraken uses a layered, fully passive radio-frequency approach. It listens across multiple protocols at once: it recognizes the manufacturer signals of DJI drones, and it receives Remote ID broadcasts over Bluetooth and Wi-Fi. This lets it detect both drones that broadcast their regulatory identity and those that only communicate over a manufacturer link, then place them on a live map."}},
     {"@type":"Question","name":"Is SkyKraken portable and does it need Internet?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is portable and works fully offline. SkyKraken is a self-contained case that deploys in minutes with no fixed infrastructure and no Internet connection. It starts automatically, runs on its own power, and uses an offline basemap, making it suitable for both temporary fixed posts and mobile operations."}},
     {"@type":"Question","name":"What is in a SkyKraken evidence dossier?","acceptedAnswer":{"@type":"Answer","text":"For each detected flight, SkyKraken can generate a timestamped dossier containing the aircraft identity, the full trajectory drawn on a map, the pilot position and take-off point, altitude and speed, a threat assessment, a timestamped chronology in the local time zone, and an integrity fingerprint that shows the document has not been altered."}},
     {"@type":"Question","name":"Can authorized drones be excluded from alerts?","acceptedAnswer":{"@type":"Answer","text":"Yes. Legitimate drones — partner operators, inspections, approved contractors or official filming drones — can be added to a whitelist. They remain visible on the map but do not raise alerts, so authorized operations continue without friction while attention stays focused on unidentified aircraft."}}
@@ -87,7 +87,7 @@
 
   <div class="article-tldr">
     <span class="k">In short</span>
-    <p>SkyKraken combines three layers in one portable, fully passive case. <strong>Layer one — detection:</strong> multi-protocol RF sensing that recognizes major manufacturers like DJI and Autel and receives Remote ID over Bluetooth and Wi-Fi, identifying make, model, unique ID, and locating the pilot. <strong>Layer two — the live picture:</strong> an offline tactical map with protection zones, automatic threat scoring, live audio alerts, and a whitelist for authorized drones. <strong>Layer three — proof:</strong> a timestamped forensic dossier with mapped trajectory, pilot location and an integrity fingerprint. It deploys in minutes, works with no Internet and no fixed infrastructure.</p>
+    <p>SkyKraken combines three layers in one portable, fully passive case. <strong>Layer one — detection:</strong> multi-protocol RF sensing that recognizes DJI drones and receives Remote ID over Bluetooth and Wi-Fi, identifying make, model, unique ID, and locating the pilot. <strong>Layer two — the live picture:</strong> an offline tactical map with protection zones, automatic threat scoring, live audio alerts, and a whitelist for authorized drones. <strong>Layer three — proof:</strong> a timestamped forensic dossier with mapped trajectory, pilot location and an integrity fingerprint. It deploys in minutes, works with no Internet and no fixed infrastructure.</p>
   </div>
 
   <p>Most drone detection products fall into one of two traps. Either they are heavy, fixed installations that require infrastructure, power and specialist operators — or they are simple alarms that tell you "a drone is near" and nothing more. SkyKraken was designed to avoid both: a portable case that delivers a complete operational picture, readable by a non-technical operator, anywhere, in minutes.</p>
@@ -101,7 +101,7 @@
   <p>What makes detection robust is that it works across <strong>multiple protocols at once</strong>, rather than relying on a single channel:</p>
 
   <h3>Manufacturer signal recognition</h3>
-  <p>SkyKraken recognizes the communication signals of the most widespread drones on the market, including <strong>DJI</strong> and <strong>Autel</strong> models. By matching what it hears against known signatures, it identifies the manufacturer, the model, and the unique identifier of the aircraft — even when a drone is communicating over its own manufacturer link rather than broadcasting a regulatory identity.</p>
+  <p>SkyKraken recognizes the communication signals of the most widespread drones on the market, starting with <strong>DJI</strong>, the most widespread brand. By matching what it hears against known signatures, it identifies the manufacturer, the model, and the unique identifier of the aircraft — even when a drone is communicating over its own manufacturer link rather than broadcasting a regulatory identity.</p>
 
   <h3>Remote ID reception over Bluetooth and Wi-Fi</h3>
   <p>In parallel, SkyKraken receives <strong>Remote ID</strong> broadcasts — the "digital licence plate" most drones are now required to transmit in Europe. These broadcasts travel over Bluetooth and Wi-Fi and can carry the drone's identifier, live position, altitude, and the position of the remote pilot or take-off point. Receiving this openly broadcast data is what lets the system place both the drone and its operator on the map.</p>
@@ -165,7 +165,7 @@
 
   <div class="article-faq">
     <h2>Frequently asked questions</h2>
-    <details><summary>How does SkyKraken detect drones?</summary><p>It uses a layered, fully passive RF approach, listening across multiple protocols at once: it recognizes manufacturer signals of major brands such as DJI and Autel, and receives Remote ID broadcasts over Bluetooth and Wi-Fi. This detects both drones that broadcast their regulatory identity and those that only communicate over a manufacturer link, then places them on a live map with the pilot's location.</p></details>
+    <details><summary>How does SkyKraken detect drones?</summary><p>It uses a layered, fully passive RF approach, listening across multiple protocols at once: it recognizes manufacturer signals of DJI drones, and receives Remote ID broadcasts over Bluetooth and Wi-Fi. This detects both drones that broadcast their regulatory identity and those that only communicate over a manufacturer link, then places them on a live map with the pilot's location.</p></details>
     <details><summary>Is SkyKraken portable and does it need Internet?</summary><p>It is portable and works fully offline. It is a self-contained case that deploys in minutes with no fixed infrastructure and no Internet, starts automatically, and uses an offline basemap — suitable for temporary fixed posts and mobile operations alike.</p></details>
     <details><summary>What is in a SkyKraken evidence dossier?</summary><p>For each detected flight it can generate a timestamped dossier with the aircraft identity, the full trajectory on a map, the pilot position and take-off point, altitude and speed, a threat assessment, a timestamped chronology in the local time zone, and an integrity fingerprint showing the document has not been altered.</p></details>
     <details><summary>Can authorized drones be excluded from alerts?</summary><p>Yes. Legitimate drones can be added to a whitelist. They stay visible on the map but do not raise alerts, so authorized operations continue without friction while attention stays focused on unidentified aircraft.</p></details>
@@ -178,7 +178,7 @@
   <div class="wrap">
     <h2>See it for yourself.</h2>
     <p>The fastest way to understand SkyKraken is to watch it turn a live flight into a located pilot and a proof file. Request a demonstration.</p>
-    <a href="/contact.html" class="btn btn-primary">Request a demo →</a>
+    <a href="/contact" class="btn btn-primary">Request a demo →</a>
   </div>
 </section>
 
@@ -186,8 +186,8 @@
   <div class="wrap">
     <div class="section-label reveal">Keep reading</div>
     <div class="feat-grid two">
-      <a class="related-card reveal" href="/articles/why-locating-the-pilot-changes-everything.html"><span class="tag">Insight</span><h3>Why locating the drone pilot changes everything</h3></a>
-      <a class="related-card reveal" href="/articles/remote-id-explained.html"><span class="tag">Explainer</span><h3>Remote ID explained: what drones actually broadcast</h3></a>
+      <a class="related-card reveal" href="/articles/why-locating-the-pilot-changes-everything"><span class="tag">Insight</span><h3>Why locating the drone pilot changes everything</h3></a>
+      <a class="related-card reveal" href="/articles/remote-id-explained"><span class="tag">Explainer</span><h3>Remote ID explained: what drones actually broadcast</h3></a>
     </div>
   </div>
 </section>
@@ -212,6 +212,7 @@
         <a href="/eyes">Eyes · camera software</a>
       </div>
       <div class="foot-col"><h5>Company</h5>
+        <a href="/about">About SkyKraken</a>
         <a href="/use-cases">Use cases</a>
         <a href="/evidence">Evidence</a>
         <a href="/resources">Resources</a>

@@ -666,3 +666,33 @@ html.lenis,html.lenis body{height:auto}
 .press-row:hover .press-go{background:var(--accent);border-color:var(--accent);transform:rotate(-8deg)}
 .press-row:hover .press-title{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:6px}
 @media(max-width:899px){.press-row{grid-template-columns:1fr auto}.press-src{grid-column:1/-1}.press-go{width:40px;height:40px}}
+
+/* ---- about fact sheet, comparison table, plain press list ---- */
+.fact-sheet{margin:0 0 48px;border:1px solid var(--line-bright);padding:28px 28px 8px;background:var(--bg-soft,rgba(255,255,255,.02))}
+.fact-sheet h2{margin-top:0}
+.fact-sheet dl{margin:0}
+.fact-sheet dl>div{display:grid;grid-template-columns:minmax(120px,28%) 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.fact-sheet dt{color:var(--muted);font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.fact-sheet dd{margin:0;color:var(--cream)}
+.table-scroll{overflow-x:auto;margin:28px 0 40px;border:1px solid var(--line-bright)}
+.table-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+table.cmp{width:100%;min-width:720px;border-collapse:collapse;font-size:.93rem}
+table.cmp th,table.cmp td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+table.cmp thead th{font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:rgba(245,242,234,.03)}
+table.cmp tbody th{color:var(--cream);font-weight:600;white-space:nowrap}
+table.cmp tbody tr:first-child th,table.cmp tbody tr:first-child td{background:rgba(210,59,59,.08)}
+.press-plain{list-style:none;padding:0;margin:0 0 16px}
+.press-plain li{padding:12px 0;border-top:1px solid var(--line)}
+.press-plain a{color:var(--cream);text-decoration:none}
+.press-plain a:hover{text-decoration:underline}
+.press-plain b{color:var(--accent-bright);font-weight:600}
+@media (max-width:700px){.fact-sheet{padding:20px 18px 4px}.fact-sheet dl>div{grid-template-columns:1fr;gap:4px}}
+@media (max-width:700px){
+  .table-scroll{overflow:visible;border:0}
+  table.cmp{min-width:0}
+  table.cmp thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.cmp tr{display:block;border:1px solid var(--line-bright);margin-bottom:14px;padding:4px 0}
+  table.cmp tbody th{display:block;white-space:normal;border-bottom:1px solid var(--line);font-size:1.05rem}
+  table.cmp td{display:grid;grid-template-columns:44% 1fr;gap:12px;border-bottom:0;padding:7px 14px}
+  table.cmp td::before{content:attr(data-label);color:var(--muted);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drone detection technologies compared: RF, radar, cameras, acoustics | SkyKraken</title>
+<meta name="description" content="How radio-frequency detection, radar, cameras, acoustic sensors and Remote ID receivers compare for detecting, identifying and locating drones, what each one misses, and how to combine them for a site.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://skykraken.fr/articles/drone-detection-technologies-compared">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/articles/drone-detection-technologies-compared">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/articles/comparatif-technologies-detection-drones">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/articles/drone-detection-technologies-compared">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="SkyKraken">
+<meta property="og:title" content="Drone detection technologies compared: RF, radar, cameras, acoustics">
+<meta property="og:description" content="How radio-frequency detection, radar, cameras, acoustic sensors and Remote ID receivers compare for detecting, identifying and locating drones, what each one misses, and how to combine them for a site.">
+<meta property="og:url" content="https://skykraken.fr/articles/drone-detection-technologies-compared">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Drone detection technologies compared: RF, radar, cameras, acoustics">
+<meta name="twitter:description" content="How radio-frequency detection, radar, cameras, acoustic sensors and Remote ID receivers compare for detecting, identifying and locating drones, what each one misses, and how to combine them for a site.">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css?v=882a0bfe">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Drone detection technologies compared: RF, radar, cameras and acoustics",
+ "description": "How radio-frequency detection, radar, cameras, acoustic sensors and Remote ID receivers compare for detecting, identifying and locating drones, what each one misses, and how to combine them for a site.",
+ "image": "https://skykraken.fr/assets/og-image.jpg",
+ "datePublished": "2026-11-01",
+ "dateModified": "2026-11-01",
+ "inLanguage": "en",
+ "author": {
+  "@id": "https://skykraken.fr/#organization"
+ },
+ "publisher": {
+  "@id": "https://skykraken.fr/#organization"
+ },
+ "mainEntityOfPage": "https://skykraken.fr/articles/drone-detection-technologies-compared",
+ "about": [
+  "drone detection",
+  "counter-UAS",
+  "radio-frequency detection",
+  "radar",
+  "Remote ID"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://skykraken.fr/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Resources",
+   "item": "https://skykraken.fr/resources"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Drone detection technologies compared: RF, radar, cameras and acoustics",
+   "item": "https://skykraken.fr/articles/drone-detection-technologies-compared"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is the best technology to detect drones?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No single sensor covers everything. Radio-frequency detection is the only technology that identifies the drone and locates its pilot, passively and without line of sight; radar detects drones that emit no radio but does not identify them; cameras give visual confirmation within line of sight. Sensitive sites usually combine RF with radar or cameras."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can RF detection find the drone pilot?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, for drones whose protocol carries the pilot position, such as DJI drones, and for drones broadcasting European Remote ID, which includes the pilot or take-off position. Analog FPV drones carry no identity, so an RF detector can only warn of their presence and show their video."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can a drone avoid RF detection?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A drone flying a pre-programmed route with its radio link switched off emits nothing for an RF sensor to hear. Covering that threat requires radar, cameras or acoustic sensors in addition to RF."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does passive RF detection need a frequency licence?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. A passive RF detector only receives and emits nothing, so unlike a radar it needs no frequency authorisation. Jamming or taking control of a drone is a different matter: in France it is reserved to authorised state services."
+   }
+  }
+ ]
+}
+</script>
+<script>document.documentElement.classList.add('js-motion')</script>
+</head>
+<body>
+
+<!-- sk:header -->
+<header class="site">
+  <a href="/" class="brand" aria-label="SkyKraken"><img src="/assets/skykraken-mark.webp" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Main">
+    <a href="/mobile">Mobile</a>
+    <a href="/horizon">Horizon</a>
+    <a href="/sk-1">SK-1</a>
+    <a href="/eyes">Eyes</a>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="/evidence">Evidence</a>
+    <a href="/resources">Resources</a>
+    <a href="/contact">Contact</a>
+    <span class="lang" role="group" aria-label="Language"><a href="/articles/drone-detection-technologies-compared" hreflang="en" lang="en" class="active" aria-current="true">EN</a><a href="/fr/articles/comparatif-technologies-detection-drones" hreflang="fr" lang="fr">FR</a></span>
+    <a href="/contact" class="cta-nav">Request a demo</a>
+  </nav>
+  <button class="burger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<!-- /sk:header -->
+<main>
+<article>
+<section class="article-hero">
+  <div class="wrap">
+    <div class="article-meta"><span class="tag">Guide</span><span>·</span><span>Updated November 2026</span><span>·</span><span>9 min read</span></div>
+    <h1>Drone detection technologies compared: RF, radar, cameras and acoustics</h1>
+    <p class="lead">Every counter-drone project starts with the same question: which sensor? The honest answer is that each technology answers a different question, and each one has a blind spot.</p>
+  </div>
+</section>
+<div class="wrap">
+<div class="article-body">
+  <div class="article-tldr">
+    <span class="k">In short</span>
+    <p><strong>Radio-frequency (RF) detection</strong> is the only technology that identifies the drone <em>and</em> locates its pilot, passively and without line of sight, but it cannot see a drone that flies without any radio link. <strong>Radar</strong> sees silent drones but does not identify them. <strong>Cameras</strong> confirm visually but need line of sight. <strong>Acoustic</strong> sensors work at short range. A robust site combines RF with at least one of the others.</p>
+  </div>
+  <h2>Three questions, not one</h2>
+  <p>“Detecting a drone” hides three distinct questions. <strong>Is there a drone?</strong> (detection). <strong>Which drone is it, and is it authorised?</strong> (identification). <strong>Where is the person flying it?</strong> (location of the pilot). A sensor that only answers the first question raises an alarm; a sensor that answers all three lets a team act.</p><p>The table below summarises what each family of sensors brings. The sections that follow explain the trade-offs.</p>
+<div class="table-scroll" role="region" aria-label="Technology" tabindex="0"><table class="cmp"><thead><tr><th scope="col">Technology</th><th scope="col">Detects</th><th scope="col">Identifies the drone</th><th scope="col">Locates the pilot</th><th scope="col">Line of sight</th><th scope="col">Emits</th></tr></thead><tbody>
+<tr><th scope="row">RF detection</th><td data-label="Detects">Drones with a radio link</td><td data-label="Identifies the drone">Yes (decoded protocols, Remote ID)</td><td data-label="Locates the pilot">Yes (DJI, Remote ID)</td><td data-label="Line of sight">Not needed</td><td data-label="Emits">No</td></tr>
+<tr><th scope="row">Radar</th><td data-label="Detects">Any flying object</td><td data-label="Identifies the drone">No</td><td data-label="Locates the pilot">No</td><td data-label="Line of sight">Needed</td><td data-label="Emits">Yes</td></tr>
+<tr><th scope="row">Cameras</th><td data-label="Detects">Objects in view</td><td data-label="Identifies the drone">Visual class only</td><td data-label="Locates the pilot">No</td><td data-label="Line of sight">Needed</td><td data-label="Emits">No</td></tr>
+<tr><th scope="row">Acoustic</th><td data-label="Detects">Rotor noise, short range</td><td data-label="Identifies the drone">Class only</td><td data-label="Locates the pilot">No</td><td data-label="Line of sight">Not strictly</td><td data-label="Emits">No</td></tr>
+<tr><th scope="row">Remote ID receiver</th><td data-label="Detects">Compliant drones only</td><td data-label="Identifies the drone">Yes (broadcast ID)</td><td data-label="Locates the pilot">Yes (broadcast)</td><td data-label="Line of sight">Not needed</td><td data-label="Emits">No</td></tr>
+</tbody></table></div>
+  <h2>Radio-frequency (RF) detection</h2>
+  <p>Almost every drone in service talks to its remote control by radio: commands go up, video and telemetry come down. RF detection listens to that link. Matching what it hears against a library of signatures, it recognises the protocol, and for some manufacturers (DJI in particular) it decodes the identity: model, serial number, drone position, <strong>pilot position</strong> and take-off point. It also receives the <strong>Remote ID</strong> broadcast required in Europe since 1 January 2024.</p><ul><li><strong>Strengths:</strong> passive (emits nothing, needs no licence, cannot be detected by the drone), works without line of sight in dense urban terrain, identifies the drone, and is the only family of sensors that reveals where the operator stands.</li><li><strong>Limits:</strong> a drone flying a pre-programmed route with its radio link switched off emits nothing to hear; unknown or custom protocols are detected as energy in a band rather than identified; analog FPV drones carry no identity at all, only a video carrier.</li></ul>
+  <h2>Radar</h2>
+  <p>A radar emits and listens for echoes, so it sees any object in the air, including a drone with its radio silent. Modern counter-drone radars track many targets at once over several kilometres.</p><ul><li><strong>Strengths:</strong> detects non-emitting drones, gives precise range and speed, works day and night.</li><li><strong>Limits:</strong> it does not tell you which drone it is or who is flying it; birds and clutter cause false alarms that must be filtered; it needs line of sight and suffers in dense urban areas; it is an emitter, subject to frequency authorisation.</li></ul>
+  <h2>Cameras (visible and thermal)</h2>
+  <p>Cameras, often PTZ cameras steered by another sensor, give the visual confirmation that operators and investigators expect, and modern video analytics can classify a drone in the image.</p><ul><li><strong>Strengths:</strong> visual proof, classification (drone, bird, aircraft), payload observation, and many sites already own the cameras.</li><li><strong>Limits:</strong> line of sight only; a small drone occupies a few pixels beyond a few hundred metres; fog, rain, glare and night reduce performance (thermal helps at night); no pilot location.</li></ul>
+  <h2>Acoustic sensors</h2>
+  <p>Microphone arrays recognise the sound signature of rotors.</p><ul><li><strong>Strengths:</strong> passive and inexpensive, can hear a drone that emits no radio.</li><li><strong>Limits:</strong> short range, typically a few hundred metres, and degraded in noisy environments such as stadiums, cities and industrial sites.</li></ul>
+  <h2>Remote ID receivers</h2>
+  <p>A Remote ID receiver reads the identity a compliant drone broadcasts over Wi-Fi or Bluetooth: identifier, position, altitude, and the position of the pilot or take-off point.</p><ul><li><strong>Strengths:</strong> rich, standardised data, cheap receivers.</li><li><strong>Limits:</strong> cooperative only. A non-compliant drone, a drone under 250 g or a drone with Remote ID disabled shows nothing. It is a layer, not a system.</li></ul>
+  <h2>How to choose for a site</h2>
+  <p>Start from the threat and the terrain, not from the sensor:</p><ul><li><strong>Events and temporary sites</strong> (concerts, sport, official visits): a portable, passive RF system set up in minutes covers the large majority of consumer drones and points teams to the pilot. Handheld FPV detectors protect agents close to the public.</li><li><strong>Permanent sensitive sites</strong> (prisons, energy, industry, airports): a fixed RF station on a mast, fused with radar where the threat includes radio-silent drones, and with cameras for visual confirmation.</li><li><strong>Sites that already own cameras:</strong> video analytics turn the existing camera network into an additional detection layer.</li></ul><p>Whatever the mix, ask for a trial on your own site: range and detection performance depend on terrain, buildings and the radio environment, and figures measured elsewhere do not transfer.</p>
+  <h2>Where SkyKraken fits</h2>
+  <p>SkyKraken is a French company specialised in passive RF detection. <a href="/mobile">SkyKraken Mobile</a> is a portable case for temporary sites; <a href="/horizon">SkyKraken Horizon</a> is a fixed station that feeds C2, VMS, PTZ cameras and radar through an open API; <a href="/sk-1">SkyKraken SK-1</a> is a handheld detector for analog FPV drones on 1.2, 3.3, 5.8 and 6.5 GHz; and <a href="/eyes">SkyKraken Eyes</a>, in development as a pilot programme, adds drone detection to existing cameras in Genetec Security Center and Milestone XProtect. Every detection can be exported as a sealed evidence dossier.</p>
+  <div class="article-author">
+    <span class="av">SK</span>
+    <div>Written by the <strong>SkyKraken</strong> team, passive RF drone detection designed in Mérignac, France.</div>
+  </div>
+  <div class="article-faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>What is the best technology to detect drones?</summary><p>No single sensor covers everything. Radio-frequency detection is the only technology that identifies the drone and locates its pilot, passively and without line of sight; radar detects drones that emit no radio but does not identify them; cameras give visual confirmation within line of sight. Sensitive sites usually combine RF with radar or cameras.</p></details>
+    <details><summary>Can RF detection find the drone pilot?</summary><p>Yes, for drones whose protocol carries the pilot position, such as DJI drones, and for drones broadcasting European Remote ID, which includes the pilot or take-off position. Analog FPV drones carry no identity, so an RF detector can only warn of their presence and show their video.</p></details>
+    <details><summary>Can a drone avoid RF detection?</summary><p>A drone flying a pre-programmed route with its radio link switched off emits nothing for an RF sensor to hear. Covering that threat requires radar, cameras or acoustic sensors in addition to RF.</p></details>
+    <details><summary>Does passive RF detection need a frequency licence?</summary><p>No. A passive RF detector only receives and emits nothing, so unlike a radar it needs no frequency authorisation. Jamming or taking control of a drone is a different matter: in France it is reserved to authorised state services.</p></details>
+  </div>
+</div>
+</div>
+<section class="article-cta">
+  <div class="wrap">
+    <h2>Test RF detection on your own site.</h2>
+    <p>SkyKraken runs trials on site: range and performance are measured where you will use them.</p>
+    <a href="/contact" class="btn btn-primary">Request a demonstration →</a>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-label reveal">Read also</div>
+    <div class="feat-grid two">
+      <a class="related-card reveal" href="/articles/how-skykraken-works"><span class="tag">Explainer</span><h3>How SkyKraken works: three layers of detection</h3></a>
+      <a class="related-card reveal" href="/articles/remote-id-explained"><span class="tag">Explainer</span><h3>Remote ID explained: what drones actually broadcast</h3></a>
+    </div>
+  </div>
+</section>
+</article>
+</main>
+<!-- sk:footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col foot-brand">
+        <a href="/" class="brand"><img src="/assets/skykraken-mark.webp" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Passive radio-frequency drone detection. See the drone, identify the pilot, prove the incursion. Every enquiry is handled with discretion.</p>
+        <address class="foot-addr">Cockpit Bordeaux Technowest<br>58 avenue Marcel Dassault, 33700 Mérignac</address>
+        <p class="foot-incub">Incubated at <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a> exhibitor, stand C0306</p>
+        <a class="foot-social" href="https://www.linkedin.com/company/skykraken" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span>Follow SkyKraken on LinkedIn</span></a>
+      </div>
+      <div class="foot-col"><h5>Products</h5>
+        <a href="/mobile">Mobile · portable case</a>
+        <a href="/horizon">Horizon · fixed station</a>
+        <a href="/sk-1">SK-1 · FPV detector</a>
+        <a href="/eyes">Eyes · camera software</a>
+      </div>
+      <div class="foot-col"><h5>Company</h5>
+        <a href="/about">About SkyKraken</a>
+        <a href="/use-cases">Use cases</a>
+        <a href="/evidence">Evidence</a>
+        <a href="/resources">Resources</a>
+        <a href="/ui-demo">Tactical demo</a>
+      </div>
+      <div class="foot-col"><h5>Contact</h5>
+        <a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a>
+        <a href="/contact">Request a demonstration</a>
+        <a href="/legal">Legal notice</a>
+      </div>
+    </div>
+    <div class="foot-mark" aria-hidden="true"><canvas></canvas><span>SkyKraken</span></div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. All rights reserved. Designed in Mérignac, France.</span>
+      <span class="lang" role="group" aria-label="Language"><a href="/articles/drone-detection-technologies-compared" hreflang="en" lang="en" class="active">EN</a><a href="/fr/articles/comparatif-technologies-detection-drones" hreflang="fr" lang="fr">FR</a></span>
+    </div>
+  </div>
+</footer>
+<!-- /sk:footer -->
+<script src="/assets/app.js?v=20e6aafb" defer></script>
+</body>
+</html>

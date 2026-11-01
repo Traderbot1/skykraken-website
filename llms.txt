@@ -1,0 +1,39 @@
+# SkyKraken
+
+> SkyKraken is a French company (Mérignac, near Bordeaux) that designs passive radio-frequency (RF) drone detection. Its systems detect a drone, identify it (make, model and serial number for DJI drones; identifier for drones broadcasting European Remote ID), locate the drone, its pilot and the take-off point, and record each flight as a PDF evidence dossier sealed with a SHA-256 fingerprint. Detection is entirely passive (no emission, no frequency licence, no line of sight needed) and runs locally without internet. SkyKraken does not jam or take down drones.
+
+Key facts:
+- Headquarters: Cockpit Bordeaux Technowest, 58 avenue Marcel Dassault, 33700 Mérignac, France. Incubated at Bordeaux Technowest. Exhibitor at the UAV Show (Bordeaux), stand C0306, defence sector.
+- Founder: Hosni Ben Hassen.
+- Customers: event organisers and temporary sites; sensitive sites (prisons, energy, industry, airports); law enforcement.
+- Contact: contact@skykraken.fr · https://skykraken.fr/contact · https://www.linkedin.com/company/skykraken
+- Prices are given on request; trials are run on the customer's site.
+
+## Products
+
+- [SkyKraken Mobile](https://skykraken.fr/mobile): portable drone detection case, set up in seconds, 100 % local. Identifies DJI drones (model, serial number, drone, pilot and take-off positions) and European Remote ID over Wi-Fi and Bluetooth; voice alerts; PDF evidence dossier. Available for sale or rental.
+- [SkyKraken Horizon](https://skykraken.fr/horizon): fixed station on a mast for permanent sites, 24/7, up to 10 km in direct line of sight over open terrain (measured on site during the trial). Single network cable. Open API (REST, WebSocket, webhooks, MQTT) and connectors for C2, Milestone, Genetec, ONVIF PTZ cameras and radar. First series, built to order.
+- [SkyKraken SK-1](https://skykraken.fr/sk-1): handheld detector for analog FPV drones on 1.2, 3.3, 5.8 and 6.5 GHz (4 channels), 7-inch screen showing the drone's video, about 1 kg, USB-C, 100 % passive. Pre-order, delivery in 10 to 12 weeks.
+- [SkyKraken Eyes](https://skykraken.fr/eyes): software that turns existing security cameras into drone detectors inside Genetec Security Center and Milestone XProtect, with the Trace evidence layer. In development, pilot programme.
+
+## Company and guides
+
+- [About SkyKraken](https://skykraken.fr/about): company fact sheet, product range, press coverage.
+- [Drone detection technologies compared](https://skykraken.fr/articles/drone-detection-technologies-compared): RF, radar, cameras, acoustics and Remote ID receivers, what each one misses.
+- [How SkyKraken works](https://skykraken.fr/articles/how-skykraken-works)
+- [Why locating the drone pilot changes everything](https://skykraken.fr/articles/why-locating-the-pilot-changes-everything)
+- [Remote ID explained](https://skykraken.fr/articles/remote-id-explained)
+- [Building admissible drone evidence](https://skykraken.fr/articles/building-admissible-drone-evidence)
+- [Drones over prisons](https://skykraken.fr/articles/drones-over-prisons)
+- [Evidence dossier](https://skykraken.fr/evidence) · [Use cases](https://skykraken.fr/use-cases)
+
+## Français
+
+- [Accueil](https://skykraken.fr/fr) · [À propos](https://skykraken.fr/fr/a-propos) · [Mobile](https://skykraken.fr/fr/mobile) · [Horizon](https://skykraken.fr/fr/horizon) · [SK-1](https://skykraken.fr/fr/sk-1) · [Eyes](https://skykraken.fr/fr/eyes)
+- [Détection de drones : RF, radar, caméras, acoustique comparés](https://skykraken.fr/fr/articles/comparatif-technologies-detection-drones)
+
+## Optional
+
+- [Press: Sud Ouest](https://www.sudouest.fr/gironde/salon-des-drones-de-bordeaux-on-detecte-les-drones-malveillants-qui-essaient-de-se-cacher-30981774.php)
+- [Press: Placéco](https://www.placeco.fr/gironde/innovation/article/drones-malveillants-skykraken-propose-un-radar-embarque-dans-une-valise-11004)
+- [UAV Show: Hosni Ben Hassen, SkyKraken](https://www.uavshow.com/news/hosni-ben-hassen-skykraken)
