@@ -6,7 +6,7 @@ Pages carry <!-- sk:header --> ... <!-- /sk:header --> and
 <!-- sk:footer --> ... <!-- /sk:footer --> markers; legacy <header class="site">
 and <footer class="site"> blocks are converted to markers on first run.
 """
-import pathlib, re
+import hashlib, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -121,6 +121,17 @@ def footer(url: str, lang: str) -> str:
 <!-- /sk:footer -->'''
 
 
+ASSETS = ['assets/style.css', 'assets/app.js', 'assets/terrain.js', 'assets/vendor/gsap.min.js', 'assets/vendor/ScrollTrigger.min.js']
+VERSIONS = {a: hashlib.md5((ROOT / a).read_bytes()).hexdigest()[:8] for a in ASSETS}
+
+
+def version_assets(s: str) -> str:
+    """Append ?v=<content hash> so browsers never keep a stale copy after a deploy."""
+    for a, v in VERSIONS.items():
+        s = re.sub(r'(["\'])/' + re.escape(a) + r'(\?v=[0-9a-f]+)?\1', lambda m: f'{m.group(1)}/{a}?v={v}{m.group(1)}', s)
+    return s
+
+
 def process(path: pathlib.Path):
     s = path.read_text(encoding='utf-8')
     if '<html' not in s:
@@ -142,6 +153,7 @@ def process(path: pathlib.Path):
     s = re.sub(r'<link[^>]+fonts\.googleapis\.com[^>]*>\s*', '', s)
     # absolute asset paths so nested pages resolve the same files
     s = re.sub(r'(href|src|poster)="(\.\./)*assets/', r'\1="/assets/', s)
+    s = version_assets(s)
     path.write_text(s, encoding='utf-8')
     return True
 

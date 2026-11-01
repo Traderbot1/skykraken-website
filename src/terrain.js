@@ -376,9 +376,8 @@ export function mountTerrain(host, opts = {}) {
     mode = m;
     wantPos.set(...MODES[m].cam); wantTgt.set(...MODES[m].target);
     if (MODES[m].story !== prevStory) { storyT0 = clock; trailPts.length = 0; }
-    if (reduce) { camPos.copy(wantPos); camTgt.copy(wantTgt); renderOnce(); }
   }
-  function setShift(s) { viewShiftWant = s; if (reduce) { viewShift = s; resize(); renderOnce(); } }
+  function setShift(s) { viewShiftWant = s; if (reduce) { viewShift = s; resize(); } }
 
   /* sizing */
   let W = 1, H = 1;
@@ -430,8 +429,8 @@ export function mountTerrain(host, opts = {}) {
 
     // camera easing + pointer lean
     const k = 1 - Math.pow(0.0025, dt);
-    camPos.lerp(wantPos, k * 0.9); camTgt.lerp(wantTgt, k * 0.9);
-    pointerS.lerp(pointer, 1 - Math.pow(0.02, dt));
+    if (reduce) { camPos.copy(wantPos); camTgt.copy(wantTgt); } else { camPos.lerp(wantPos, k * 0.9); camTgt.lerp(wantTgt, k * 0.9); }
+    if (!reduce) pointerS.lerp(pointer, 1 - Math.pow(0.02, dt));
     camera.position.set(camPos.x + pointerS.x * 0.9, camPos.y - pointerS.y * 0.5, camPos.z);
     camera.lookAt(camTgt);
     if (Math.abs(viewShift - viewShiftWant) > 0.0005) { viewShift += (viewShiftWant - viewShift) * k; resize(); }
@@ -536,26 +535,22 @@ export function mountTerrain(host, opts = {}) {
     frame(dt);
     requestAnimationFrame(loop);
   }
-  function start() { if (running || reduce || userPaused) return; running = true; last = performance.now(); requestAnimationFrame(loop); }
+  function start() { if (running || userPaused) return; running = true; last = performance.now(); requestAnimationFrame(loop); }
   function stop() { running = false; }
 
   const io = new IntersectionObserver((es) => { visible = es[0].isIntersecting; visible && !document.hidden ? start() : stop(); }, { threshold: 0 });
   io.observe(host);
   document.addEventListener('visibilitychange', () => { (!document.hidden && visible) ? start() : stop(); });
 
-  if (!reduce) {
+  {
     paintPause(); host.appendChild(pauseBtn);
     pauseBtn.addEventListener('click', () => { userPaused = !userPaused; paintPause(); userPaused ? stop() : (visible && start()); });
   }
-  if (reduce) {
-    // a single, composed still: drone identified inside the zone, pilot located
-    viewShift = viewShiftWant; resize();
-    storyT0 = -8.6; clock = 0; frame(0); frame(0);
-  } else {
-    // start on a frame where the story is already readable
-    storyT0 = -1.0;
-    start();
-  }
+  // reduced motion: the scene still lives (waves, drone), but the camera never flies
+  // and the pointer does not move it; the pause button stops everything
+  if (reduce) { viewShift = viewShiftWant; resize(); }
+  storyT0 = -1.0;
+  start();
   host.classList.add('is-live');
   return { setMode, setShift, get mode() { return mode; } };
 }
