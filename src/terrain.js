@@ -82,6 +82,7 @@ const T = FR ? {
   signal: 'Signal radio · 2,4 GHz', sim: 'Simulation · données illustratives',
   pilot: 'Pilote', takeoff: 'Décollage', threat: 'Menace', lvl: ['faible', 'moyen', 'élevé', 'critique'],
   zone: 'Zone protégée', horizon: 'Horizon · station fixe', mobile: 'Mobile · valise', sk1: 'SK-1 · agent',
+  unknown: 'drone non identifié · analyse…',
   pause: 'Pause', play: 'Lecture', pauseLabel: 'Mettre en pause l’animation de la carte',
   cam: 'Caméra', confirmed: 'drone confirmé', fpv: 'FPV · 5 865 MHz · −62 dBm', noid: 'sans identifiant',
   range: 'portée jusqu’à 10 km',
@@ -89,6 +90,7 @@ const T = FR ? {
   signal: 'Radio signal · 2.4 GHz', sim: 'Simulation · illustrative data',
   pilot: 'Pilot', takeoff: 'Take-off', threat: 'Threat', lvl: ['low', 'medium', 'high', 'critical'],
   zone: 'Protected zone', horizon: 'Horizon · fixed station', mobile: 'Mobile · case', sk1: 'SK-1 · agent',
+  unknown: 'unidentified drone · analysing…',
   pause: 'Pause', play: 'Play', pauseLabel: 'Pause the map animation',
   cam: 'Camera', confirmed: 'drone confirmed', fpv: 'FPV · 5,865 MHz · −62 dBm', noid: 'no identifier',
   range: 'range up to 10 km',
@@ -109,6 +111,10 @@ const MODES = {
   horizon: { cam: [2.6, 12.5, 16.0], target: [-0.6, 0, -1.6], origin: 'horizon', range: 10, cones: 0, story: 'id', zone: 1 },
   sk1:     { cam: [4.2, 2.8, 7.8], target: [1.0, 0, 1.9], origin: 'sk1', range: 0, cones: 0, story: 'fpv', zone: 0 },
   eyes:    { cam: [4.4, 4.0, 4.6], target: [1.0, 0, -0.9], origin: 'horizon', range: 0, cones: 1, story: 'id', zone: 1 },
+  // the three questions, told one at a time
+  detect:   { cam: [3.6, 3.4, 5.6], target: [1.2, 0, -0.3], origin: 'horizon', range: 0, cones: 0, story: 'id', zone: 1, id: 0, pilot: 0 },
+  identify: { cam: [3.0, 2.2, 3.6], target: [1.4, 0, -0.3], origin: 'horizon', range: 0, cones: 0, story: 'id', zone: 1, id: 1, pilot: 0 },
+  locate:   { cam: [6.2, 4.6, 7.6], target: [2.3, 0, 0.2], origin: 'horizon', range: 0, cones: 0, story: 'id', zone: 1, id: 1, pilot: 1 },
 };
 
 /* ------------------------------------------------------------------ */
@@ -387,6 +393,8 @@ export function mountTerrain(host, opts = {}) {
     renderer.setSize(W, H, false);
     canvas.style.width = '100%'; canvas.style.height = '100%';
     camera.aspect = W / H;
+    // portrait screens: widen the lens so the whole story stays in frame
+    camera.fov = W < H ? Math.min(64, 38 * Math.sqrt(H / W)) : 38;
     // shift the optical centre so the action sits beside the copy
     if (Math.abs(viewShift) > 0.001) camera.setViewOffset(W, H, -viewShift * W, 0, W, H);
     else camera.clearViewOffset();
@@ -404,7 +412,11 @@ export function mountTerrain(host, opts = {}) {
     if (!show) { el.style.opacity = '0'; return; }
     tmp.copy(v3).project(camera);
     if (tmp.z > 1 || tmp.x < -1.2 || tmp.x > 1.2 || tmp.y < -1.2 || tmp.y > 1.2) { el.style.opacity = '0'; return; }
-    const x = (tmp.x * 0.5 + 0.5) * W, y = (-tmp.y * 0.5 + 0.5) * H;
+    let x = (tmp.x * 0.5 + 0.5) * W; const y = (-tmp.y * 0.5 + 0.5) * H;
+    // flip to the left of the anchor when the label would leave the screen
+    const w = el.offsetWidth, flip = x + w > W - 8 && x - w > 8;
+    el.classList.toggle('flip', flip);
+    if (flip) x -= w;
     el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
     el.style.opacity = '1';
   }
@@ -468,7 +480,7 @@ export function mountTerrain(host, opts = {}) {
     // identification & threat
     const detected = tc > 1.4;
     const idK = fpv ? 1 : MathUtils.clamp((tc - 2.2) / 0.9, 0, 1);
-    const located = !fpv && tc > 3.6;
+    const located = !fpv && tc > 3.6 && M.pilot !== 0;
     const inZone = !fpv && dP.set(dp.x - SITE.x, 0, dp.z - SITE.y).length() < ZONE_R;
     uni.uZoneHot.value += ((inZone ? 1 : 0) - uni.uZoneHot.value) * k;
     const altM = Math.max(0, (dp.y - g) * 280);
@@ -476,7 +488,7 @@ export function mountTerrain(host, opts = {}) {
     if (inZone) { score = 78 + Math.round(Math.sin(clock) * 2); lvl = 2; }
     if (inZone && altM < 70) { score = 88; lvl = 3; }
 
-    pilot.visible = located; link.visible = located && alive; takeoff.visible = !fpv;
+    pilot.visible = located; link.visible = located && alive; takeoff.visible = !fpv && M.pilot !== 0;
     if (located) {
       const s = (clock * 0.7) % 1;
       pilotRing2.scale.setScalar(1 + s * 2.2); pilotRing2.material.opacity = 1 - s;
@@ -494,8 +506,12 @@ export function mountTerrain(host, opts = {}) {
     } else if (!detected) {
       L.drone.innerHTML = '';
     } else {
-      const head = idK < 1 && tc < 2.2 ? T.signal : `DJI Mavic 3 · SN ${scramble(SERIAL, idK)}`;
-      L.drone.innerHTML = `<b>${head}</b><span>ALT ${Math.round(altM)} m · ${T.threat} ${score} · <em class="lvl-${lvl}">${T.lvl[lvl]}</em></span>`;
+      if (M.id === 0) {
+        L.drone.innerHTML = `<b>${T.signal}</b><span>${T.unknown}</span>`;
+      } else {
+        const head = idK < 1 && tc < 2.2 ? T.signal : `DJI Mavic 3 · SN ${scramble(SERIAL, idK)}`;
+        L.drone.innerHTML = `<b>${head}</b><span>ALT ${Math.round(altM)} m · ${T.threat} ${score} · <em class="lvl-${lvl}">${T.lvl[lvl]}</em></span>`;
+      }
     }
     place(L.drone, dP.copy(dp).add(new Vector3(0, 0.12, 0)), alive && (detected || fpv));
     if (located) {
@@ -504,7 +520,7 @@ export function mountTerrain(host, opts = {}) {
     }
     place(L.pilot, pilot.position, located && alive);
     L.takeoff.textContent = T.takeoff;
-    place(L.takeoff, takeoff.position, !fpv && tc > 4.2 && alive);
+    place(L.takeoff, takeoff.position, !fpv && M.pilot !== 0 && tc > 4.2 && alive);
     const sensor = sensors[M.origin];
     L.sensor.innerHTML = `<b>${T[M.origin]}</b>${M.range ? `<span>${T.range}</span>` : ''}`;
     place(L.sensor, dP.copy(sensor.g.position).add(sensor.anchor), M.cones < 0.5);
