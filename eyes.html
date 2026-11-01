@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyKraken Eyes — Drone detection on your existing cameras (Genetec, Milestone)</title>
+<meta name="description" content="SkyKraken Eyes turns the cameras you already own into drone detectors, inside Genetec Security Center and Milestone XProtect, with the Trace evidence layer. On-premise, no new hardware. Pilot programme open.">
+<link rel="canonical" href="https://skykraken.fr/eyes">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/eyes">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/eyes">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/eyes">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SkyKraken Eyes — your cameras, now drone detectors">
+<meta property="og:description" content="AI drone detection for the cameras already on your site, inside Genetec and Milestone. Pilot programme open.">
+<meta property="og:url" content="https://skykraken.fr/eyes">
+<meta property="og:image" content="https://skykraken.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0E1A">
+<link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="/assets/skykraken-icon.png" type="image/png">
+<script>document.documentElement.classList.add('js-motion')</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SkyKraken Eyes","applicationCategory":"SecurityApplication","operatingSystem":"On-premise server","url":"https://skykraken.fr/eyes","publisher":{"@type":"Organization","name":"SkyKraken"},
+"description":"Drone detection on existing security cameras, delivered inside Genetec Security Center and Milestone XProtect, with the Trace evidence layer. Reads RTSP video from the VMS or ONVIF cameras; sends alarms to the VMS, webhook and MQTT. Runs on the customer's servers. In development, pilot programme."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://skykraken.fr/"},{"@type":"ListItem","position":2,"name":"Eyes","item":"https://skykraken.fr/eyes"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- sk:header -->
+<header class="site">
+  <a href="/" class="brand" aria-label="SkyKraken"><img src="/assets/skykraken-logo.png" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Main">
+    <a href="/mobile">Mobile</a>
+    <a href="/horizon">Horizon</a>
+    <a href="/sk-1">SK-1</a>
+    <a href="/eyes">Eyes</a>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="/evidence">Evidence</a>
+    <a href="/resources">Resources</a>
+    <a href="/contact">Contact</a>
+    <span class="lang" role="group" aria-label="Language"><a href="/eyes" hreflang="en" lang="en" class="active" aria-current="true">EN</a><a href="/fr/eyes" hreflang="fr" lang="fr">FR</a></span>
+    <a href="/contact" class="cta-nav">Request a demo</a>
+  </nav>
+  <button class="burger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<!-- /sk:header -->
+
+<main id="main">
+<section class="product-hero">
+  <div class="map-stage" data-terrain="eyes" data-shift="0.2"></div>
+  <div class="wrap" data-intro>
+    <h1 data-intro-line>Eyes</h1>
+    <p class="lede" data-intro-fade>Your site already has cameras. Eyes teaches them to watch the sky: drone detection on your existing fleet, inside Genetec Security Center and Milestone XProtect, with every detection sealed as evidence.</p>
+    <div class="hero-actions" data-intro-fade>
+      <a href="/contact?product=eyes" class="btn btn-primary">Apply for the pilot programme <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <a href="#how" class="btn btn-ghost">How it works</a>
+    </div>
+    <p class="carto status s-pilot" style="margin-top:28px" data-intro-fade>In development · pilot programme</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split wide-fig">
+    <div>
+      <h2 class="reveal">The cameras you own, turned into drone sensors.</h2>
+      <p class="reveal">Thousands of sites already run cameras on Genetec or Milestone. Eyes adds drone detection to them, in software: nothing new on your masts, nothing to finance on our side. The operator receives the alarm in the VMS they already use, with a timestamped clip.</p>
+      <p class="reveal">Paired with a SkyKraken radio sensor, false alarms fall: the radio detects from afar, the camera confirms and films.</p>
+    </div>
+    <figure class="feed reveal">
+      <div class="feed-frame">
+      <img src="/assets/products/eyes-feed.webp" alt="Night camera view of a drone above a lit stadium, framed by a detection box labelled drone" width="1240" height="698" loading="lazy">
+      <svg class="feed-box" viewBox="0 0 1240 698" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke="#EC5B5B" stroke-width="3">
+          <path d="M175 395h60M175 395v50M1030 395h-60M1030 395v50M175 698v-50M1030 698v-50"/>
+        </g>
+      </svg>
+      <span class="feed-tag mono">CAM 03 · PTZ · drone 0.94 · RF match hz-0427</span>
+      <span class="feed-rec mono">21:14:09 UTC</span>
+      </div>
+      <figcaption class="carto">PTZ camera pointed by the radio detection, confirmed by Eyes · Simulation</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">Three sources, one core, every VMS.</h2>
+      <p class="reveal reveal-d1">Video always comes in as RTSP, wherever it comes from. Detection never changes, and each output to a VMS is a small independent adapter: adding a new VMS touches neither the core nor the other integrations.</p>
+    </div>
+    <div class="arch reveal">
+      <div class="arch-col">
+        <p class="carto">Video in</p>
+        <div class="arch-node"><h3>ONVIF cameras</h3><p>Discovery, then RTSP stream; PTZ control.</p></div>
+        <div class="arch-node"><h3>Milestone XProtect</h3><p>AI Bridge or Open Network Bridge.</p></div>
+        <div class="arch-node"><h3>Genetec Security Center</h3><p>Media Gateway role.</p></div>
+      </div>
+      <div class="arch-core">
+        <p class="carto">On your server</p>
+        <h3>Eyes core</h3>
+        <p>Reads RTSP, detects, classifies and tracks drones. Small targets handled by tiling the image; multi-object tracking over time.</p>
+        <p class="arch-trace"><strong>Trace</strong> seals each detection: clips, trajectory, map, radio detections, timestamp and fingerprint.</p>
+      </div>
+      <div class="arch-col">
+        <p class="carto">Alerts out</p>
+        <div class="arch-node"><h3>Milestone</h3><p>Analytics events, REST Events API.</p></div>
+        <div class="arch-node"><h3>Genetec</h3><p>Alarms and custom events through the Web SDK.</p></div>
+        <div class="arch-node"><h3>Everything else</h3><p>JSON webhook and MQTT for PSIM and supervisors.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">What Eyes and Trace do.</h2>
+      <p class="reveal reveal-d1">Eyes detects the drone and alerts the operator in their usual VMS. Trace turns each detection into a case file. A SkyKraken case or station becomes one more sensor that points the cameras.</p>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row reveal"><h3>Detection</h3><p>Detects, classifies and tracks drones on existing video streams, and raises an alarm in Genetec or Milestone with a timestamped clip.</p><span class="carto verb">Security operators</span></div>
+      <div class="ledger-row reveal"><h3>Search</h3><p>Finds every drone passage in the archives by zone and period: “yard B, this week”.</p><span class="carto verb">Investigators</span></div>
+      <div class="ledger-row reveal"><h3>Trace evidence</h3><p>A timestamped dossier sealed by a digital fingerprint: clips, trajectory, map, radio detections, PDF export for a complaint or a police officer.</p><span class="carto verb">Site management</span></div>
+      <div class="ledger-row reveal"><h3>Fusion with radio</h3><p>A radio detection from the case or from Horizon turns a PTZ camera towards the drone; the AI confirms visually.</p><span class="carto verb">Sites with RF</span></div>
+      <div class="ledger-row reveal"><h3>Dashboard</h3><p>Incursion statistics, high-risk hours and zones, monthly reports.</p><span class="carto verb">Management</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <h2 class="reveal">Honest about range.</h2>
+      <p class="reveal">A camera sees a drone at short to medium range: below roughly ten pixels on the image, no AI can follow. Eyes is designed for compact sites such as prisons and industrial sites, and to confirm the alerts of a SkyKraken radio sensor. It does not replace a radar.</p>
+      <p class="reveal">That is why the pilot measures range per camera model, on your own cameras, before anything else.</p>
+    </div>
+    <ul class="checks reveal">
+      <li><h3>On site, on your servers</h3><p>Video does not leave your network. Updates and licences can be delivered by file for sites cut off from the internet.</p></li>
+      <li><h3>Aircraft, not people</h3><p>Eyes looks for drones in the sky; it does not identify individuals.</p></li>
+      <li><h3>A French product</h3><p>Designed in Mérignac, for buyers who need a sovereign option.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="pilot">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">The pilot programme.</h2>
+      <p class="reveal reveal-d1">We are looking for first sites: prisons, sensitive sites, regional airports, stadiums. One site, three months, five to ten of your existing cameras.</p>
+    </div>
+    <div class="specs reveal">
+      <div><p class="v">1<small>site</small></p><p class="l">Already equipped with Genetec, Milestone or ONVIF cameras</p></div>
+      <div><p class="v">3<small>months</small></p><p class="l">From connection to the final report</p></div>
+      <div><p class="v">5–10<small>cameras</small></p><p class="l">Existing ones; ideally some that see the sky</p></div>
+    </div>
+    <h3 class="reveal" style="margin:48px 0 6px;font-size:1.2rem">What we measure, together</h3>
+    <ul class="checks two reveal">
+      <li><h3>Detection rate</h3><p>Real flights over your site, with our own drones.</p></li>
+      <li><h3>False alarms per day</h3><p>Birds, insects, aircraft: counted, not hidden.</p></li>
+      <li><h3>Range per camera model</h3><p>So you know which of your cameras to rely on.</p></li>
+      <li><h3>Time to evidence</h3><p>From the first detection to the sealed dossier.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2 class="reveal">The rest of the range.</h2></div>
+    <nav class="siblings reveal" aria-label="Other products">
+      <a href="/horizon"><span class="n">Horizon <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span><p>Detects from afar and points your PTZ cameras.</p></a>
+      <a href="/mobile"><span class="n">Mobile <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span><p>The portable case for temporary sites.</p></a>
+      <a href="/sk-1"><span class="n">SK-1 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span><p>FPV drone alerts in each agent’s hand.</p></a>
+    </nav>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap grid">
+    <div>
+      <h2 class="reveal">Put your cameras to work on the sky.</h2>
+      <p class="reveal measure" style="margin-bottom:32px">Tell us about your site, your VMS and your cameras. Pilot places are limited and reviewed one by one.</p>
+      <a href="/contact?product=eyes" class="btn btn-primary reveal">Apply for the pilot programme <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <address class="reveal"><strong>Hosni Ben Hassen</strong>, founder<br><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><br>Cockpit Bordeaux Technowest, Mérignac</address>
+  </div>
+</section>
+</main>
+
+<!-- sk:footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col foot-brand">
+        <a href="/" class="brand"><img src="/assets/skykraken-logo.png" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Passive radio-frequency drone detection. See the drone, identify the pilot, prove the incursion. Every enquiry is handled with discretion.</p>
+        <address class="foot-addr">Cockpit Bordeaux Technowest<br>58 avenue Marcel Dassault, 33700 Mérignac</address>
+      </div>
+      <div class="foot-col"><h5>Products</h5>
+        <a href="/mobile">Mobile · portable case</a>
+        <a href="/horizon">Horizon · fixed station</a>
+        <a href="/sk-1">SK-1 · FPV detector</a>
+        <a href="/eyes">Eyes · camera software</a>
+      </div>
+      <div class="foot-col"><h5>Company</h5>
+        <a href="/use-cases">Use cases</a>
+        <a href="/evidence">Evidence</a>
+        <a href="/resources">Resources</a>
+        <a href="/ui-demo">Tactical demo</a>
+      </div>
+      <div class="foot-col"><h5>Contact</h5>
+        <a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a>
+        <a href="/contact">Request a demonstration</a>
+        <a href="/legal">Legal notice</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. All rights reserved. Designed in Mérignac, France.</span>
+      <span class="lang" role="group" aria-label="Language"><a href="/eyes" hreflang="en" lang="en" class="active">EN</a><a href="/fr/eyes" hreflang="fr" lang="fr">FR</a></span>
+    </div>
+  </div>
+</footer>
+<!-- /sk:footer -->
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/app.js" defer></script>
+<script type="module" src="/assets/terrain.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyKraken Horizon — Station fixe de détection de drones intégrée à vos systèmes</title>
+<meta name="description" content="SkyKraken Horizon surveille un site 24 h sur 24 depuis un mât, jusqu’à 10 km en vue directe, et parle directement à votre C2, vos VMS (Milestone, Genetec), vos caméras PTZ ONVIF, votre radar et vos haut-parleurs grâce à une API REST et WebSocket ouverte.">
+<link rel="canonical" href="https://skykraken.fr/fr/horizon">
+<link rel="alternate" hreflang="en" href="https://skykraken.fr/horizon">
+<link rel="alternate" hreflang="fr" href="https://skykraken.fr/fr/horizon">
+<link rel="alternate" hreflang="x-default" href="https://skykraken.fr/horizon">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="fr">
+<meta property="og:title" content="SkyKraken Horizon — la station fixe qui parle à vos systèmes">
+<meta property="og:description" content="Détection de drones 24 h sur 24 depuis un mât, un seul câble, API ouverte, connecteurs C2, VMS, PTZ, radar et diffusion d’alerte.">
+<meta property="og:url" content="https://skykraken.fr/fr/horizon">
+<meta property="og:image" content="https://skykraken.fr/assets/products/horizon.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0E1A">
+<link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="/assets/skykraken-icon.png" type="image/png">
+<script>document.documentElement.classList.add('js-motion')</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"SkyKraken Horizon","brand":{"@type":"Brand","name":"SkyKraken"},"image":"https://skykraken.fr/assets/products/horizon.jpg","url":"https://skykraken.fr/fr/horizon","category":"Système de détection de drones",
+"description":"Station fixe de détection de drones sur mât, 24 h sur 24. Portée jusqu’à 10 km en vue directe et terrain dégagé. Un seul câble réseau pour l’alimentation et les données. API REST et WebSocket ouverte, webhooks, MQTT. Connecteurs C2, VMS Milestone et Genetec, caméras PTZ ONVIF, fusion radar et diffusion d’alerte. Première série fabriquée à la commande."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://skykraken.fr/fr/"},{"@type":"ListItem","position":2,"name":"Horizon","item":"https://skykraken.fr/fr/horizon"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<!-- sk:header -->
+<header class="site">
+  <a href="/fr/" class="brand" aria-label="SkyKraken"><img src="/assets/skykraken-logo.png" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+  <nav class="main" aria-label="Principale">
+    <a href="/fr/mobile">Mobile</a>
+    <a href="/fr/horizon">Horizon</a>
+    <a href="/fr/sk-1">SK-1</a>
+    <a href="/fr/eyes">Eyes</a>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="/fr/preuve">Preuve</a>
+    <a href="/fr/ressources">Ressources</a>
+    <a href="/fr/contact">Contact</a>
+    <span class="lang" role="group" aria-label="Langue"><a href="/horizon" hreflang="en" lang="en">EN</a><a href="/fr/horizon" hreflang="fr" lang="fr" class="active" aria-current="true">FR</a></span>
+    <a href="/fr/contact" class="cta-nav">Demander une démo</a>
+  </nav>
+  <button class="burger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<!-- /sk:header -->
+
+<main id="main">
+<section class="product-hero">
+  <div class="map-stage" data-terrain="horizon" data-shift="0.2"></div>
+  <div class="wrap" data-intro>
+    <h1 data-intro-line>Horizon</h1>
+    <p class="lede" data-intro-fade>Une station fixe qui surveille votre site 24 h sur 24 depuis le haut d’un mât, et dit à vos radars, caméras, C2 et haut-parleurs de quel drone il s’agit et où se tient son pilote.</p>
+    <div class="hero-actions" data-intro-fade>
+      <a href="/fr/contact?product=horizon" class="btn btn-primary">Préparer un premier site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <a href="#api" class="btn btn-ghost">Lire l’intégration</a>
+    </div>
+    <p class="carto status s-order" style="margin-top:28px" data-intro-fade>Première série · fabriquée à la commande</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <figure class="plate reveal" style="aspect-ratio:4/5">
+      <img src="/assets/products/horizon.webp" alt="La station SkyKraken Horizon : un boîtier blanc à trois antennes, fixé sur un mât avec un seul câble réseau" width="730" height="1260" loading="lazy">
+      <figcaption><span>SkyKraken Horizon</span><span>Visuel non contractuel</span></figcaption>
+    </figure>
+    <div>
+      <h2 class="reveal">L’intelligence de la valise, installée à demeure.</h2>
+      <p class="reveal">Horizon apporte les fonctions de la valise sur une installation permanente : identification des drones DJI et du Remote ID européen, positions du drone et du pilote, classifieur de menaces, historique et preuves. Elle y ajoute une voix : elle parle directement aux systèmes déjà en place sur votre site.</p>
+      <div class="specs reveal" style="margin-top:36px">
+        <div><p class="v">10<small>km</small></p><p class="l">Jusqu’à, en vue directe et terrain dégagé. La portée réelle est mesurée sur votre site lors de l’essai.</p></div>
+        <div><p class="v">1<small>câble</small></p><p class="l">Alimentation et données par un câble réseau unique, sur vos mâts, bornes et remorques.</p></div>
+        <div><p class="v">24/7</p><p class="l">Veille continue : identités, positions, niveaux de menace et zones.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">Un drone entre dans la zone : vos systèmes agissent, sans intervention.</h2>
+      <p class="reveal reveal-d1">Une chaîne type sur un site équipé d’un radar, de caméras PTZ, d’un C2 ou d’un VMS et de haut-parleurs.</p>
+    </div>
+    <ol class="route">
+      <li><h3>Radar</h3><p>Détecte et suit une cible.</p></li>
+      <li class="on"><h3>Horizon</h3><p>L’identifie : DJI Mavic 3, n° de série, pilote à 420 m.</p></li>
+      <li><h3>Caméra PTZ</h3><p>Pointe le drone puis le pilote, pour la levée de doute.</p></li>
+      <li><h3>C2 / VMS</h3><p>Alarme « niveau élevé » avec l’identité et la carte.</p></li>
+      <li><h3>Haut-parleurs</h3><p>Message d’alerte diffusé dans la zone concernée.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">L’intégration, système par système.</h2>
+      <p class="reveal reveal-d1">Nous adaptons les sorties de la station au format attendu par chacun de vos systèmes. Chaque connecteur est développé par SkyKraken, livré testé sur votre plateforme et réutilisable sur tous vos sites.</p>
+    </div>
+    <table class="table reveal">
+      <thead><tr><th scope="col">Connecteur</th><th scope="col">Ce qu’il fait</th></tr></thead>
+      <tbody>
+        <tr><td>Alertes vers votre C2 ou votre situation tactique</td><td>Chaque détection crée une piste, un événement ou une alarme dans votre outil : position, identité, niveau de menace.</td></tr>
+        <tr><td>Supervision vidéo (VMS)</td><td>Alarmes dans Milestone, Genetec ou votre VMS, avec l’identité du drone.</td></tr>
+        <tr><td>Pointage automatique des caméras PTZ</td><td>Les caméras se tournent seules vers le drone puis vers le pilote (protocole ONVIF).</td></tr>
+        <tr><td>Fusion radar + identité radio</td><td>Chaque piste radar reçoit l’identité du drone et la position de son pilote quand elles sont disponibles.</td></tr>
+        <tr><td>Diffusion d’alerte</td><td>Message diffusé automatiquement par vos haut-parleurs selon la zone et le niveau de menace.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="api">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <h2 class="reveal">Une API ouverte et documentée.</h2>
+      <p class="reveal">Horizon transmet en temps réel à vos systèmes l’identité de chaque drone, la position de son pilote et le niveau de menace, et peut enrichir vos propres pistes radar.</p>
+      <ul class="checks reveal" style="margin-top:28px">
+        <li><h3>API REST</h3><p>Pistes en cours, historique, zones, liste blanche et dossiers de preuve, en JSON.</p></li>
+        <li><h3>Flux temps réel</h3><p>WebSocket : nouvelle piste, mise à jour, entrée en zone, changement de niveau de menace, fin de piste.</p></li>
+        <li><h3>Les formats de vos outils</h3><p>Webhooks, MQTT, événements VMS ou format de votre C2 : nous adaptons la sortie.</p></li>
+        <li><h3>Conventions claires</h3><p>Positions WGS 84, horodatage UTC, identifiants de piste stables, accès authentifié.</p></li>
+      </ul>
+    </div>
+    <div class="reveal reveal-d1">
+<pre class="datasample" aria-label="Exemple de message WebSocket"><span class="k">"event"</span>: <span class="s">"track.threat_changed"</span>,
+<span class="k">"track_id"</span>: <span class="s">"hz-0427"</span>,
+<span class="k">"time_utc"</span>: <span class="s">"2026-11-01T21:14:07.412Z"</span>,
+<span class="k">"identity"</span>: { <span class="k">"make"</span>: <span class="s">"DJI"</span>, <span class="k">"model"</span>: <span class="s">"Mavic 3"</span>,
+              <span class="k">"serial"</span>: <span class="s">"1581F5FHD23A0098"</span>, <span class="k">"source"</span>: <span class="s">"dji"</span> },
+<span class="k">"drone"</span>: { <span class="k">"lat"</span>: <span class="n">44.8361</span>, <span class="k">"lon"</span>: <span class="n">-0.6931</span>, <span class="k">"alt_m"</span>: <span class="n">118</span>,
+           <span class="k">"height_m"</span>: <span class="n">96</span>, <span class="k">"speed_ms"</span>: <span class="n">12.4</span>, <span class="k">"heading"</span>: <span class="n">251</span> },
+<span class="k">"pilot"</span>:   { <span class="k">"lat"</span>: <span class="n">44.8188</span>, <span class="k">"lon"</span>: <span class="n">-0.6591</span> },
+<span class="k">"takeoff"</span>: { <span class="k">"lat"</span>: <span class="n">44.8211</span>, <span class="k">"lon"</span>: <span class="n">-0.6635</span> },
+<span class="k">"zone"</span>: <span class="s">"site-nord"</span>, <span class="k">"whitelisted"</span>: <span class="n">false</span>,
+<span class="k">"threat"</span>: { <span class="k">"score"</span>: <span class="r">78</span>, <span class="k">"level"</span>: <span class="r">"high"</span>,
+            <span class="k">"reasons"</span>: [<span class="s">"zone_entry"</span>, <span class="s">"approach"</span>] }</pre>
+      <p class="datasample-cap"><span>WebSocket · exemple de message</span><span>Valeurs illustratives</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">Données transmises pour chaque drone.</h2>
+      <p class="reveal reveal-d1">Les mêmes champs sur chaque connecteur, quel que soit le système qui les reçoit.</p>
+    </div>
+    <table class="table reveal">
+      <thead><tr><th scope="col">Donnée</th><th scope="col">Contenu</th></tr></thead>
+      <tbody>
+        <tr><td>Identité</td><td>Marque, modèle, numéro de série, source de détection (DJI, Remote ID).</td></tr>
+        <tr><td>Drone</td><td>Latitude, longitude, altitude, hauteur, vitesse et cap.</td></tr>
+        <tr><td>Pilote et décollage</td><td>Position du pilote et du point de décollage, quand elles sont émises.</td></tr>
+        <tr><td>Menace</td><td>Score de 0 à 100, niveau (faible, moyen, élevé, critique) et motifs.</td></tr>
+        <tr><td>Contexte</td><td>Zone protégée concernée, statut liste blanche, horodatage UTC de chaque point.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <h2 class="reveal">La fusion de capteurs, dans les deux sens.</h2>
+      <p class="reveal">La valise et le SK-1 fonctionnent de façon autonome. Horizon se connecte : il reçoit les pistes de vos capteurs, ou envoie les siennes à votre propre moteur de fusion.</p>
+    </div>
+    <ul class="checks reveal">
+      <li><h3>Dans les deux sens</h3><p>Horizon reçoit les pistes de vos radars, caméras et autres détecteurs, ou alimente votre moteur de fusion.</p></li>
+      <li><h3>Association par position et par temps</h3><p>Une piste radar et une détection radio du même drone sont fusionnées en une seule piste identifiée.</p></li>
+      <li><h3>Déduplication</h3><p>Un drone vu par plusieurs sources (DJI, Remote ID, plusieurs stations) n’apparaît qu’une fois.</p></li>
+      <li><h3>Menace expliquée</h3><p>Score de 0 à 100 avec ses motifs, transmis avec chaque piste.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">Notre méthode d’intégration.</h2>
+      <p class="reveal reveal-d1">Trois étapes, avec vos équipes, sur votre plateforme.</p>
+    </div>
+    <ol class="steps reveal">
+      <li><h3>Atelier technique</h3><p>Vos outils, vos formats, votre réseau et vos règles de sécurité : on définit ensemble ce qui doit remonter, et où.</p></li>
+      <li><h3>Développement et tests</h3><p>Le connecteur est développé par SkyKraken et livré testé sur votre plateforme.</p></li>
+      <li><h3>Mise en service et suivi</h3><p>Installation sur site, puis maintien du connecteur à chaque évolution de vos systèmes ou des nôtres.</p></li>
+    </ol>
+    <div class="notice reveal" style="margin-top:clamp(64px,7vw,96px)">
+      <p class="date">16 août 2026<small>Sites d’importance vitale</small></p>
+      <p>Depuis la loi du 16 août 2026, ces opérateurs et leurs prestataires de sécurité peuvent être autorisés à neutraliser un drone menaçant. Avant d’agir, il faut savoir de quel drone il s’agit : Horizon écarte les drones autorisés et documente chaque menace.</p>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2 class="reveal">Le reste de la gamme.</h2></div>
+    <nav class="siblings reveal" aria-label="Autres produits">
+      <a href="/fr/mobile"><span class="n">Mobile <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span><p>La même détection dans une valise, pour les événements et sites temporaires.</p></a>
+      <a href="/fr/sk-1"><span class="n">SK-1 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span><p>L’alerte drone FPV dans la main de chaque agent.</p></a>
+      <a href="/fr/eyes"><span class="n">Eyes <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span><p>Horizon pointe vos caméras ; Eyes confirme le drone à l’image.</p></a>
+    </nav>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap grid">
+    <div>
+      <h2 class="reveal">Un premier site Horizon, construit avec vous.</h2>
+      <p class="reveal measure" style="margin-bottom:32px">Adapté à votre radar et à votre C2, portée mesurée avec votre radar comme référence. Confidentialité, modalités de revente et d’intégration définies ensemble.</p>
+      <a href="/fr/contact?product=horizon" class="btn btn-primary reveal">Préparer un premier site <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <address class="reveal"><strong>Hosni Ben Hassen</strong>, fondateur<br><a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a><br>Cockpit Bordeaux Technowest, Mérignac</address>
+  </div>
+</section>
+</main>
+
+<!-- sk:footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col foot-brand">
+        <a href="/fr/" class="brand"><img src="/assets/skykraken-logo.png" alt="" class="brand-mark" width="40" height="40"><span class="brand-name">SkyKraken</span></a>
+        <p class="discretion">Détection passive de drones par radiofréquence. Voir le drone, identifier le pilote, prouver l’incursion. Chaque demande est traitée avec discrétion.</p>
+        <address class="foot-addr">Cockpit Bordeaux Technowest<br>58 avenue Marcel Dassault, 33700 Mérignac</address>
+      </div>
+      <div class="foot-col"><h5>Produits</h5>
+        <a href="/fr/mobile">Mobile · valise portable</a>
+        <a href="/fr/horizon">Horizon · station fixe</a>
+        <a href="/fr/sk-1">SK-1 · détecteur FPV</a>
+        <a href="/fr/eyes">Eyes · logiciel caméras</a>
+      </div>
+      <div class="foot-col"><h5>SkyKraken</h5>
+        <a href="/fr/cas-usage">Cas d’usage</a>
+        <a href="/fr/preuve">Preuve</a>
+        <a href="/fr/ressources">Ressources</a>
+        <a href="/ui-demo">Démo tactique</a>
+      </div>
+      <div class="foot-col"><h5>Contact</h5>
+        <a href="mailto:contact@skykraken.fr">contact@skykraken.fr</a>
+        <a href="/fr/contact">Demander une démonstration</a>
+        <a href="/fr/mentions-legales">Mentions légales</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SkyKraken. Tous droits réservés. Conçu à Mérignac, France.</span>
+      <span class="lang" role="group" aria-label="Langue"><a href="/horizon" hreflang="en" lang="en">EN</a><a href="/fr/horizon" hreflang="fr" lang="fr" class="active">FR</a></span>
+    </div>
+  </div>
+</footer>
+<!-- /sk:footer -->
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/app.js" defer></script>
+<script type="module" src="/assets/terrain.js"></script>
+</body>
+</html>

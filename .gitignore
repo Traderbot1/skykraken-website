@@ -1,0 +1,8 @@
+# Agent skills installed locally via `npx skills add` (reinstall from skills-lock.json)
+.agents/
+.claude/skills/
+.impeccable/live/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/build/
+node_modules/
