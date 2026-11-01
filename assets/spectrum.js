@@ -63,14 +63,14 @@
     var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'map-pause spec-pause';
     foot.appendChild(sim); foot.appendChild(btn); host.appendChild(foot);
 
-    var W, H, dpr, regions = [], row = [], power = [];
+    var W, H, dpr, regions = [], row = [], power = [], wf = [];
     var state = BANDS.map(function () { return { hop: 0, hopT: 0, dl: 0, dlT: 0, fpv: 0 }; });
 
     function bandName(b) { var p = BANDS[b].name.split('|'); return T.band + ' ' + (FR ? p[0] : p[1]); }
 
     function layout() {
-      var r = host.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var r = host.getBoundingClientRect(), W0 = r.width;
+      dpr = Math.min(window.devicePixelRatio || 1, W0 < 700 ? 1.5 : 2);
       W = Math.max(280, Math.round(r.width)); H = Math.max(240, Math.round(r.height - 34));
       canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
       canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
@@ -87,9 +87,21 @@
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.fillStyle = '#0A0E1A'; ctx.fillRect(0, 0, canvas.width, canvas.height);
       buildLabels();
-      var rowsN = Math.ceil(Math.max.apply(null, regions.map(function (g) { return g.wfH; })) * dpr) + 2;
-      for (var q = 0; q < rowsN; q++) step(0.016);
-      drawTrace();
+      // waterfall = one ring buffer per band, held in an offscreen canvas. A new row is written
+      // at the head and the buffer is blitted in two pieces: no read-back of the visible canvas.
+      var clock0 = clock;
+      wf = regions.map(function (g, b) {
+        var w = row[b].length, h = Math.max(1, Math.round(g.wfH * dpr));
+        var off = document.createElement('canvas'); off.width = w; off.height = h;
+        var oc = off.getContext('2d', { alpha: false });
+        // prefill the whole history in memory, then upload it once
+        var img = oc.createImageData(w, h);
+        clock = clock0;
+        for (var y = h - 1; y >= 0; y--) { clock += 0.016; advance(b, 0.016); paintRow(row[b], img.data, y * w * 4); }
+        oc.putImageData(img, 0, 0);
+        return { c: off, ctx: oc, w: w, h: h, head: 0, line: oc.createImageData(w, 1) };
+      });
+      blit(); drawTrace();
     }
 
     function fx(b, f) { var g = regions[b]; return g.x + (f - BANDS[b].f0) / (BANDS[b].f1 - BANDS[b].f0) * g.w; }
@@ -140,20 +152,37 @@
       }
     }
 
+    // one band: compute a new row and update the smoothed trace
+    function advance(b, dt) {
+      compute(b, row[b], dt);
+      var pw = power[b], rw = row[b];
+      for (var i = 0; i < pw.length; i++) pw[i] = pw[i] * 0.7 + rw[i] * 0.3;
+    }
+    var GAMMA = new Uint8Array(1025);
+    for (var gi = 0; gi <= 1024; gi++) GAMMA[gi] = Math.round(Math.pow(gi / 1024, 0.85) * 255);
+    function paintRow(rw, d, o) {
+      for (var j = 0; j < rw.length; j++) {
+        var v = GAMMA[(rw[j] * 1024) | 0] * 3, q = o + j * 4;
+        d[q] = LUT[v]; d[q + 1] = LUT[v + 1]; d[q + 2] = LUT[v + 2]; d[q + 3] = 255;
+      }
+    }
     function step(dt) {
       clock += dt;
       regions.forEach(function (g, b) {
-        compute(b, row[b], dt);
-        var pw = power[b], rw = row[b];
-        for (var i = 0; i < pw.length; i++) pw[i] = pw[i] * 0.7 + rw[i] * 0.3;
-        var x = Math.round(g.x * dpr), y = Math.round(g.wfY * dpr), w = rw.length, h = Math.round(g.wfH * dpr);
-        if (h > 2) ctx.drawImage(canvas, x, y, w, h - 1, x, y + 1, w, h - 1);
-        var img = ctx.createImageData(w, 1), d = img.data;
-        for (var j = 0; j < w; j++) {
-          var v = Math.min(255, Math.max(0, Math.round(Math.pow(rw[j], 0.85) * 255)));
-          d[j * 4] = LUT[v * 3]; d[j * 4 + 1] = LUT[v * 3 + 1]; d[j * 4 + 2] = LUT[v * 3 + 2]; d[j * 4 + 3] = 255;
-        }
-        ctx.putImageData(img, x, y);
+        advance(b, dt);
+        var r = wf[b]; if (!r) return;
+        r.head = (r.head - 1 + r.h) % r.h;
+        paintRow(row[b], r.line.data, 0);
+        r.ctx.putImageData(r.line, 0, r.head);
+      });
+    }
+    // draw each ring buffer newest-first: [head..h) on top, then [0..head)
+    function blit() {
+      regions.forEach(function (g, b) {
+        var r = wf[b]; if (!r) return;
+        var x = Math.round(g.x * dpr), y = Math.round(g.wfY * dpr), a = r.h - r.head;
+        ctx.drawImage(r.c, 0, r.head, r.w, a, x, y, r.w, a);
+        if (r.head > 0) ctx.drawImage(r.c, 0, 0, r.w, r.head, x, y + a, r.w, r.head);
       });
     }
 
@@ -181,7 +210,7 @@
       if (!running) return;
       var dt = Math.min(0.05, (now - last) / 1000); last = now;
       step(dt); step(dt * 0.5);
-      drawTrace();
+      blit(); drawTrace();
       requestAnimationFrame(loop);
     }
     function start() { if (running || paused || !visible || document.hidden) return; running = true; last = performance.now(); requestAnimationFrame(loop); }
@@ -193,9 +222,14 @@
     btn.addEventListener('click', function () { paused = !paused; paint(); paused ? stop() : start(); });
     paint();
 
-    var lastW = 0;
-    new ResizeObserver(function () { var w = Math.round(host.getBoundingClientRect().width); if (w !== lastW) { lastW = w; layout(); } }).observe(host);
-    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; visible ? start() : stop(); }, { rootMargin: '100px 0px' }).observe(host);
+    // nothing is computed until the analyser approaches the viewport
+    var lastW = 0, ready = false;
+    new ResizeObserver(function () { if (!ready) return; var w = Math.round(host.getBoundingClientRect().width); if (w !== lastW) { lastW = w; layout(); } }).observe(host);
+    new IntersectionObserver(function (es) {
+      visible = es[0].isIntersecting;
+      if (visible && !ready) { ready = true; lastW = Math.round(host.getBoundingClientRect().width); layout(); }
+      visible ? start() : stop();
+    }, { rootMargin: '300px 0px' }).observe(host);
     document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
   });
 })();
