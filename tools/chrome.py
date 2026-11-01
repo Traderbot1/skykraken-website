@@ -40,7 +40,7 @@ T = {
                foot_company=[('/use-cases', 'Use cases'), ('/evidence', 'Evidence'), ('/resources', 'Resources'), ('/ui-demo', 'Tactical demo')],
                foot_reach=[('mailto:contact@skykraken.fr', 'contact@skykraken.fr'), ('/contact', 'Request a demonstration'), ('/legal', 'Legal notice')],
                about='Passive radio-frequency drone detection. See the drone, identify the pilot, prove the incursion. Every enquiry is handled with discretion.',
-               incub='Incubated at <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a> exhibitor, stand C0306', rights='© 2026 SkyKraken. All rights reserved.', made='Designed in Mérignac, France.', lang_label='Language'),
+               follow='Follow SkyKraken on LinkedIn', incub='Incubated at <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a> exhibitor, stand C0306', rights='© 2026 SkyKraken. All rights reserved.', made='Designed in Mérignac, France.', lang_label='Language'),
     'fr': dict(home='/fr/', nav=[('/fr/mobile', 'Mobile'), ('/fr/horizon', 'Horizon'), ('/fr/sk-1', 'SK-1'), ('/fr/eyes', 'Eyes')],
                nav2=[('/fr/preuve', 'Preuve'), ('/fr/ressources', 'Ressources'), ('/fr/contact', 'Contact')],
                cta=('/fr/contact', 'Demander une démo'), main='Principale', products='Produits', company='SkyKraken', reach='Contact',
@@ -48,7 +48,7 @@ T = {
                foot_company=[('/fr/cas-usage', 'Cas d’usage'), ('/fr/preuve', 'Preuve'), ('/fr/ressources', 'Ressources'), ('/ui-demo', 'Démo tactique')],
                foot_reach=[('mailto:contact@skykraken.fr', 'contact@skykraken.fr'), ('/fr/contact', 'Demander une démonstration'), ('/fr/mentions-legales', 'Mentions légales')],
                about='Détection passive de drones par radiofréquence. Voir le drone, identifier le pilote, prouver l’incursion. Chaque demande est traitée avec discrétion.',
-               incub='Incubé à <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · Exposant <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a>, stand C0306', rights='© 2026 SkyKraken. Tous droits réservés.', made='Conçu à Mérignac, France.', lang_label='Langue'),
+               follow='Suivre SkyKraken sur LinkedIn', incub='Incubé à <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · Exposant <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a>, stand C0306', rights='© 2026 SkyKraken. Tous droits réservés.', made='Conçu à Mérignac, France.', lang_label='Langue'),
 }
 
 
@@ -102,6 +102,7 @@ def footer(url: str, lang: str) -> str:
         <p class="discretion">{t['about']}</p>
         <address class="foot-addr">Cockpit Bordeaux Technowest<br>58 avenue Marcel Dassault, 33700 Mérignac</address>
         <p class="foot-incub">{t['incub']}</p>
+        <a class="foot-social" href="https://www.linkedin.com/company/skykraken" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span>{t['follow']}</span></a>
       </div>
       <div class="foot-col"><h5>{t['products']}</h5>
         {col(t['foot_products'])}
@@ -113,6 +114,7 @@ def footer(url: str, lang: str) -> str:
         {col(t['foot_reach'])}
       </div>
     </div>
+    <div class="foot-mark" aria-hidden="true"><canvas></canvas><span>SkyKraken</span></div>
     <div class="foot-bottom">
       <span>{t['rights']} {t['made']}</span>
       <span class="lang" role="group" aria-label="{t['lang_label']}"><a href="{en}" hreflang="en" lang="en"{' class="active"' if lang == 'en' else ''}>EN</a><a href="{fr}" hreflang="fr" lang="fr"{' class="active"' if lang == 'fr' else ''}>FR</a></span>
