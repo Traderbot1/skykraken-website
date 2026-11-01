@@ -40,7 +40,7 @@ T = {
                foot_company=[('/use-cases', 'Use cases'), ('/evidence', 'Evidence'), ('/resources', 'Resources'), ('/ui-demo', 'Tactical demo')],
                foot_reach=[('mailto:contact@skykraken.fr', 'contact@skykraken.fr'), ('/contact', 'Request a demonstration'), ('/legal', 'Legal notice')],
                about='Passive radio-frequency drone detection. See the drone, identify the pilot, prove the incursion. Every enquiry is handled with discretion.',
-               incub='Incubated at Bordeaux Technowest · UAV Show exhibitor, stand C0306', rights='© 2026 SkyKraken. All rights reserved.', made='Designed in Mérignac, France.', lang_label='Language'),
+               incub='Incubated at <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a> exhibitor, stand C0306', rights='© 2026 SkyKraken. All rights reserved.', made='Designed in Mérignac, France.', lang_label='Language'),
     'fr': dict(home='/fr/', nav=[('/fr/mobile', 'Mobile'), ('/fr/horizon', 'Horizon'), ('/fr/sk-1', 'SK-1'), ('/fr/eyes', 'Eyes')],
                nav2=[('/fr/preuve', 'Preuve'), ('/fr/ressources', 'Ressources'), ('/fr/contact', 'Contact')],
                cta=('/fr/contact', 'Demander une démo'), main='Principale', products='Produits', company='SkyKraken', reach='Contact',
@@ -48,7 +48,7 @@ T = {
                foot_company=[('/fr/cas-usage', 'Cas d’usage'), ('/fr/preuve', 'Preuve'), ('/fr/ressources', 'Ressources'), ('/ui-demo', 'Démo tactique')],
                foot_reach=[('mailto:contact@skykraken.fr', 'contact@skykraken.fr'), ('/fr/contact', 'Demander une démonstration'), ('/fr/mentions-legales', 'Mentions légales')],
                about='Détection passive de drones par radiofréquence. Voir le drone, identifier le pilote, prouver l’incursion. Chaque demande est traitée avec discrétion.',
-               incub='Incubé à Bordeaux Technowest · Exposant UAV Show, stand C0306', rights='© 2026 SkyKraken. Tous droits réservés.', made='Conçu à Mérignac, France.', lang_label='Langue'),
+               incub='Incubé à <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · Exposant <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a>, stand C0306', rights='© 2026 SkyKraken. Tous droits réservés.', made='Conçu à Mérignac, France.', lang_label='Langue'),
 }
 
 
