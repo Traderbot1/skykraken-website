@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 # English path <-> French path (clean URLs)
 PAIRS = {
-    '/': '/fr/',
+    '/': '/fr',
     '/mobile': '/fr/mobile',
     '/horizon': '/fr/horizon',
     '/sk-1': '/fr/sk-1',
@@ -27,6 +27,8 @@ PAIRS = {
     '/articles/remote-id-explained': '/fr/articles/remote-id-explique',
     '/articles/building-admissible-drone-evidence': '/fr/articles/preuve-incursion-drone-recevable',
     '/articles/drones-over-prisons': '/fr/articles/drones-en-milieu-carceral',
+    '/articles/drone-detection-technologies-compared': '/fr/articles/comparatif-technologies-detection-drones',
+    '/about': '/fr/a-propos',
 }
 FR_TO_EN = {v: k for k, v in PAIRS.items()}
 
@@ -37,15 +39,15 @@ T = {
                nav2=[('/evidence', 'Evidence'), ('/resources', 'Resources'), ('/contact', 'Contact')],
                cta=('/contact', 'Request a demo'), main='Main', products='Products', company='Company', reach='Contact',
                foot_products=[('/mobile', 'Mobile · portable case'), ('/horizon', 'Horizon · fixed station'), ('/sk-1', 'SK-1 · FPV detector'), ('/eyes', 'Eyes · camera software')],
-               foot_company=[('/use-cases', 'Use cases'), ('/evidence', 'Evidence'), ('/resources', 'Resources'), ('/ui-demo', 'Tactical demo')],
+               foot_company=[('/about', 'About SkyKraken'), ('/use-cases', 'Use cases'), ('/evidence', 'Evidence'), ('/resources', 'Resources'), ('/ui-demo', 'Tactical demo')],
                foot_reach=[('mailto:contact@skykraken.fr', 'contact@skykraken.fr'), ('/contact', 'Request a demonstration'), ('/legal', 'Legal notice')],
                about='Passive radio-frequency drone detection. See the drone, identify the pilot, prove the incursion. Every enquiry is handled with discretion.',
                follow='Follow SkyKraken on LinkedIn', incub='Incubated at <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a> exhibitor, stand C0306', rights='© 2026 SkyKraken. All rights reserved.', made='Designed in Mérignac, France.', lang_label='Language'),
-    'fr': dict(home='/fr/', nav=[('/fr/mobile', 'Mobile'), ('/fr/horizon', 'Horizon'), ('/fr/sk-1', 'SK-1'), ('/fr/eyes', 'Eyes')],
+    'fr': dict(home='/fr', nav=[('/fr/mobile', 'Mobile'), ('/fr/horizon', 'Horizon'), ('/fr/sk-1', 'SK-1'), ('/fr/eyes', 'Eyes')],
                nav2=[('/fr/preuve', 'Preuve'), ('/fr/ressources', 'Ressources'), ('/fr/contact', 'Contact')],
                cta=('/fr/contact', 'Demander une démo'), main='Principale', products='Produits', company='SkyKraken', reach='Contact',
                foot_products=[('/fr/mobile', 'Mobile · valise portable'), ('/fr/horizon', 'Horizon · station fixe'), ('/fr/sk-1', 'SK-1 · détecteur FPV'), ('/fr/eyes', 'Eyes · logiciel caméras')],
-               foot_company=[('/fr/cas-usage', 'Cas d’usage'), ('/fr/preuve', 'Preuve'), ('/fr/ressources', 'Ressources'), ('/ui-demo', 'Démo tactique')],
+               foot_company=[('/fr/a-propos', 'À propos'), ('/fr/cas-usage', 'Cas d’usage'), ('/fr/preuve', 'Preuve'), ('/fr/ressources', 'Ressources'), ('/ui-demo', 'Démo tactique')],
                foot_reach=[('mailto:contact@skykraken.fr', 'contact@skykraken.fr'), ('/fr/contact', 'Demander une démonstration'), ('/fr/mentions-legales', 'Mentions légales')],
                about='Détection passive de drones par radiofréquence. Voir le drone, identifier le pilote, prouver l’incursion. Chaque demande est traitée avec discrétion.',
                follow='Suivre SkyKraken sur LinkedIn', incub='Incubé à <a href="https://airtable.com/appcPSdu4GAF8BpvY/shrq5GukTd1IblpW7?detail=eyJwYWdlSWQiOiJwYWcyY1lmbk5Wc2tZdUlIeCIsInJvd0lkIjoicmVjdEY1SVlkT2tHWUJFSDYiLCJzaG93Q29tbWVudHMiOmZhbHNlLCJxdWVyeU9yaWdpbkhpbnQiOnsidHlwZSI6InBhZ2VFbGVtZW50IiwiZWxlbWVudElkIjoicGVsQUFTTVAzRlFXV3RqNmQiLCJxdWVyeUNvbnRhaW5lcklkIjoicGVsanpWem5SYWFZY2lYSGYifX0" target="_blank" rel="noopener">Bordeaux Technowest</a> · Exposant <a href="https://www.uavshow.com/news/hosni-ben-hassen-skykraken" target="_blank" rel="noopener">UAV Show</a>, stand C0306', rights='© 2026 SkyKraken. Tous droits réservés.', made='Conçu à Mérignac, France.', lang_label='Langue'),
@@ -57,13 +59,13 @@ def page_url(path: pathlib.Path) -> str:
     if rel == 'index.html':
         return '/'
     if rel == 'fr/index.html':
-        return '/fr/'
+        return '/fr'
     return '/' + rel[:-5]
 
 
 def lang_links(url: str, lang: str):
     if lang == 'en':
-        en, fr = url, PAIRS.get(url, '/fr/')
+        en, fr = url, PAIRS.get(url, '/fr')
     else:
         fr, en = url, FR_TO_EN.get(url, '/')
     return en, fr
@@ -140,7 +142,7 @@ def process(path: pathlib.Path):
     if '<html' not in s:
         return False
     url = page_url(path)
-    lang = 'fr' if url.startswith('/fr/') else 'en'
+    lang = 'fr' if url == '/fr' or url.startswith('/fr/') else 'en'
     # legacy blocks -> markers
     if '<!-- sk:header -->' not in s:
         s, n = re.subn(r'<header class="site">.*?</header>', '<!-- sk:header --><!-- /sk:header -->', s, count=1, flags=re.S)
