@@ -423,7 +423,7 @@ footer.site{padding:80px 0 36px;border-top:1px solid var(--line-bright);backgrou
 .discretion{font-size:.92rem;color:var(--muted);max-width:36ch}
 .foot-addr{font-style:normal;font-size:.9rem;color:var(--dim);margin-top:16px;line-height:1.6}
 .foot-incub{font-size:.85rem;color:var(--muted);margin-top:14px;max-width:36ch}
-.foot-incub a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--line-bright);text-underline-offset:3px}
+.foot-incub a{display:inline!important;margin:0!important;font-size:inherit!important;color:var(--cream)!important;text-decoration:underline;text-decoration-color:var(--line-bright);text-underline-offset:3px}
 .foot-incub a:hover{text-decoration-color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:26px;border-top:1px solid var(--line);font-size:.85rem;color:var(--dim)}
 .foot-bottom .lang{border-color:var(--line)}
@@ -643,3 +643,24 @@ html.lenis,html.lenis body{height:auto}
   .cred + .cred{border-left:0;padding-left:0;border-top:1px solid rgba(14,20,36,.18);padding-top:28px}
   .cred img{height:42px}
 }
+
+/* footer: social link + living wordmark */
+.foot-social{display:inline-flex!important;align-items:center;gap:10px;margin-top:18px;color:var(--cream)!important;border:1px solid var(--line-bright);padding:8px 14px 8px 12px;border-radius:999px;font-size:.88rem!important;transition:border-color .2s,background .2s}
+.foot-social:hover{border-color:var(--cream);background:rgba(245,242,234,.05)}
+.foot-mark{position:relative;width:100vw;margin:clamp(24px,4vw,56px) 0 clamp(10px,1.4vw,18px) calc(50% - 50vw);user-select:none;pointer-events:none}
+.foot-mark canvas{display:block;width:100%}
+.foot-mark span{display:block;font-family:var(--display);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:14.5vw;line-height:.8;letter-spacing:-.02em;color:#151d31;white-space:nowrap;overflow:hidden}
+.foot-mark.is-live span{position:absolute;left:0;top:0;width:100%;height:100%;clip:rect(0 0 0 0);clip-path:inset(50%);color:transparent}
+.foot-mark::after{content:"";position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(0deg,var(--night),rgba(7,10,18,0));pointer-events:none}
+
+/* press: editorial rows, the publication set in our own lettering */
+.press-list{border-top:1px solid var(--line-bright)}
+.press-row{display:grid;grid-template-columns:minmax(140px,1.2fr) minmax(0,4fr) auto;gap:20px clamp(24px,4vw,64px);align-items:center;padding:clamp(24px,3vw,38px) 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--cream);transition:padding .4s var(--ease-out),background .3s}
+.press-src{font-family:var(--display);font-stretch:72%;font-weight:640;text-transform:uppercase;letter-spacing:.14em;font-size:.86rem;color:var(--accent-bright)}
+.press-title{font-family:var(--display);font-stretch:108%;font-weight:640;font-size:clamp(1.25rem,2.3vw,1.95rem);line-height:1.18;letter-spacing:-.015em;text-wrap:balance}
+.press-en{display:block;font-family:var(--body);font-stretch:100%;font-weight:400;font-size:.95rem;color:var(--muted);margin-top:8px;letter-spacing:0}
+.press-go{width:48px;height:48px;border:1px solid var(--line-bright);border-radius:50%;display:grid;place-items:center;color:var(--cream);transition:background .3s,border-color .3s,transform .4s var(--ease-out)}
+.press-row:hover{padding-left:14px;background:linear-gradient(90deg,rgba(245,242,234,.04),transparent 70%)}
+.press-row:hover .press-go{background:var(--accent);border-color:var(--accent);transform:rotate(-8deg)}
+.press-row:hover .press-title{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:6px}
+@media(max-width:899px){.press-row{grid-template-columns:1fr auto}.press-src{grid-column:1/-1}.press-go{width:40px;height:40px}}

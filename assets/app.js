@@ -195,6 +195,55 @@
     }
   });
 
+  // footer wordmark: radio wavefronts travel through the letters of the name
+  var mark=document.querySelector('.foot-mark');
+  if(mark){
+    var cv=mark.querySelector('canvas'),cx=cv.getContext('2d'),word='SKYKRAKEN';
+    var MW=0,MH=0,DP=1,fs=100,base=0,inView=false,raf=0,t0=performance.now();
+    var size=function(){
+      DP=Math.min(window.devicePixelRatio||1,2);
+      MW=Math.max(1,mark.clientWidth);
+      cx.setTransform(1,0,0,1,0,0);
+      cx.font='800 100px Archivo';try{cx.fontStretch='expanded';}catch(e){}
+      var m=cx.measureText(word);fs=100*MW/m.width;
+      MH=Math.round(fs*0.78);base=Math.round(fs*0.86);
+      cv.width=Math.round(MW*DP);cv.height=Math.round(MH*DP);cv.style.height=MH+'px';
+      draw(performance.now());
+    };
+    var draw=function(now){
+      var t=(now-t0)/1000;
+      cx.setTransform(DP,0,0,DP,0,0);
+      cx.globalCompositeOperation='source-over';
+      cx.clearRect(0,0,MW,MH);
+      // the emitter drifts slowly along the name, like a sensor sweeping the line
+      var ox=MW*(0.5+0.4*Math.sin(t*0.11)),oy=MH*0.5,spacing=Math.max(14,fs*0.11),R=Math.hypot(MW,MH)*1.1;
+      cx.lineWidth=Math.max(1.2,fs*0.012);
+      for(var r=(t*fs*0.22)%spacing;r<R;r+=spacing){
+        var a=Math.max(0,1-r/R);
+        cx.strokeStyle='rgba(245,242,234,'+(0.18+0.6*a).toFixed(3)+')';
+        cx.beginPath();cx.arc(ox,oy,r,0,2*Math.PI);cx.stroke();
+      }
+      // one red ring: a drone just identified
+      var rr=(t*fs*0.5)%(R*1.4);
+      cx.strokeStyle='rgba(236,91,91,'+Math.max(0,0.9-rr/R).toFixed(3)+')';cx.lineWidth=Math.max(1.6,fs*0.02);
+      cx.beginPath();cx.arc(ox,oy,rr,0,2*Math.PI);cx.stroke();
+      // keep the waves only inside the letters
+      cx.globalCompositeOperation='destination-in';
+      cx.font='800 '+fs+'px Archivo';try{cx.fontStretch='expanded';}catch(e){}
+      cx.fillStyle='#000';cx.textBaseline='alphabetic';cx.fillText(word,0,base);
+      // faint outline so the name reads even between wavefronts
+      cx.globalCompositeOperation='destination-over';
+      cx.fillStyle='rgba(245,242,234,0.055)';cx.fillText(word,0,base);
+      cx.globalCompositeOperation='source-over';
+      cx.strokeStyle='rgba(245,242,234,0.2)';cx.lineWidth=1;cx.strokeText(word,0,base);
+    };
+    var loopMark=function(now){if(!inView)return;draw(now);raf=requestAnimationFrame(loopMark);};
+    new IntersectionObserver(function(es){inView=es[0].isIntersecting;cancelAnimationFrame(raf);if(inView&&!document.hidden)raf=requestAnimationFrame(loopMark);}).observe(mark);
+    (document.fonts&&document.fonts.load?document.fonts.load('800 100px Archivo'):Promise.resolve()).then(function(){size();});
+    window.addEventListener('resize',size);
+    mark.classList.add('is-live');
+  }
+
   // contact form (shared by EN/FR pages)
   var form=document.getElementById('contactForm');
   if(form){
