@@ -131,7 +131,7 @@ const vert = /* glsl */`
     gl_Position = projectionMatrix * mv;
   }`;
 const frag = /* glsl */`
-  uniform float uTime, uHalf, uRange, uZoneOn, uZoneHot, uConesOn, uWaveGain;
+  uniform float uTime, uHalf, uRange, uZoneOn, uZoneHot, uConesOn, uWaveGain, uInkGain, uLineW, uFogNear, uFogFar;
   uniform vec2 uOrigin, uSite;
   uniform float uZoneR;
   uniform vec3 uBg, uInk, uRed;
@@ -141,8 +141,8 @@ const frag = /* glsl */`
   float aaLine(float v, float w){ float f = abs(fract(v - 0.5) - 0.5) / max(fwidth(v), 1e-4); return 1.0 - smoothstep(0.0, w, f); }
   void main(){
     float h = vPos.y;
-    float minor = aaLine(h / 0.09, 1.0);
-    float major = aaLine(h / 0.45, 1.3);
+    float minor = aaLine(h / 0.09, 1.0 * uLineW);
+    float major = aaLine(h / 0.45, 1.3 * uLineW);
     // map graticule every 2 km
     float gx = aaLine(vPos.x / 2.0, 0.8), gz = aaLine(vPos.z / 2.0, 0.8);
     float grid = max(gx, gz) * 0.05;
@@ -154,7 +154,7 @@ const frag = /* glsl */`
     float atten = 1.0 - smoothstep(2.0, 13.0, d);
     float glow = front * atten * uWaveGain;
 
-    float ink = minor * (0.13 + 0.9 * glow) + major * (0.32 + 0.75 * glow) + grid;
+    float ink = (minor * (0.13 + 0.9 * glow) + major * (0.32 + 0.75 * glow) + grid) * uInkGain;
     ink += front * atten * 0.06 * uWaveGain;       // faint wash on the wavefront itself
     vec3 col = mix(uBg, uInk, clamp(ink, 0.0, 1.0));
 
@@ -196,7 +196,7 @@ const frag = /* glsl */`
     }
     // fade into the night at the sheet edges and with distance
     float edgeF = 1.0 - smoothstep(0.55, 0.97, max(abs(vPos.x), abs(vPos.z)) / uHalf);
-    float fog = 1.0 - smoothstep(14.0, 34.0, vDepth);
+    float fog = 1.0 - smoothstep(uFogNear, uFogFar, vDepth);
     col = mix(uBg, col, edgeF * fog);
     gl_FragColor = vec4(col, 1.0);
   }`;
@@ -226,6 +226,7 @@ function lineGeo(points) {
 export function mountTerrain(host, opts = {}) {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const small = window.innerWidth < 760;
+  const liftK = parseFloat(host.dataset.lift || '0');
   let renderer;
   try {
     renderer = new WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
@@ -258,6 +259,8 @@ export function mountTerrain(host, opts = {}) {
   const uni = {
     uTime: { value: 0 }, uHalf: { value: SIZE / 2 }, uRange: { value: 0 },
     uZoneOn: { value: 1 }, uZoneHot: { value: 0 }, uConesOn: { value: 0 }, uWaveGain: { value: 1 },
+    // phones: brighter, slightly thicker contours and a farther fog so the small map reads at a glance
+    uInkGain: { value: small ? 1.3 : 1 }, uLineW: { value: small ? 1.35 : 1 }, uFogNear: { value: small ? 19 : 14 }, uFogFar: { value: small ? 40 : 34 },
     uOrigin: { value: ASSETS.horizon.clone() }, uSite: { value: SITE.clone() }, uZoneR: { value: ZONE_R },
     // raw sRGB values: the shader blends in display space, like ink on a printed sheet
     uBg: { value: new Vector3(10 / 255, 14 / 255, 26 / 255) }, uInk: { value: new Vector3(245 / 255, 242 / 255, 234 / 255) }, uRed: { value: new Vector3(224 / 255, 72 / 255, 72 / 255) },
@@ -370,7 +373,13 @@ export function mountTerrain(host, opts = {}) {
 
   /* state */
   let mode = MODES[opts.mode] ? opts.mode : 'home';
-  const camPos = new Vector3(...MODES[mode].cam);
+  // phones: come a little closer for the wide establishing shots so the labels spread out
+  const camFor = (m) => {
+    const c = new Vector3(...MODES[m].cam), t = new Vector3(...MODES[m].target);
+    if (small && (m === 'home' || m === 'horizon')) c.sub(t).multiplyScalar(0.84).add(t);
+    return c;
+  };
+  const camPos = camFor(mode);
   const camTgt = new Vector3(...MODES[mode].target);
   const wantPos = camPos.clone(), wantTgt = camTgt.clone();
   const pointer = new Vector2(), pointerS = new Vector2();
@@ -381,7 +390,7 @@ export function mountTerrain(host, opts = {}) {
     if (!MODES[m] || m === mode) return;
     const prevStory = MODES[mode].story;
     mode = m;
-    wantPos.set(...MODES[m].cam); wantTgt.set(...MODES[m].target);
+    wantPos.copy(camFor(m)); wantTgt.set(...MODES[m].target);
     if (MODES[m].story !== prevStory) { storyT0 = clock; trailPts.length = 0; }
   }
   function setShift(s) { viewShiftWant = s; if (reduce) { viewShift = s; resize(); } }
@@ -401,7 +410,9 @@ export function mountTerrain(host, opts = {}) {
     // portrait screens: widen the lens so the whole story stays in frame
     camera.fov = W < H ? Math.min(64, 38 * Math.sqrt(H / W)) : 38;
     // shift the optical centre so the action sits beside the copy
-    if (Math.abs(viewShift) > 0.001) camera.setViewOffset(W, H, -viewShift * W, 0, W, H);
+    // portrait phones: the headline covers the lower part of the map, so lift the scene upward
+    const lift = W < H ? liftK * H : 0;
+    if (Math.abs(viewShift) > 0.001 || lift) camera.setViewOffset(W, H, -viewShift * W, lift, W, H);
     else camera.clearViewOffset();
     camera.updateProjectionMatrix();
   }

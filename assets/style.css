@@ -465,7 +465,8 @@ footer.site{padding:80px 0 36px;border-top:1px solid var(--line-bright);backgrou
   .hero-chapter .wrap{min-height:auto;padding-top:110px}
   .hero-title{font-size:clamp(2.1rem,9.6vw,3.2rem)}
   .hero-title > span{white-space:normal}
-  .hero-copy{background:linear-gradient(180deg,rgba(10,14,26,0),rgba(10,14,26,.85) 18%);padding-top:28vh}
+  /* the map stays clear above the headline; the shade only starts where the text does */
+  .hero-copy{background:linear-gradient(180deg,rgba(10,14,26,0) 0,rgba(10,14,26,0) 27vh,rgba(10,14,26,.9) 36vh);padding-top:36vh;padding-top:36svh}
   .legend{grid-template-columns:1fr 1fr}
   .legend a:nth-child(3){padding-left:0;border-left:0}
   .legend a:nth-child(n+3){border-top:1px solid var(--line)}
@@ -695,4 +696,17 @@ table.cmp tbody tr:first-child th,table.cmp tbody tr:first-child td{background:r
   table.cmp tbody th{display:block;white-space:normal;border-bottom:1px solid var(--line);font-size:1.05rem}
   table.cmp td{display:grid;grid-template-columns:44% 1fr;gap:12px;border-bottom:0;padding:7px 14px}
   table.cmp td::before{content:attr(data-label);color:var(--muted);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+}
+
+/* phones: map labels larger and brighter so the story reads on a small screen */
+@media (max-width:759px){
+  .map-label{font-size:12.5px;text-shadow:0 0 4px #0A0E1A,0 0 10px #0A0E1A,0 0 2px #0A0E1A}
+  .map-label b{font-size:13px}
+  .map-label span{color:#C9CEDA}
+  .map-label.is-small{font-size:11.5px;color:#AEB5C4}
+  .map-label.is-zone{font-size:12px}
+  .product-hero .map-label.is-asset{margin-top:16px}
+  .map-label.is-asset b{font-size:13.5px}
+  .map-label.is-asset span{font-size:12px}
+  .map-sim{color:var(--muted)}
 }
